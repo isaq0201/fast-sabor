@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fast Sabor - Cardápio</title>
+
+<link rel="stylesheet" href="cardapio.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🍔 Fast Sabor
+</div>
+
+<nav>
+<a href="#">Início</a>
+<a href="#">Cardápio</a>
+<a href="#">Promoções</a>
+<a href="#">Avaliações</a>
+<a href="#">Contato</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Nosso Cardápio</h1>
+
+<p>Os melhores hambúrgueres artesanais da cidade.</p>
+
+<input
+type="text"
+id="pesquisa"
+placeholder="🔍 Pesquisar produto..."
+>
+
+<p id="resultadoPesquisa">
+5 produtos encontrados
+</p>
+
+</section>
+
+<section class="categorias">
+
+<button class="ativo">🍔 Hambúrgueres</button>
+<button>🍟 Porções</button>
+<button>🥤 Bebidas</button>
+<button>🍰 Sobremesas</button>
+
+</section>
+
+<section class="conteudo">
+
+<div class="produtos">
+
+<div class="produto" data-nome="x burger">
+
+<div class="tag">
+Mais Vendido
+</div>
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
+<div class="info">
+
+<h3>X-Burger</h3>
+
+<div class="avaliacao">
+⭐ 4.9
+</div>
+
+<p>
+Hambúrguer artesanal com queijo e molho especial.
+</p>
+
+<div class="extras">
+<span>🔥 15 min</span>
+<span>🍔 Artesanal</span>
+</div>
+
+<div class="rodape">
+
+<span class="preco">18</span>
+
+<button
+onclick="adicionarCarrinho('X-Burger',18)">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="produto" data-nome="x salada">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+<div class="info">
+
+<h3>X-Salada</h3>
+
+<div class="avaliacao">
+⭐ 4.8
+</div>
+
+<p>
+Alface, tomate e hambúrguer artesanal.
+</p>
+
+<div class="extras">
+<span>🔥 15 min</span>
+</div>
+
+<div class="rodape">
+
+<span class="preco">20</span>
+
+<button
+onclick="adicionarCarrinho('X-Salada',20)">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="produto" data-nome="x bacon">
+
+<img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b">
+
+<div class="info">
+
+<h3>X-Bacon</h3>
+
+<div class="avaliacao">
+⭐ 5.0
+</div>
+
+<p>
+Bacon crocante e cheddar.
+</p>
+
+<div class="extras">
+<span>🔥 18 min</span>
+</div>
+
+<div class="rodape">
+
+<span class="preco">24</span>
+
+<button
+onclick="adicionarCarrinho('X-Bacon',24)">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="produto" data-nome="batata frita">
+
+<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
+
+<div class="info">
+
+<h3>Batata Frita</h3>
+
+<div class="avaliacao">
+⭐ 4.7
+</div>
+
+<p>
+Porção média crocante.
+</p>
+
+<div class="rodape">
+
+<span class="preco">12</span>
+
+<button
+onclick="adicionarCarrinho('Batata Frita',12)">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="produto" data-nome="refrigerante">
+
+<img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
+
+<div class="info">
+
+<h3>Refrigerante</h3>
+
+<div class="avaliacao">
+⭐ 4.5
+</div>
+
+<p>
+Lata 350ml gelada.
+</p>
+
+<div class="rodape">
+
+<span class="preco">8</span>
+
+<button
+onclick="adicionarCarrinho('Refrigerante',8)">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<aside class="carrinho">
+
+<h2>
+🛒 Carrinho
+(<span id="contador">0</span>)
+</h2>
+
+<div id="listaCarrinho"></div>
+
+<h3>
+Total: R$
+<span id="total">0.00</span>
+</h3>
+
+<button class="finalizar">
+Finalizar Pedido
+</button>
+
+</aside>
+
+</section>
+
+<script>const pesquisa = document.getElementById("pesquisa");
+const resultado = document.getElementById("resultadoPesquisa");
+
+pesquisa.addEventListener("keyup", () => {
+
+const valor = pesquisa.value.toLowerCase();
+
+const produtos =
+document.querySelectorAll(".produto");
+
+let encontrados = 0;
+
+produtos.forEach(produto => {
+
+const nome =
+produto.dataset.nome.toLowerCase();
+
+if(nome.includes(valor)){
+
+produto.style.display = "block";
+encontrados++;
+
+}else{
+
+produto.style.display = "none";
+
+}
+
+});
+
+resultado.innerHTML =
+`${encontrados} produto(s) encontrado(s)`;
+
+});
+
+let total = 0;
+let quantidade = 0;
+
+function adicionarCarrinho(nome, preco){
+
+const lista =
+document.getElementById("listaCarrinho");
+
+const item =
+document.createElement("div");
+
+item.classList.add("itemCarrinho");
+
+item.innerHTML =
+`${nome} - R$ ${preco.toFixed(2)}`;
+
+lista.appendChild(item);
+
+total += preco;
+quantidade++;
+
+document.getElementById("total")
+.innerHTML = total.toFixed(2);
+
+document.getElementById("contador")
+.innerHTML = quantidade;
+
+}
+</script>
+
+</body>
+</html>
