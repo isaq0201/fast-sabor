@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<title>Sobre Nós</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Sabor - Sobre Nós</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<header>
+    <header>
+        <div class="logo">🍔 Fast Sabor</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="promocoes.html">Promoções</a>
+            <a href="cliente/avaliacoes.html">Avaliações</a>
+            <a href="cliente/reclamacoes.html">Reclamações</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="cliente/contato.html">Contato</a>
+            <button id="tema">🌙</button>
+        </nav>
+    </header>
 
-<div class="logo">
-🍔 Fast Sabor
-</div>
+    <main class="pagina">
+        <h1>Nossa História</h1>
+        
+        <div class="cards" style="margin-bottom: 40px;">
+            <div class="card" style="grid-column: span 3; text-align: left; line-height: 1.8;">
+                <p>Nascida da paixão pela verdadeira culinária artesanal, a <strong>Fast Sabor</strong> começou com um objetivo simples: entregar o melhor hambúrguer da cidade com rapidez e ingredientes de altíssima qualidade.</p>
+                <br>
+                <p>Selecionamos nossos produtos diariamente, desde o pão selado na manteiga até a carne suculenta grelhada na medida certa. Para nós, fazer hambúrguer não é apenas uma receita, é uma arte.</p>
+            </div>
+        </div>
 
-<nav>
+        <div class="cards">
+            <div class="card">
+                <h3>🎯 Nossa Missão</h3>
+                <p style="margin-top: 10px;">Proporcionar uma experiência gastronômica marcante, combinando o sabor inconfundível do hambúrguer artesanal com a agilidade que o seu dia exige.</p>
+            </div>
 
-<a href="index.html">Início</a>
-<a href="cardapio.html">Cardápio</a>
-<a href="promocoes.html">Promoções</a>
-<a href="avaliacoes.html">Avaliações</a>
-<a href="reclamacoes.html">Reclamações</a>
-<a href="sobre.html">Sobre</a>
-<a href="contato.html">Contato</a>
+            <div class="card">
+                <h3>👁️ Nossa Visão</h3>
+                <p style="margin-top: 10px;">Ser a hamburgueria referência em qualidade de atendimento e sabor na região, inovando sempre nas receitas e na experiência do cliente.</p>
+            </div>
 
-</nav>
+            <div class="card">
+                <h3>❤️ Nossos Valores</h3>
+                <p style="margin-top: 10px;">Qualidade em primeiro lugar, respeito aos clientes, ingredientes sempre frescos e paixão pelo que fazemos todos os dias.</p>
+            </div>
+        </div>
+    </main>
 
-</header>
+    <footer>
+        <p>Fast Sabor © 2026</p>
+        <p>Desenvolvido por Isaque</p>
+    </footer>
 
-<section class="pagina">
-
-<h1>Sobre a Fast Sabor</h1>
-
-<p>
-A Fast Sabor nasceu com o objetivo de oferecer lanches de alta qualidade, atendimento rápido e preços acessíveis.
-</p>
-
-<p>
-Nossa missão é proporcionar uma experiência gastronômica diferenciada para todos os clientes.
-</p>
-
-<p>
-Desde nossa fundação, buscamos inovação, sabor e excelência em cada pedido.
-</p>
-
-</section>
+    <script>
+        const tema = document.getElementById("tema");
+        tema.onclick = () => {
+            document.body.classList.toggle("dark");
+            if(document.body.classList.contains("dark")){
+                tema.innerHTML = "☀️";
+            } else {
+                tema.innerHTML = "🌙";
+            }
+        };
+    </script>
 
 </body>
-
 </html>
