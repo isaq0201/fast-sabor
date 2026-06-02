@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fast Sabor - Sobre Nós</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <div class="logo">🍔 Fast Sabor</div>
+        <div class="logo">
+            🍔 Fast Sabor
+        </div>
         <nav>
             <a href="index.html">Início</a>
             <a href="cardapio.html">Cardápio</a>
@@ -26,32 +28,40 @@
     </header>
 
     <main class="pagina">
-        <h1>Nossa História</h1>
         
-        <div class="cards" style="margin-bottom: 40px;">
-            <div class="card" style="grid-column: span 3; text-align: left; line-height: 1.8;">
-                <p>Nascida da paixão pela verdadeira culinária artesanal, a <strong>Fast Sabor</strong> começou com um objetivo simples: entregar o melhor hambúrguer da cidade com rapidez e ingredientes de altíssima qualidade.</p>
-                <br>
-                <p>Selecionamos nossos produtos diariamente, desde o pão selado na manteiga até a carne suculenta grelhada na medida certa. Para nós, fazer hambúrguer não é apenas uma receita, é uma arte.</p>
-            </div>
+        <div class="titulo">
+            <h2>Nossa História</h2>
+            <p>Conheça a trajetória da hamburgueria que conquistou a cidade.</p>
+        </div>
+        
+        <div class="card" style="text-align: left; line-height: 1.8; max-width: 900px; margin: 0 auto 50px auto;">
+            <p>Nascida da paixão pela verdadeira culinária artesanal, a <strong>Fast Sabor</strong> começou com um objetivo simples: entregar o melhor hambúrguer da cidade com rapidez e ingredientes de altíssima qualidade.</p>
+            <br>
+            <p>Selecionamos nossos produtos diariamente, desde o pão selado na manteiga até a carne suculenta grelhada na medida certa. Para nós, fazer hambúrguer não é apenas uma receita, é uma arte.</p>
         </div>
 
-        <div class="cards">
+        <div class="grid">
+            
             <div class="card">
-                <h3>🎯 Nossa Missão</h3>
+                <div class="icone">🎯</div>
+                <h3>Nossa Missão</h3>
                 <p style="margin-top: 10px;">Proporcionar uma experiência gastronômica marcante, combinando o sabor inconfundível do hambúrguer artesanal com a agilidade que o seu dia exige.</p>
             </div>
 
             <div class="card">
-                <h3>👁️ Nossa Visão</h3>
+                <div class="icone">👁️</div>
+                <h3>Nossa Visão</h3>
                 <p style="margin-top: 10px;">Ser a hamburgueria referência em qualidade de atendimento e sabor na região, inovando sempre nas receitas e na experiência do cliente.</p>
             </div>
 
             <div class="card">
-                <h3>❤️ Nossos Valores</h3>
+                <div class="icone">❤️</div>
+                <h3>Nossos Valores</h3>
                 <p style="margin-top: 10px;">Qualidade em primeiro lugar, respeito aos clientes, ingredientes sempre frescos e paixão pelo que fazemos todos os dias.</p>
             </div>
+            
         </div>
+        
     </main>
 
     <footer>
@@ -59,10 +69,16 @@
         <p>Desenvolvido por Isaque</p>
     </footer>
 
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp">
+        💬
+    </a>
+
     <script>
         const tema = document.getElementById("tema");
+
         tema.onclick = () => {
             document.body.classList.toggle("dark");
+
             if(document.body.classList.contains("dark")){
                 tema.innerHTML = "☀️";
             } else {
