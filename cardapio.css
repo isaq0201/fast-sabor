@@ -190,7 +190,6 @@ top:20px;
 margin:20px 0;
 }
 
-/* ITEM DO CARRINHO ALINHADO E COM SUPORTE A REMOÇÃO */
 .itemCarrinho{
 padding:10px 0;
 border-bottom:1px solid #ddd;
@@ -199,7 +198,6 @@ justify-content:space-between;
 align-items:center;
 }
 
-/* ESTILO DO BOTÃO DE REMOVER (❌) */
 .btn-remover-item {
 background: none;
 border: none;
@@ -224,31 +222,112 @@ cursor:pointer;
 margin-top:15px;
 }
 
+/* ======================================
+   ESTILIZAÇÃO DO MODAL DE CHECKOUT
+   ====================================== */
+.modal-checkout {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-conteudo {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: surgimento 0.3s ease-out;
+}
+
+@keyframes surgimento {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-conteudo h2 {
+    color: #9A031E;
+    margin-bottom: 5px;
+}
+
+.modal-conteudo p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#formCheckout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formCheckout label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+#formCheckout input, 
+#formCheckout select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    width: 100%;
+}
+
+.modal-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-cancelar {
+    flex: 1;
+    background: #eee;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-confirmar {
+    flex: 2;
+    background: #25D366; /* Cor do WhatsApp */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-confirmar:hover {
+    background: #20ba59;
+}
+
+/* RESPONSIVO */
 @media(max-width:900px){
-
-.conteudo{
-grid-template-columns:1fr;
-}
-
-.carrinho{
-position:relative;
-}
-
+.conteudo{ grid-template-columns:1fr; }
+.carrinho{ position:relative; }
 }
 
 @media(max-width:600px){
-
-.hero h1{
-font-size:35px;
-}
-
-header{
-justify-content:center;
-gap:15px;
-}
-
-nav{
-justify-content:center;
-}
-
+.hero h1{ font-size:35px; }
+header{ justify-content:center; gap:15px; }
+nav{ justify-content:center; }
 }
