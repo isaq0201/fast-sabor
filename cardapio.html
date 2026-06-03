@@ -314,7 +314,7 @@ pesquisa.addEventListener("keyup", () => {
         }
     });
 
-    resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
+    resultado.innerHTML = `${encontrados} product(s) encontrado(s)`;
 });
 
 // Mascara automática para o CEP (00000-000)
@@ -405,7 +405,6 @@ function enviarPedidoWhatsApp(event) {
         textoProdutos += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
     });
 
-    // DIGITE O SEU WHATSAPP AQUI (Apenas números: Código do país + DDD + Número)
     const numeroTelefone = "5511976718229"; 
     
     let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
@@ -430,6 +429,18 @@ function enviarPedidoWhatsApp(event) {
     document.getElementById("formCheckout").reset();
     fecharModalCheckout();
 }
+
+// ======================================
+// VERIFICAÇÃO DE COMBOS PROVINDOS DE PROMOÇÕES
+// ======================================
+window.onload = function() {
+    const comboData = localStorage.getItem("comboPromocao");
+    if (comboData) {
+        const combo = JSON.parse(comboData);
+        adicionarCarrinho(combo.nome, combo.preco);
+        localStorage.removeItem("comboPromocao");
+    }
+};
 </script>
 
 </body>
