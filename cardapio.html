@@ -266,17 +266,26 @@ Finalizar Pedido
             <label for="nomeCliente">Seu Nome:</label>
             <input type="text" id="nomeCliente" placeholder="Ex: José Silva" required>
 
+            <label for="cepCliente">Seu CEP:</label>
+            <input type="text" id="cepCliente" placeholder="00000-000" maxlength="9" required>
+
             <label for="enderecoCliente">Endereço de Entrega:</label>
-            <input type="text" id="enderecoCliente" placeholder="Rua, Número, Bairro" required>
+            <input type="text" id="enderecoCliente" placeholder="Rua, Número, Bairro, Complemento" required>
 
             <label for="formaPagamento">Forma de Pagamento:</label>
-            <select id="formaPagamento" required>
+            <select id="formaPagamento" onchange="verificarDinheiro(this.value)" required>
                 <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="Dinheiro">💵 Dinheiro</option>
+                <option value="Pix">📱 Pix</option>
                 <option value="Cartão de Crédito">💳 Cartão de Crédito</option>
                 <option value="Cartão de Débito">💳 Cartão de Débito</option>
                 <option value="Vale Alimentação (VA)">🍔 Vale Alimentação (VA)</option>
-                <option value="Pix">📱 Pix</option>
             </select>
+
+            <div id="campoTroco" style="display: none; flex-direction: column; gap: 5px;">
+                <label for="trocoPara">Precisa de troco para quanto?</label>
+                <input type="text" id="trocoPara" placeholder="Ex: R$ 50,00 ou Não preciso">
+            </div>
 
             <div class="modal-botoes">
                 <button type="button" class="btn-cancelar" onclick="fecharModalCheckout()">Voltar</button>
@@ -306,6 +315,15 @@ pesquisa.addEventListener("keyup", () => {
     });
 
     resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
+});
+
+// Mascara automática para o CEP (00000-000)
+document.getElementById("cepCliente").addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "");
+    if (value.length > 5) {
+        value = value.substring(0, 5) + "-" + value.substring(5, 8);
+    }
+    e.target.value = value;
 });
 
 // ======================================
@@ -361,37 +379,52 @@ function abrirModalCheckout() {
 
 function fecharModalCheckout() {
     document.getElementById("modalCheckout").style.display = "none";
+    document.getElementById("campoTroco").style.display = "none";
+}
+
+function verificarDinheiro(valor) {
+    const divTroco = document.getElementById("campoTroco");
+    if (valor === "Dinheiro") {
+        divTroco.style.display = "flex";
+    } else {
+        divTroco.style.display = "none";
+    }
 }
 
 function enviarPedidoWhatsApp(event) {
-    event.preventDefault(); // Impede a página de recarregar
+    event.preventDefault();
 
     const nome = document.getElementById("nomeCliente").value;
+    const cep = document.getElementById("cepCliente").value;
     const endereco = document.getElementById("enderecoCliente").value;
     const pagamento = document.getElementById("formaPagamento").value;
+    const troco = document.getElementById("trocoPara").value;
 
-    // Constrói a lista de produtos em texto formatado para o WhatsApp
     let textoProdutos = "";
     itensCarrinho.forEach(item => {
         textoProdutos += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
     });
 
-    // Mensagem completa codificada
-    const numeroTelefone = "5511976718229"; // <-- COLOCA O TEU NÚMERO AQUI (Com DDD e sem espaços)
+    // DIGITE O SEU WHATSAPP AQUI (Apenas números: Código do país + DDD + Número)
+    const numeroTelefone = "5511976718229"; 
     
-    const mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
+    let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
                      `*Cliente:* ${nome}\n` +
+                     `*CEP:* ${cep}\n` +
                      `*Endereço:* ${endereco}\n\n` +
                      `*Itens do Pedido:*\n${textoProdutos}\n` +
                      `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
                      `*Forma de Pagamento:* ${pagamento}`;
 
+    if (pagamento === "Dinheiro" && troco.trim() !== "") {
+        mensagem += `\n*Troco para:* ${troco}`;
+    }
+
     const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
     
-    // Abre o WhatsApp com o pedido pronto
     window.open(linkWhatsApp, "_blank");
 
-    // Limpa o carrinho e fecha o modal após enviar
+    // Reset geral após o envio
     itensCarrinho = [];
     atualizarInterfaceCarrinho();
     document.getElementById("formCheckout").reset();
