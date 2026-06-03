@@ -106,12 +106,25 @@ gap:10px;
 flex-wrap:wrap;
 }
 
+/* Ajuste para os novos links das redes sociais */
+.redes a{
+text-decoration:none;
+cursor:pointer;
+}
+
 .redes span{
 background:#FFF1E5;
 color:#E36414;
 padding:10px 15px;
 border-radius:30px;
 font-weight:600;
+display:inline-block;
+transition:.3s;
+}
+
+.redes a:hover span{
+background:#E36414;
+color:white;
 }
 
 /* LOGIN */
@@ -206,15 +219,13 @@ font-size:32px;
 
 <section class="container">
 
-<!-- CONTATO -->
-
 <div class="card">
 
 <h2>Informações de Contato</h2>
 
 <div class="info">
 
-<p>📞 (11) 99999-9999</p>
+<p>📞 (11) 97671-8229</p>
 
 <p>📧 contato@fastsabor.com</p>
 
@@ -225,21 +236,19 @@ São Paulo - SP
 
 <p>
 🕒 Atendimento:<br>
-Segunda a Domingo<br>
-10h às 23h
+Terça a Sábado<br>
+13h às 21h
 </p>
 
 </div>
 
 <div class="redes">
-<span>Instagram</span>
-<span>Facebook</span>
-<span>WhatsApp</span>
+<a href="https://www.instagram.com/fast_sabor_?igsh=MWl3YjM5NW43NTZ6Yg==" target="_blank"><span>Instagram</span></a>
+<a><span>Facebook</span></a>
+<a href="https://api.whatsapp.com/send?phone=5511976718229" target="_blank"><span>WhatsApp</span></a>
 </div>
 
 </div>
-
-<!-- LOGIN -->
 
 <div class="card">
 
