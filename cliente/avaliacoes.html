@@ -329,7 +329,7 @@ onSnapshot(q, (snapshot) => {
     document.getElementById("totalAvaliacoes").innerHTML = total;
     document.getElementById("media").innerHTML = total ? (soma / total).toFixed(1) : "0.0";
 
-    // Adiciona evento nos botões de excluir carregados
+    // Adiciona o evento de exclusão mapeado corretamente por ID
     document.querySelectorAll(".excluir").forEach(btn => {
         btn.onclick = async (e) => {
             if(confirm("Deseja excluir esta avaliação do banco de dados?")){
@@ -340,7 +340,7 @@ onSnapshot(q, (snapshot) => {
     });
 });
 
-// Cadastra nova avaliação no Firebase
+// Cadastra nova avaliação vinculada pelo ID do botão
 document.getElementById("btnEnviar").onclick = async () => {
     const nome = document.getElementById("nomeAvaliacao").value;
     const nota = document.getElementById("estrelasAvaliacao").value;
@@ -364,7 +364,7 @@ document.getElementById("btnEnviar").onclick = async () => {
     modal.style.display = "none";
 };
 
-// Sistema de Pesquisa Local
+// Filtro de pesquisa local
 document.getElementById("pesquisa").addEventListener("keyup", function(){
     const valor = this.value.toLowerCase();
     document.querySelectorAll(".card").forEach(card => {
