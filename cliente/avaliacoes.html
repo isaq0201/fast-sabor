@@ -4,11 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Avaliações - Fast Sabor</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -21,7 +19,6 @@ background:#FFF8F0;
 }
 
 /* HEADER */
-
 header{
 background:#5F0F40;
 padding:15px 5%;
@@ -53,7 +50,6 @@ color:#FB8B24;
 }
 
 /* HERO */
-
 .hero{
 background:linear-gradient(135deg,#5F0F40,#9A031E);
 padding:60px 5%;
@@ -71,7 +67,6 @@ opacity:.9;
 }
 
 /* CONTAINER */
-
 .container{
 padding:40px 5%;
 }
@@ -119,7 +114,6 @@ margin-bottom:25px;
 }
 
 /* MODAL */
-
 .modal{
 position:fixed;
 top:0;
@@ -173,11 +167,9 @@ cursor:pointer;
 }
 
 /* CARDS */
-
 .cards{
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
 gap:20px;
 }
 
@@ -217,32 +209,24 @@ cursor:pointer;
 }
 
 @media(max-width:768px){
-
 header{
 justify-content:center;
 gap:15px;
 }
-
 nav{
 justify-content:center;
 }
-
 .hero h1{
 font-size:30px;
 }
-
 }
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">🍔 Fast Sabor</div>
-
 <nav>
 <a href="../index.html">Início</a>
 <a href="../cardapio.html">Cardápio</a>
@@ -252,58 +236,34 @@ font-size:30px;
 <a href="../sobre.html">Sobre</a>
 <a href="contato.html">Contato</a>
 </nav>
-
 </header>
 
 <section class="hero">
-
 <h1>Avaliações dos Clientes</h1>
-
-<p>Veja o que nossos clientes estão dizendo.</p>
-
+<p>Veja o que nossos clientes estão dizendo em tempo real.</p>
 </section>
 
 <div class="container">
-
 <div class="topo">
-
 <div class="estatisticas">
-
 <div class="box-info">
 ⭐ Média: <span id="media">0.0</span>
 </div>
-
 <div class="box-info">
 💬 Total: <span id="totalAvaliacoes">0</span>
 </div>
-
 </div>
-
 <button id="abrirAvaliacao">+</button>
-
 </div>
 
-<input
-type="text"
-id="pesquisa"
-placeholder="🔍 Pesquisar avaliação..."
->
-
+<input type="text" id="pesquisa" placeholder="🔍 Pesquisar avaliação...">
 <div id="cardsAvaliacoes" class="cards"></div>
-
 </div>
 
 <div id="modal" class="modal">
-
 <div class="modal-content">
-
 <h2>Nova Avaliação</h2>
-
-<input
-type="text"
-id="nomeAvaliacao"
-placeholder="Seu nome">
-
+<input type="text" id="nomeAvaliacao" placeholder="Seu nome">
 <select id="estrelasAvaliacao">
 <option value="1">⭐</option>
 <option value="2">⭐⭐</option>
@@ -311,173 +271,49 @@ placeholder="Seu nome">
 <option value="4">⭐⭐⭐⭐</option>
 <option value="5">⭐⭐⭐⭐⭐</option>
 </select>
-
-<textarea
-id="comentarioAvaliacao"
-placeholder="Conte sua experiência">
-</textarea>
-
-<button onclick="criarAvaliacao()">
-Enviar Avaliação
-</button>
-
+<textarea id="comentarioAvaliacao" placeholder="Conte sua experiência"></textarea>
+<button id="btnEnviar">Enviar Avaliação</button>
+</div>
 </div>
 
-</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBw8zjTcpZWvqkeFVF2qfRVXrV_z2jeh00",
+  authDomain: "fast-sabor.firebaseapp.com",
+  projectId: "fast-sabor",
+  storageBucket: "fast-sabor.firebasestorage.app",
+  messagingSenderId: "147800048742",
+  appId: "1:147800048742:web:4137ddb71d3798664999a7"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const modal = document.getElementById("modal");
 const cards = document.getElementById("cardsAvaliacoes");
 
-let avaliacoes =
-JSON.parse(localStorage.getItem("avaliacoes"))
-|| [];
-
-document.getElementById("abrirAvaliacao")
-.onclick = () => {
-modal.style.display = "flex";
+document.getElementById("abrirAvaliacao").onclick = () => {
+    modal.style.display = "flex";
 };
 
-modal.onclick = e=>{
-if(e.target===modal){
-modal.style.display="none";
-}
+modal.onclick = e => {
+    if(e.target === modal){ modal.style.display = "none"; }
 };
 
-function salvar(){
-localStorage.setItem(
-"avaliacoes",
-JSON.stringify(avaliacoes)
-);
-}
+// Escuta em tempo real o banco de dados do Firebase
+const q = query(collection(db, "avaliacoes"), orderBy("timestamp", "desc"));
+onSnapshot(q, (snapshot) => {
+    cards.innerHTML = "";
+    let soma = 0;
+    let total = snapshot.size;
 
-function atualizar(){
+    snapshot.forEach((documento) => {
+        const item = documento.data();
+        const id = documento.id;
+        soma += Number(item.nota);
 
-cards.innerHTML="";
-
-let soma = 0;
-
-avaliacoes.forEach((item,index)=>{
-
-soma += Number(item.nota);
-
-cards.innerHTML += `
-<div class="card">
-
-<div class="nome">
-${item.nome}
-</div>
-
-<div class="estrelas">
-${"⭐".repeat(item.nota)}
-</div>
-
-<p>
-${item.comentario}
-</p>
-
-<div class="data">
-${item.data}
-</div>
-
-<button
-class="excluir"
-onclick="excluir(${index})">
-Excluir
-</button>
-
-</div>
-`;
-
-});
-
-document.getElementById("totalAvaliacoes")
-.innerHTML = avaliacoes.length;
-
-document.getElementById("media")
-.innerHTML =
-avaliacoes.length
-? (soma / avaliacoes.length).toFixed(1)
-: "0.0";
-
-}
-
-function criarAvaliacao(){
-
-const nome =
-document.getElementById("nomeAvaliacao").value;
-
-const nota =
-document.getElementById("estrelasAvaliacao").value;
-
-const comentario =
-document.getElementById("comentarioAvaliacao").value;
-
-if(nome==="" || comentario===""){
-alert("Preencha todos os campos.");
-return;
-}
-
-avaliacoes.unshift({
-
-nome,
-nota,
-comentario,
-
-data:
-new Date().toLocaleString('pt-BR')
-
-});
-
-salvar();
-atualizar();
-
-document.getElementById("nomeAvaliacao").value="";
-document.getElementById("comentarioAvaliacao").value="";
-
-modal.style.display="none";
-
-}
-
-function excluir(index){
-
-if(confirm("Deseja excluir esta avaliação?")){
-
-avaliacoes.splice(index,1);
-
-salvar();
-atualizar();
-
-}
-
-}
-
-document
-.getElementById("pesquisa")
-.addEventListener("keyup",function(){
-
-const valor =
-this.value.toLowerCase();
-
-document
-.querySelectorAll(".card")
-.forEach(card=>{
-
-card.style.display =
-card.innerText
-.toLowerCase()
-.includes(valor)
-? "block"
-: "none";
-
-});
-
-});
-
-atualizar();
-
-</script>
-
-</body>
-</html>
+        cards.innerHTML += `
+        <div class="card">
