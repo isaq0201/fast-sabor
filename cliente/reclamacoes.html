@@ -332,7 +332,7 @@ onSnapshot(q, (snapshot) => {
 
     document.getElementById("total").innerHTML = snapshot.size;
 
-    // Adiciona evento nos botões de excluir gerados
+    // Adiciona evento nos botões de excluir carregados
     document.querySelectorAll(".excluir").forEach(btn => {
         btn.onclick = async (e) => {
             if(confirm("Deseja excluir esta reclamação do banco de dados?")){
