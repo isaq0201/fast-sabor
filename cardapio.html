@@ -249,13 +249,42 @@ Total: R$
 <span id="total">0.00</span>
 </h3>
 
-<button class="finalizar">
+<button class="finalizar" onclick="abrirModalCheckout()">
 Finalizar Pedido
 </button>
 
 </aside>
 
 </section>
+
+<div id="modalCheckout" class="modal-checkout">
+    <div class="modal-conteudo">
+        <h2>📋 Detalhes do Pedido</h2>
+        <p>Preencha os dados abaixo para concluir.</p>
+        
+        <form id="formCheckout" onsubmit="enviarPedidoWhatsApp(event)">
+            <label for="nomeCliente">Seu Nome:</label>
+            <input type="text" id="nomeCliente" placeholder="Ex: José Silva" required>
+
+            <label for="enderecoCliente">Endereço de Entrega:</label>
+            <input type="text" id="enderecoCliente" placeholder="Rua, Número, Bairro" required>
+
+            <label for="formaPagamento">Forma de Pagamento:</label>
+            <select id="formaPagamento" required>
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="Cartão de Crédito">💳 Cartão de Crédito</option>
+                <option value="Cartão de Débito">💳 Cartão de Débito</option>
+                <option value="Vale Alimentação (VA)">🍔 Vale Alimentação (VA)</option>
+                <option value="Pix">📱 Pix</option>
+            </select>
+
+            <div class="modal-botoes">
+                <button type="button" class="btn-cancelar" onclick="fecharModalCheckout()">Voltar</button>
+                <button type="submit" class="btn-confirmar">Enviar via WhatsApp</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script>
 const pesquisa = document.getElementById("pesquisa");
@@ -280,9 +309,10 @@ pesquisa.addEventListener("keyup", () => {
 });
 
 // ======================================
-// LÓGICA DO CARRINHO (ATUALIZADA)
+// LÓGICA DO CARRINHO
 // ======================================
 let itensCarrinho = [];
+let valorTotalPedido = 0;
 
 function adicionarCarrinho(nome, preco){
     itensCarrinho.push({ nome, preco });
@@ -298,10 +328,10 @@ function atualizarInterfaceCarrinho(){
     const lista = document.getElementById("listaCarrinho");
     lista.innerHTML = "";
     
-    let total = 0;
+    valorTotalPedido = 0;
 
     itensCarrinho.forEach((produto, index) => {
-        total += produto.preco;
+        valorTotalPedido += produto.preco;
 
         const item = document.createElement("div");
         item.classList.add("itemCarrinho");
@@ -314,8 +344,58 @@ function atualizarInterfaceCarrinho(){
         lista.appendChild(item);
     });
 
-    document.getElementById("total").innerHTML = total.toFixed(2);
+    document.getElementById("total").innerHTML = valorTotalPedido.toFixed(2);
     document.getElementById("contador").innerHTML = itensCarrinho.length;
+}
+
+// ======================================
+// CONTROLE DO MODAL E ENVIO WHATSAPP
+// ======================================
+function abrirModalCheckout() {
+    if (itensCarrinho.length === 0) {
+        alert("O seu carrinho está vazio! Adicione algum produto antes de finalizar.");
+        return;
+    }
+    document.getElementById("modalCheckout").style.display = "flex";
+}
+
+function fecharModalCheckout() {
+    document.getElementById("modalCheckout").style.display = "none";
+}
+
+function enviarPedidoWhatsApp(event) {
+    event.preventDefault(); // Impede a página de recarregar
+
+    const nome = document.getElementById("nomeCliente").value;
+    const endereco = document.getElementById("enderecoCliente").value;
+    const pagamento = document.getElementById("formaPagamento").value;
+
+    // Constrói a lista de produtos em texto formatado para o WhatsApp
+    let textoProdutos = "";
+    itensCarrinho.forEach(item => {
+        textoProdutos += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
+    });
+
+    // Mensagem completa codificada
+    const numeroTelefone = "5511976718229"; // <-- COLOCA O TEU NÚMERO AQUI (Com DDD e sem espaços)
+    
+    const mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
+                     `*Cliente:* ${nome}\n` +
+                     `*Endereço:* ${endereco}\n\n` +
+                     `*Itens do Pedido:*\n${textoProdutos}\n` +
+                     `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
+                     `*Forma de Pagamento:* ${pagamento}`;
+
+    const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
+    
+    // Abre o WhatsApp com o pedido pronto
+    window.open(linkWhatsApp, "_blank");
+
+    // Limpa o carrinho e fecha o modal após enviar
+    itensCarrinho = [];
+    atualizarInterfaceCarrinho();
+    document.getElementById("formCheckout").reset();
+    fecharModalCheckout();
 }
 </script>
 
