@@ -257,68 +257,65 @@ Finalizar Pedido
 
 </section>
 
-<script>const pesquisa = document.getElementById("pesquisa");
+<script>
+const pesquisa = document.getElementById("pesquisa");
 const resultado = document.getElementById("resultadoPesquisa");
 
 pesquisa.addEventListener("keyup", () => {
+    const valor = pesquisa.value.toLowerCase();
+    const produtos = document.querySelectorAll(".produto");
+    let encontrados = 0;
 
-const valor = pesquisa.value.toLowerCase();
+    produtos.forEach(produto => {
+        const nome = produto.dataset.nome.toLowerCase();
+        if(nome.includes(valor)){
+            produto.style.display = "block";
+            encontrados++;
+        }else{
+            produto.style.display = "none";
+        }
+    });
 
-const produtos =
-document.querySelectorAll(".produto");
-
-let encontrados = 0;
-
-produtos.forEach(produto => {
-
-const nome =
-produto.dataset.nome.toLowerCase();
-
-if(nome.includes(valor)){
-
-produto.style.display = "block";
-encontrados++;
-
-}else{
-
-produto.style.display = "none";
-
-}
-
+    resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
 });
 
-resultado.innerHTML =
-`${encontrados} produto(s) encontrado(s)`;
-
-});
-
-let total = 0;
-let quantidade = 0;
+// ======================================
+// LÓGICA DO CARRINHO (ATUALIZADA)
+// ======================================
+let itensCarrinho = [];
 
 function adicionarCarrinho(nome, preco){
+    itensCarrinho.push({ nome, preco });
+    atualizarInterfaceCarrinho();
+}
 
-const lista =
-document.getElementById("listaCarrinho");
+function removerDoCarrinho(index){
+    itensCarrinho.splice(index, 1);
+    atualizarInterfaceCarrinho();
+}
 
-const item =
-document.createElement("div");
+function atualizarInterfaceCarrinho(){
+    const lista = document.getElementById("listaCarrinho");
+    lista.innerHTML = "";
+    
+    let total = 0;
 
-item.classList.add("itemCarrinho");
+    itensCarrinho.forEach((produto, index) => {
+        total += produto.preco;
 
-item.innerHTML =
-`${nome} - R$ ${preco.toFixed(2)}`;
+        const item = document.createElement("div");
+        item.classList.add("itemCarrinho");
+        
+        item.innerHTML = `
+            <span>${produto.nome} - R$ ${produto.preco.toFixed(2)}</span>
+            <button class="btn-remover-item" onclick="removerDoCarrinho(${index})">❌</button>
+        `;
+        
+        lista.appendChild(item);
+    });
 
-lista.appendChild(item);
-
-total += preco;
-quantidade++;
-
-document.getElementById("total")
-.innerHTML = total.toFixed(2);
-
-document.getElementById("contador")
-.innerHTML = quantidade;
-
+    document.getElementById("total").innerHTML = total.toFixed(2);
+    document.getElementById("contador").innerHTML = itensCarrinho.length;
 }
 </script>
 
