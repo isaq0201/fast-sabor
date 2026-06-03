@@ -292,7 +292,7 @@ const firebaseConfig = {
   projectId: "fast-sabor",
   storageBucket: "fast-sabor.firebasestorage.app",
   messagingSenderId: "147800048742",
-  appId: "1:147800048742:web:4137ddb71d3798664999a7"
+  appId: "1:147800048742:web:0d02a47d2f7352104999a7"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -301,7 +301,10 @@ const db = getFirestore(app);
 const modal = document.getElementById("modal");
 const cards = document.getElementById("cards");
 
-document.getElementById("abrirFormulario").onclick = () => modal.style.display = "flex";
+// Gerenciamento isolado do Modal (Abre/Fecha)
+document.getElementById("abrirFormulario").onclick = () => {
+    modal.style.display = "flex";
+};
 
 modal.onclick = e => {
     if(e.target === modal){ modal.style.display = "none"; }
@@ -332,7 +335,7 @@ onSnapshot(q, (snapshot) => {
 
     document.getElementById("total").innerHTML = snapshot.size;
 
-    // Adiciona evento nos botões de excluir carregados
+    // Mapeamento correto dos escutadores de exclusão
     document.querySelectorAll(".excluir").forEach(btn => {
         btn.onclick = async (e) => {
             if(confirm("Deseja excluir esta reclamação do banco de dados?")){
@@ -343,28 +346,33 @@ onSnapshot(q, (snapshot) => {
     });
 });
 
-// Cria nova reclamação no Firebase
+// Envio do formulário gerenciado exclusivamente via EventListener
 document.getElementById("btnEnviar").onclick = async () => {
     const nome = document.getElementById("nome").value;
     const texto = document.getElementById("texto").value;
     const nota = document.getElementById("nota").value;
 
-    if(nome === "" || texto === ""){
+    if(nome.trim() === "" || texto.trim() === ""){
         alert("Preencha todos os campos.");
         return;
     }
 
-    await addDoc(collection(db, "reclamacoes"), {
-        nome,
-        texto,
-        nota,
-        data: new Date().toLocaleString('pt-BR'),
-        timestamp: new Date().getTime()
-    });
+    try {
+        await addDoc(collection(db, "reclamacoes"), {
+            nome,
+            texto,
+            nota,
+            data: new Date().toLocaleString('pt-BR'),
+            timestamp: new Date().getTime()
+        });
 
-    document.getElementById("nome").value = "";
-    document.getElementById("texto").value = "";
-    modal.style.display = "none";
+        document.getElementById("nome").value = "";
+        document.getElementById("texto").value = "";
+        modal.style.display = "none";
+    } catch (error) {
+        alert("Erro ao salvar dados no Firebase. Verifique se as Regras de Segurança estão no Modo de Teste.");
+        console.error(error);
+    }
 };
 
 // Filtro de pesquisa local
