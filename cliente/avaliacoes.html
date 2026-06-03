@@ -317,3 +317,61 @@ onSnapshot(q, (snapshot) => {
 
         cards.innerHTML += `
         <div class="card">
+            <div class="nome">${item.nome}</div>
+            <div class="estrelas">${"⭐".repeat(item.nota)}</div>
+            <p>${item.comentario}</p>
+            <div class="data">${item.data}</div>
+            <button class="excluir" data-id="${id}">Excluir</button>
+        </div>
+        `;
+    });
+
+    document.getElementById("totalAvaliacoes").innerHTML = total;
+    document.getElementById("media").innerHTML = total ? (soma / total).toFixed(1) : "0.0";
+
+    // Adiciona evento nos botões de excluir carregados
+    document.querySelectorAll(".excluir").forEach(btn => {
+        btn.onclick = async (e) => {
+            if(confirm("Deseja excluir esta avaliação do banco de dados?")){
+                const docId = e.target.getAttribute("data-id");
+                await deleteDoc(doc(db, "avaliacoes", docId));
+            }
+        };
+    });
+});
+
+// Cadastra nova avaliação no Firebase
+document.getElementById("btnEnviar").onclick = async () => {
+    const nome = document.getElementById("nomeAvaliacao").value;
+    const nota = document.getElementById("estrelasAvaliacao").value;
+    const comentario = document.getElementById("comentarioAvaliacao").value;
+
+    if(nome === "" || comentario === ""){
+        alert("Preencha todos os campos.");
+        return;
+    }
+
+    await addDoc(collection(db, "avaliacoes"), {
+        nome,
+        nota,
+        comentario,
+        data: new Date().toLocaleString('pt-BR'),
+        timestamp: new Date().getTime()
+    });
+
+    document.getElementById("nomeAvaliacao").value = "";
+    document.getElementById("comentarioAvaliacao").value = "";
+    modal.style.display = "none";
+};
+
+// Sistema de Pesquisa Local
+document.getElementById("pesquisa").addEventListener("keyup", function(){
+    const valor = this.value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(valor) ? "block" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
