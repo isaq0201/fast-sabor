@@ -226,7 +226,7 @@ margin-top:15px;
    ESTILIZAÇÃO DO MODAL DE CHECKOUT
    ====================================== */
 .modal-checkout {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -307,7 +307,7 @@ margin-top:15px;
 
 .btn-confirmar {
     flex: 2;
-    background: #25D366; /* Cor do WhatsApp */
+    background: #25D366;
     color: white;
     border: none;
     padding: 12px;
