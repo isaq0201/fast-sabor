@@ -190,9 +190,27 @@ top:20px;
 margin:20px 0;
 }
 
+/* ITEM DO CARRINHO ALINHADO E COM SUPORTE A REMOÇÃO */
 .itemCarrinho{
 padding:10px 0;
 border-bottom:1px solid #ddd;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* ESTILO DO BOTÃO DE REMOVER (❌) */
+.btn-remover-item {
+background: none;
+border: none;
+cursor: pointer;
+font-size: 14px;
+padding: 4px;
+transition: transform 0.2s;
+}
+
+.btn-remover-item:hover {
+transform: scale(1.2);
 }
 
 .finalizar{
