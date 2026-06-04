@@ -1,200 +1,236 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-body {
-    background: #FFF8F0;
+body{
+background:#FFF8F0;
 }
 
 /* HEADER */
-header {
-    background: #5F0F40;
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+
+header{
+background:#5F0F40;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
 }
 
-/* Ajuste e Correção do Tamanho da Logo */
-.logo {
-    display: flex;
-    align-items: center;
+.logo{
+font-size:28px;
+font-weight:700;
+color:white;
 }
 
-.logo img {
-    height: 50px;     /* Força a logo a ficar pequena e elegante */
-    width: auto;      /* Mantém a proporção perfeita da imagem */
-    display: block;
+nav{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: .3s;
-}
-
-nav a:hover {
-    color: #FB8B24;
+nav a:hover{
+color:#FB8B24;
 }
 
 /* BANNER */
-.banner-promocoes {
-    background: linear-gradient(135deg, #5F0F40, #9A031E);
-    color: white;
-    padding: 80px 5%;
-    text-align: center;
+
+.banner-promocoes{
+background:linear-gradient(
+135deg,
+#5F0F40,
+#9A031E
+);
+
+color:white;
+
+padding:80px 5%;
+
+text-align:center;
 }
 
-.banner-promocoes h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
+.banner-promocoes h1{
+font-size:48px;
+margin-bottom:15px;
 }
 
-.banner-promocoes p {
-    font-size: 18px;
-    margin-bottom: 25px;
+.banner-promocoes p{
+font-size:18px;
+margin-bottom:25px;
 }
 
-.contador {
-    background: rgba(255, 255, 255, .15);
-    display: inline-block;
-    padding: 15px 25px;
-    border-radius: 12px;
-    font-size: 20px;
-    font-weight: 600;
+.contador{
+background:rgba(255,255,255,.15);
+display:inline-block;
+padding:15px 25px;
+border-radius:12px;
+font-size:20px;
+font-weight:600;
 }
 
-/* PROMOÇÕES (CONTAINER GERAL) */
-.container {
-    padding: 50px 5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+/* PROMOÇÕES */
+
+.promocoes-container{
+
+padding:50px 5%;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
 }
 
-/* CARD DA PROMOÇÃO (Unificado e corrigido) */
-.card-promocao {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden; /* Corta as rebarbas da foto nas bordas arredondadas */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
-    position: relative;
-    transition: .3s;
-    display: flex;
-    flex-direction: column;
+.promocao-card{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:
+0 5px 20px rgba(0,0,0,.08);
+
+position:relative;
+
+transition:.3s;
 }
 
-.card-promocao:hover {
-    transform: translateY(-8px);
+.promocao-card:hover{
+
+transform:translateY(-8px);
+
 }
 
-/* CORREÇÃO DEFINITIVA DAS IMAGENS */
-.card-promocao img {
-    width: 100%;
-    height: 230px;       /* Define uma altura fixa idêntica para todos os hambúrgueres */
-    object-fit: cover;   /* Centraliza e encaixa a foto sem esticar ou esmagar */
-    display: block;
+.promocao-card img{
+
+width:100%;
+height:240px;
+object-fit:cover;
+
 }
 
-/* BADGE / TAG DE DESCONTO */
-.tag-desconto {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #E36414;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 30px;
-    font-weight: 600;
-    z-index: 10;
+.badge{
+
+position:absolute;
+
+top:15px;
+left:15px;
+
+background:#E36414;
+
+color:white;
+
+padding:8px 15px;
+
+border-radius:30px;
+
+font-weight:600;
 }
 
-/* INFORMAÇÕES INTERNAS DO CARD */
-.info-promocao {
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+.promocao-info{
+
+padding:25px;
 }
 
-.info-promocao h3 {
-    color: #9A031E;
-    margin-bottom: 10px;
-    font-size: 24px;
+.promocao-info h2{
+
+color:#9A031E;
+margin-bottom:10px;
+
 }
 
-.info-promocao p {
-    color: #666;
-    margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 1.5;
+.promocao-info p{
+
+color:#666;
+margin-bottom:20px;
+
 }
 
-/* PREÇOS */
-.precos {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-top: auto; /* Joga os preços e botão sempre para o rodapé do card */
+.precos{
+
+display:flex;
+gap:15px;
+align-items:center;
+margin-bottom:20px;
+
 }
 
-.preco-antigo {
-    text-decoration: line-through;
-    color: #999;
+.preco-antigo{
+
+text-decoration:line-through;
+color:#999;
+
 }
 
-.preco-novo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #E36414;
+.preco-novo{
+
+font-size:28px;
+font-weight:700;
+color:#E36414;
+
 }
 
-/* BOTÃO DE ADICIONAR */
-.btn-obter {
-    width: 100%;
-    background: #E36414;
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .3s;
+.promocao-info button{
+
+width:100%;
+
+background:#E36414;
+
+color:white;
+
+border:none;
+
+padding:14px;
+
+border-radius:12px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
 }
 
-.btn-obter:hover {
-    background: #9A031E;
+.promocao-info button:hover{
+
+background:#9A031E;
+
 }
 
 /* RESPONSIVO */
-@media(max-width:768px) {
-    header {
-        justify-content: center;
-        gap: 15px;
-    }
 
-    nav {
-        justify-content: center;
-    }
+@media(max-width:768px){
 
-    .banner-promocoes h1 {
-        font-size: 34px;
-    }
+header{
+justify-content:center;
+gap:15px;
+}
 
-    .banner-promocoes p {
-        font-size: 16px;
-    }
+nav{
+justify-content:center;
+}
+
+.banner-promocoes h1{
+font-size:34px;
+}
+
+.banner-promocoes p{
+font-size:16px;
+}
+
 }
