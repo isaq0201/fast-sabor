@@ -1,667 +1,334 @@
-**<!DOCTYPE html>**
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contato - Fast Sabor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#FFF8F0;
+}
+
+/* HEADER */
+
+header{
+background:#5F0F40;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+color:white;
+font-size:28px;
+font-weight:700;
+}
+
+nav{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+}
+
+nav a:hover{
+color:#FB8B24;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,#5F0F40,#9A031E);
+padding:70px 5%;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+/* CONTEÚDO */
+
+.container{
+padding:50px 5%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#9A031E;
+margin-bottom:20px;
+}
+
+.info{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.info p{
+font-size:16px;
+}
+
+.redes{
+margin-top:20px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+/* Ajuste para os novos links das redes sociais */
+.redes a{
+text-decoration:none;
+cursor:pointer;
+}
+
+.redes span{
+background:#FFF1E5;
+color:#E36414;
+padding:10px 15px;
+border-radius:30px;
+font-weight:600;
+display:inline-block;
+transition:.3s;
+}
+
+.redes a:hover span{
+background:#E36414;
+color:white;
+}
 
-**<html lang="pt-BR">**
+/* LOGIN */
 
+input,
+textarea{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:10px;
+}
 
+textarea{
+height:120px;
+resize:none;
+}
 
-**<head>**
+button{
+width:100%;
+padding:14px;
+border:none;
+background:#E36414;
+color:white;
+border-radius:10px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+}
 
-**<meta charset="UTF-8">**
+button:hover{
+background:#9A031E;
+}
 
-**<meta name="viewport" content="width=device-width, initial-scale=1.0">**
+#mensagem{
+margin-top:15px;
+font-weight:600;
+text-align:center;
+}
 
+/* RESPONSIVO */
 
+@media(max-width:900px){
 
-**<title>Contato - Fast Sabor</title>**
+.container{
+grid-template-columns:1fr;
+}
 
+header{
+justify-content:center;
+gap:15px;
+}
 
+nav{
+justify-content:center;
+}
 
-**<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700\&display=swap" rel="stylesheet">**
+.hero h1{
+font-size:32px;
+}
 
+}
 
+</style>
+</head>
 
-**<style>**
+<body>
 
+<header>
 
+<div class="logo">🍔 Fast Sabor</div>
 
-**\*{**
+<nav>
+<a href="../index.html">Início</a>
+<a href="../cardapio.html">Cardápio</a>
+<a href="../promocoes.html">Promoções</a>
+<a href="avaliacoes.html">Avaliações</a>
+<a href="reclamacoes.html">Reclamações</a>
+<a href="../sobre.html">Sobre</a>
+<a href="contato.html">Contato</a>
+</nav>
 
-**margin:0;**
+</header>
 
-**padding:0;**
+<section class="hero">
 
-**box-sizing:border-box;**
+<h1>Entre em Contato</h1>
 
-**font-family:'Poppins',sans-serif;**
+<p>Estamos prontos para atender você.</p>
 
-**}**
+</section>
 
+<section class="container">
 
+<div class="card">
 
-**body{**
+<h2>Informações de Contato</h2>
 
-**background:#FFF8F0;**
+<div class="info">
 
-**}**
+<p>📞 (11) 97671-8229</p>
 
+<p>📧 contato@fastsabor.com</p>
 
+<p>
+📍 Rua dos Lanches, 123<br>
+São Paulo - SP
+</p>
 
-**/\* HEADER \*/**
+<p>
+🕒 Atendimento:<br>
+Terça a Sábado<br>
+13h às 21h
+</p>
 
+</div>
 
+<div class="redes">
+<a href="https://www.instagram.com/fast_sabor_?igsh=MWl3YjM5NW43NTZ6Yg==" target="_blank"><span>Instagram</span></a>
+<a><span>Facebook</span></a>
+<a href="https://api.whatsapp.com/send?phone=5511976718229" target="_blank"><span>WhatsApp</span></a>
+</div>
 
-**header{**
+</div>
 
-**background:#5F0F40;**
+<div class="card">
 
-**padding:15px 5%;**
+<h2>Área Administrativa</h2>
 
-**display:flex;**
+<input
+type="text"
+id="usuario"
+placeholder="Usuário">
 
-**justify-content:space-between;**
+<input
+type="password"
+id="senha"
+placeholder="Senha">
 
-**align-items:center;**
+<button onclick="fazerLogin()">
+Entrar
+</button>
 
-**flex-wrap:wrap;**
+<div id="mensagem"></div>
 
-**}**
+<hr style="margin:30px 0">
 
+<h2>Enviar Mensagem</h2>
 
+<input
+type="text"
+placeholder="Seu nome">
 
-**.logo{**
+<input
+type="email"
+placeholder="Seu e-mail">
 
-**color:white;**
+<textarea
+placeholder="Digite sua mensagem">
+</textarea>
 
-**font-size:28px;**
+<button>
+Enviar Mensagem
+</button>
 
-**font-weight:700;**
+</div>
 
-**}**
+</section>
 
+<script>
 
+function fazerLogin(){
 
-**nav{**
+const usuario =
+document.getElementById("usuario").value;
 
-**display:flex;**
+const senha =
+document.getElementById("senha").value;
 
-**gap:20px;**
+const mensagem =
+document.getElementById("mensagem");
 
-**flex-wrap:wrap;**
+if(
+usuario === "admin" &&
+senha === "123456"
+){
 
-**}**
+mensagem.innerHTML =
+"✅ Login realizado com sucesso!";
 
+mensagem.style.color = "green";
 
+}else{
 
-**nav a{**
+mensagem.innerHTML =
+"❌ Usuário ou senha incorretos.";
 
-**color:white;**
+mensagem.style.color = "red";
 
-**text-decoration:none;**
+}
 
-**}**
+}
 
+</script>
 
-
-**nav a:hover{**
-
-**color:#FB8B24;**
-
-**}**
-
-
-
-**/\* HERO \*/**
-
-
-
-**.hero{**
-
-**background:linear-gradient(135deg,#5F0F40,#9A031E);**
-
-**padding:70px 5%;**
-
-**text-align:center;**
-
-**color:white;**
-
-**}**
-
-
-
-**.hero h1{**
-
-**font-size:42px;**
-
-**margin-bottom:10px;**
-
-**}**
-
-
-
-**/\* CONTEÚDO \*/**
-
-
-
-**.container{**
-
-**padding:50px 5%;**
-
-**display:grid;**
-
-**grid-template-columns:1fr 1fr;**
-
-**gap:30px;**
-
-**}**
-
-
-
-**.card{**
-
-**background:white;**
-
-**padding:30px;**
-
-**border-radius:20px;**
-
-**box-shadow:0 5px 15px rgba(0,0,0,.08);**
-
-**}**
-
-
-
-**.card h2{**
-
-**color:#9A031E;**
-
-**margin-bottom:20px;**
-
-**}**
-
-
-
-**.info{**
-
-**display:flex;**
-
-**flex-direction:column;**
-
-**gap:15px;**
-
-**}**
-
-
-
-**.info p{**
-
-**font-size:16px;**
-
-**}**
-
-
-
-**.redes{**
-
-**margin-top:20px;**
-
-**display:flex;**
-
-**gap:10px;**
-
-**flex-wrap:wrap;**
-
-**}**
-
-
-
-**/\* Ajuste para os novos links das redes sociais \*/**
-
-**.redes a{**
-
-**text-decoration:none;**
-
-**cursor:pointer;**
-
-**}**
-
-
-
-**.redes span{**
-
-**background:#FFF1E5;**
-
-**color:#E36414;**
-
-**padding:10px 15px;**
-
-**border-radius:30px;**
-
-**font-weight:600;**
-
-**display:inline-block;**
-
-**transition:.3s;**
-
-**}**
-
-
-
-**.redes a:hover span{**
-
-**background:#E36414;**
-
-**color:white;**
-
-**}**
-
-
-
-**/\* LOGIN \*/**
-
-
-
-**input,**
-
-**textarea{**
-
-**width:100%;**
-
-**padding:14px;**
-
-**margin-bottom:15px;**
-
-**border:1px solid #ddd;**
-
-**border-radius:10px;**
-
-**}**
-
-
-
-**textarea{**
-
-**height:120px;**
-
-**resize:none;**
-
-**}**
-
-
-
-**button{**
-
-**width:100%;**
-
-**padding:14px;**
-
-**border:none;**
-
-**background:#E36414;**
-
-**color:white;**
-
-**border-radius:10px;**
-
-**font-size:16px;**
-
-**font-weight:600;**
-
-**cursor:pointer;**
-
-**}**
-
-
-
-**button:hover{**
-
-**background:#9A031E;**
-
-**}**
-
-
-
-**#mensagem{**
-
-**margin-top:15px;**
-
-**font-weight:600;**
-
-**text-align:center;**
-
-**}**
-
-
-
-**/\* RESPONSIVO \*/**
-
-
-
-**@media(max-width:900px){**
-
-
-
-**.container{**
-
-**grid-template-columns:1fr;**
-
-**}**
-
-
-
-**header{**
-
-**justify-content:center;**
-
-**gap:15px;**
-
-**}**
-
-
-
-**nav{**
-
-**justify-content:center;**
-
-**}**
-
-
-
-**.hero h1{**
-
-**font-size:32px;**
-
-**}**
-
-
-
-**}**
-
-
-
-**</style>**
-
-**</head>**
-
-
-
-**<body>**
-
-
-
-**<header>**
-
-
-
-**<div class="logo">🍔 Fast Sabor</div>**
-
-
-
-**<nav>**
-
-**<a href="../index.html">Início</a>**
-
-**<a href="../cardapio.html">Cardápio</a>**
-
-**<a href="../promocoes.html">Promoções</a>**
-
-**<a href="avaliacoes.html">Avaliações</a>**
-
-**<a href="reclamacoes.html">Reclamações</a>**
-
-**<a href="../sobre.html">Sobre</a>**
-
-**<a href="contato.html">Contato</a>**
-
-**</nav>**
-
-
-
-**</header>**
-
-
-
-**<section class="hero">**
-
-
-
-**<h1>Entre em Contato</h1>**
-
-
-
-**<p>Estamos prontos para atender você.</p>**
-
-
-
-**</section>**
-
-
-
-**<section class="container">**
-
-
-
-**<div class="card">**
-
-
-
-**<h2>Informações de Contato</h2>**
-
-
-
-**<div class="info">**
-
-
-
-**<p>📞 (11) 97671-8229</p>**
-
-
-
-**<p>📧 contato@fastsabor.com</p>**
-
-
-
-**<p>**
-
-**📍 Rua dos Lanches, 123<br>**
-
-**São Paulo - SP**
-
-**</p>**
-
-
-
-**<p>**
-
-**🕒 Atendimento:<br>**
-
-**Terça a Sábado<br>**
-
-**13h às 21h**
-
-**</p>**
-
-
-
-**</div>**
-
-
-
-**<div class="redes">**
-
-**<a href="https://www.instagram.com/fast\_sabor\_?igsh=MWl3YjM5NW43NTZ6Yg==" target="\_blank"><span>Instagram</span></a>**
-
-**<a><span>Facebook</span></a>**
-
-**<a href="https://api.whatsapp.com/send?phone=5511976718229" target="\_blank"><span>WhatsApp</span></a>**
-
-**</div>**
-
-
-
-**</div>**
-
-
-
-**<div class="card">**
-
-
-
-**<h2>Área Administrativa</h2>**
-
-
-
-**<input**
-
-**type="text"**
-
-**id="usuario"**
-
-**placeholder="Usuário">**
-
-
-
-**<input**
-
-**type="password"**
-
-**id="senha"**
-
-**placeholder="Senha">**
-
-
-
-**<button onclick="fazerLogin()">**
-
-**Entrar**
-
-**</button>**
-
-
-
-**<div id="mensagem"></div>**
-
-
-
-**<hr style="margin:30px 0">**
-
-
-
-**<h2>Enviar Mensagem</h2>**
-
-
-
-**<input**
-
-**type="text"**
-
-**placeholder="Seu nome">**
-
-
-
-**<input**
-
-**type="email"**
-
-**placeholder="Seu e-mail">**
-
-
-
-**<textarea**
-
-**placeholder="Digite sua mensagem">**
-
-**</textarea>**
-
-
-
-**<button>**
-
-**Enviar Mensagem**
-
-**</button>**
-
-
-
-**</div>**
-
-
-
-**</section>**
-
-
-
-**<script>**
-
-
-
-**function fazerLogin(){**
-
-
-
-**const usuario =**
-
-**document.getElementById("usuario").value;**
-
-
-
-**const senha =**
-
-**document.getElementById("senha").value;**
-
-
-
-**const mensagem =**
-
-**document.getElementById("mensagem");**
-
-
-
-**if(**
-
-**usuario === "admin" \&\&**
-
-**senha === "123456"**
-
-**){**
-
-
-
-**mensagem.innerHTML =**
-
-**"✅ Login realizado com sucesso!";**
-
-
-
-**mensagem.style.color = "green";**
-
-
-
-**}else{**
-
-
-
-**mensagem.innerHTML =**
-
-**"❌ Usuário ou senha incorretos.";**
-
-
-
-**mensagem.style.color = "red";**
-
-
-
-**}**
-
-
-
-**}**
-
-
-
-**</script>**
-
-
-
-**</body>**
-
-**</html>**
+</body>
+</html>
