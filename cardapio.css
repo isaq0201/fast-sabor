@@ -331,3 +331,20 @@ margin-top:15px;
 header{ justify-content:center; gap:15px; }
 nav{ justify-content:center; }
 }
+/* Correção da Logo no Cardápio */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;     /* Força a logo a ficar pequena */
+    width: auto;      /* Mantém a proporção perfeita */
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
