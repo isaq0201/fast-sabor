@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fast Sabor - Sobre Nós</title>
-    
-    <link rel="stylesheet" href="./css/style.css">
-    
+    <title>Sobre Nós - Fast Sabor</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <header>
-        <div class="logo">
-            🍔 Fast Sabor
-        </div>
+        <div class="logo">🍔 Fast Sabor</div>
         <nav>
             <a href="index.html">Início</a>
             <a href="cardapio.html">Cardápio</a>
@@ -29,41 +23,40 @@
         </nav>
     </header>
 
-    <main class="pagina">
-        
-        <div class="titulo">
-            <h2>Nossa História</h2>
-            <p>Conheça a trajetória da hamburgueria que conquistou a cidade.</p>
-        </div>
-        
-        <div class="card" style="text-align: left; line-height: 1.8; max-width: 900px; margin: 0 auto 40px auto;">
-            <p>Nascida da paixão pela verdadeira culinária artesanal, a <strong>Fast Sabor</strong> começou com um objetivo simples: entregar o melhor hambúrguer da cidade com rapidez e ingredientes de altíssima qualidade.</p>
-            <br>
-            <p>Selecionamos nossos produtos diariamente, desde o pão selado na manteiga até a carne suculenta grelhada na medida certa. Para nós, fazer hambúrguer não é apenas uma receita, é uma arte.</p>
-        </div>
+    <main>
+        <section class="hero">
+            <h1>Nossa História</h1>
+            <p>Conheça a trajetória da hamburgueria que conquistou o coração da cidade.</p>
+        </section>
 
-        <div class="cards">
-            
-            <div class="card">
+        <section style="padding: 50px 5%; max-width: 900px; margin: 0 auto; line-height: 1.8; text-align: justify;">
+            <div class="card" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h2 style="color: #9A031E; margin-bottom: 20px; text-align: center;">Como Tudo Começou</h2>
+                <p style="margin-bottom: 15px;">A Fast Sabor nasceu em 2024, do sonho de criar um hambúrguer que unisse a rapidez do fast-food tradicional à qualidade inquestionável dos blends artesanais. Começamos numa garagem pequena, servindo apenas aos amigos e vizinhos mais próximos da região.</p>
+                <p style="margin-bottom: 15px;">Com o passar do tempo, o "boca a boca" espalhou-se rapidamente. O segredo? Ingredientes sempre frescos selecionados diariamente, molhos autorais secretos e uma dedicação incansável em proporcionar a melhor experiência de atendimento possível para cada pessoa.</p>
+                <p>Hoje, orgulhamo-nos de ser uma referência local em sabor, inovação e paixão pela gastronomia urbana, mantendo intacta a mesma essência humilde e artesanal do nosso primeiríssimo hambúrguer.</p>
+            </div>
+        </section>
+
+        <div style="padding: 0 5% 50px 5%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1000px; margin: 0 auto; text-align: center;">
+            <div class="card" style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 280px; flex: 1;">
                 <div style="font-size: 40px; margin-bottom: 10px;">🎯</div>
                 <h3>Nossa Missão</h3>
-                <p style="margin-top: 10px; font-size: 14px; color: #555;">Proporcionar uma experiência gastronômica marcante, combinando o sabor inconfundível do hambúrguer artesanal com a agilidade que o seu dia exige.</p>
+                <p style="margin-top: 10px; font-size: 14px; color: #555;">Servir felicidade em forma de hambúrguer, entregando refeições saborosas e de alta qualidade com rapidez e atenção.</p>
             </div>
 
-            <div class="card">
+            <div class="card" style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 280px; flex: 1;">
                 <div style="font-size: 40px; margin-bottom: 10px;">👁️</div>
                 <h3>Nossa Visão</h3>
                 <p style="margin-top: 10px; font-size: 14px; color: #555;">Ser a hamburgueria referência em qualidade de atendimento e sabor na região, inovando sempre nas receitas e na experiência do cliente.</p>
             </div>
 
-            <div class="card">
+            <div class="card" style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 280px; flex: 1;">
                 <div style="font-size: 40px; margin-bottom: 10px;">❤️</div>
                 <h3>Nossos Valores</h3>
                 <p style="margin-top: 10px; font-size: 14px; color: #555;">Qualidade em primeiro lugar, respeito aos clientes, ingredientes sempre frescos e paixão pelo que fazemos todos os dias.</p>
             </div>
-            
         </div>
-        
     </main>
 
     <footer>
@@ -71,23 +64,8 @@
         <p>Desenvolvido por Isaque</p>
     </footer>
 
-    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp">
-        💬
-    </a>
+    <a href="https://api.whatsapp.com/send?phone=5511976718229" target="_blank" class="whatsapp">💬</a>
 
-    <script>
-        const tema = document.getElementById("tema");
-
-        tema.onclick = () => {
-            document.body.classList.toggle("dark");
-
-            if(document.body.classList.contains("dark")){
-                tema.innerHTML = "☀️";
-            } else {
-                tema.innerHTML = "🌙";
-            }
-        };
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
