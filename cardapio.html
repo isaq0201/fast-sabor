@@ -2,446 +2,297 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Fast Sabor - Cardápio</title>
-
-<link rel="stylesheet" href="cardapio.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Sabor - Cardápio</title>
+    <link rel="stylesheet" href="cardapio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
-
-<div class="logo">
-🍔 Fast Sabor
-</div>
-
-<nav>
-<a href="index.html">Início</a>
-<a href="cardapio.html">Cardápio</a>
-<a href="promocoes.html">Promoções</a>
-<a href="cliente/avaliacoes.html">Avaliações</a>
-<a href="cliente/contato.html">Contato</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<h1>Nosso Cardápio</h1>
-
-<p>Os melhores hambúrgueres artesanais da cidade.</p>
-
-<input
-type="text"
-id="pesquisa"
-placeholder="🔍 Pesquisar produto..."
->
-
-<p id="resultadoPesquisa">
-5 produtos encontrados
-</p>
-
-</section>
-
-<section class="categorias">
-
-<button class="ativo">🍔 Hambúrgueres</button>
-<button>🍟 Porções</button>
-<button>🥤 Bebidas</button>
-<button>🍰 Sobremesas</button>
-
-</section>
-
-<section class="conteudo">
-
-<div class="produtos">
-
-<div class="produto" data-nome="x burger">
-
-<div class="tag">
-Mais Vendido
-</div>
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-
-<div class="info">
-
-<h3>X-Burger</h3>
-
-<div class="avaliacao">
-⭐ 4.9
-</div>
-
-<p>
-Hambúrguer artesanal com queijo e molho especial.
-</p>
-
-<div class="extras">
-<span>🔥 15 min</span>
-<span>🍔 Artesanal</span>
-</div>
-
-<div class="rodape">
-
-<span class="preco">18</span>
-
-<button
-onclick="adicionarCarrinho('X-Burger',18)">
-Adicionar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="produto" data-nome="x salada">
-
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-
-<div class="info">
-
-<h3>X-Salada</h3>
-
-<div class="avaliacao">
-⭐ 4.8
-</div>
-
-<p>
-Alface, tomate e hambúrguer artesanal.
-</p>
-
-<div class="extras">
-<span>🔥 15 min</span>
-</div>
-
-<div class="rodape">
-
-<span class="preco">20</span>
-
-<button
-onclick="adicionarCarrinho('X-Salada',20)">
-Adicionar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="produto" data-nome="x bacon">
-
-<img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b">
-
-<div class="info">
-
-<h3>X-Bacon</h3>
-
-<div class="avaliacao">
-⭐ 5.0
-</div>
-
-<p>
-Bacon crocante e cheddar.
-</p>
-
-<div class="extras">
-<span>🔥 18 min</span>
-</div>
-
-<div class="rodape">
-
-<span class="preco">24</span>
-
-<button
-onclick="adicionarCarrinho('X-Bacon',24)">
-Adicionar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="produto" data-nome="batata frita">
-
-<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
-
-<div class="info">
-
-<h3>Batata Frita</h3>
-
-<div class="avaliacao">
-⭐ 4.7
-</div>
-
-<p>
-Porção média crocante.
-</p>
-
-<div class="rodape">
-
-<span class="preco">12</span>
-
-<button
-onclick="adicionarCarrinho('Batata Frita',12)">
-Adicionar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="produto" data-nome="refrigerante">
-
-<img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
-
-<div class="info">
-
-<h3>Refrigerante</h3>
-
-<div class="avaliacao">
-⭐ 4.5
-</div>
-
-<p>
-Lata 350ml gelada.
-</p>
-
-<div class="rodape">
-
-<span class="preco">8</span>
-
-<button
-onclick="adicionarCarrinho('Refrigerante',8)">
-Adicionar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<aside class="carrinho">
-
-<h2>
-🛒 Carrinho
-(<span id="contador">0</span>)
-</h2>
-
-<div id="listaCarrinho"></div>
-
-<h3>
-Total: R$
-<span id="total">0.00</span>
-</h3>
-
-<button class="finalizar" onclick="abrirModalCheckout()">
-Finalizar Pedido
-</button>
-
-</aside>
-
-</section>
-
-<div id="modalCheckout" class="modal-checkout">
-    <div class="modal-conteudo">
-        <h2>📋 Detalhes do Pedido</h2>
-        <p>Preencha os dados abaixo para concluir.</p>
-        
-        <form id="formCheckout" onsubmit="enviarPedidoWhatsApp(event)">
-            <label for="nomeCliente">Seu Nome:</label>
-            <input type="text" id="nomeCliente" placeholder="Ex: José Silva" required>
-
-            <label for="cepCliente">Seu CEP:</label>
-            <input type="text" id="cepCliente" placeholder="00000-000" maxlength="9" required>
-
-            <label for="enderecoCliente">Endereço de Entrega:</label>
-            <input type="text" id="enderecoCliente" placeholder="Rua, Número, Bairro, Complemento" required>
-
-            <label for="formaPagamento">Forma de Pagamento:</label>
-            <select id="formaPagamento" onchange="verificarDinheiro(this.value)" required>
-                <option value="" disabled selected>Selecione uma opção...</option>
-                <option value="Dinheiro">💵 Dinheiro</option>
-                <option value="Pix">📱 Pix</option>
-                <option value="Cartão de Crédito">💳 Cartão de Crédito</option>
-                <option value="Cartão de Débito">💳 Cartão de Débito</option>
-                <option value="Vale Alimentação (VA)">🍔 Vale Alimentação (VA)</option>
-            </select>
-
-            <div id="campoTroco" style="display: none; flex-direction: column; gap: 5px;">
-                <label for="trocoPara">Precisa de troco para quanto?</label>
-                <input type="text" id="trocoPara" placeholder="Ex: R$ 50,00 ou Não preciso">
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Fast Sabor Logo">
+        </div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="promocoes.html">Promoções</a>
+            <a href="cliente/avaliacoes.html">Avaliações</a>
+            <a href="cliente/contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Nosso Cardápio</h1>
+        <p>Os melhores hambúrgueres artesanais da cidade.</p>
+        <input type="text" id="pesquisa" placeholder="🔍 Pesquisar produto...">
+        <p id="resultadoPesquisa">5 produtos encontrados</p>
+    </section>
+
+    <section class="categorias">
+        <button class="ativo">🍔 Hambúrgueres</button>
+        <button>🍟 Porções</button>
+        <button>🥤 Bebidas</button>
+        <button>🍰 Sobremesas</button>
+    </section>
+
+    <section class="conteudo">
+        <div class="produtos">
+            <div class="produto" data-nome="x burger">
+                <div class="tag">Mais Vendido</div>
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+                <div class="info">
+                    <h3>X-Burger</h3>
+                    <div class="avaliacao">⭐ 4.9</div>
+                    <p>Hambúrguer artesanal com queijo e molho especial.</p>
+                    <div class="extras">
+                        <span>🔥 15 min</span>
+                        <span>🍔 Artesanal</span>
+                    </div>
+                    <div class="rodape">
+                        <span class="preco">18</span>
+                        <button onclick="adicionarCarrinho('X-Burger',18)">Adicionar</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="modal-botoes">
-                <button type="button" class="btn-cancelar" onclick="fecharModalCheckout()">Voltar</button>
-                <button type="submit" class="btn-confirmar">Enviar via WhatsApp</button>
+            <div class="produto" data-nome="x salada">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+                <div class="info">
+                    <h3>X-Salada</h3>
+                    <div class="avaliacao">⭐ 4.8</div>
+                    <p>Alface, tomate e hambúrguer artesanal.</p>
+                    <div class="extras"><span>🔥 15 min</span></div>
+                    <div class="rodape">
+                        <span class="preco">20</span>
+                        <button onclick="adicionarCarrinho('X-Salada',20)">Adicionar</button>
+                    </div>
+                </div>
             </div>
-        </form>
+
+            <div class="produto" data-nome="x bacon">
+                <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b">
+                <div class="info">
+                    <h3>X-Bacon</h3>
+                    <div class="avaliacao">⭐ 5.0</div>
+                    <p>Bacon crocante e cheddar.</p>
+                    <div class="extras"><span>🔥 18 min</span></div>
+                    <div class="rodape">
+                        <span class="preco">24</span>
+                        <button onclick="adicionarCarrinho('X-Bacon',24)">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="batata frita">
+                <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
+                <div class="info">
+                    <h3>Batata Frita</h3>
+                    <div class="avaliacao">⭐ 4.7</div>
+                    <p>Porção média crocante.</p>
+                    <div class="rodape">
+                        <span class="preco">12</span>
+                        <button onclick="adicionarCarrinho('Batata Frita',12)">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="refrigerante">
+                <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
+                <div class="info">
+                    <h3>Refrigerante</h3>
+                    <div class="avaliacao">⭐ 4.5</div>
+                    <p>Lata 350ml gelada.</p>
+                    <div class="rodape">
+                        <span class="preco">8</span>
+                        <button onclick="adicionarCarrinho('Refrigerante',8)">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="carrinho">
+            <h2>🛒 Carrinho (<span id="contador">0</span>)</h2>
+            <div id="listaCarrinho"></div>
+            <h3>Total: R$ <span id="total">0.00</span></h3>
+            <button class="finalizar" onclick="abrirModalCheckout()">Finalizar Pedido</button>
+        </aside>
+    </section>
+
+    <div id="modalCheckout" class="modal-checkout">
+        <div class="modal-conteudo">
+            <h2>📋 Detalhes do Pedido</h2>
+            <p>Preencha os dados abaixo para concluir.</p>
+            
+            <form id="formCheckout" onsubmit="enviarPedidoWhatsApp(event)">
+                <label for="nomeCliente">Seu Nome:</label>
+                <input type="text" id="nomeCliente" placeholder="Ex: José Silva" required>
+
+                <label for="cepCliente">Seu CEP:</label>
+                <input type="text" id="cepCliente" placeholder="00000-000" maxlength="9" required>
+
+                <label for="enderecoCliente">Endereço de Entrega:</label>
+                <input type="text" id="enderecoCliente" placeholder="Rua, Número, Bairro, Complemento" required>
+
+                <label for="formaPagamento">Forma de Pagamento:</label>
+                <select id="formaPagamento" onchange="verificarDinheiro(this.value)" required>
+                    <option value="" disabled selected>Selecione uma opção...</option>
+                    <option value="Dinheiro">💵 Dinheiro</option>
+                    <option value="Pix">📱 Pix</option>
+                    <option value="Cartão de Crédito">💳 Cartão de Crédito</option>
+                    <option value="Cartão de Débito">💳 Cartão de Débito</option>
+                    <option value="Vale Alimentação (VA)">🍔 Vale Alimentação (VA)</option>
+                </select>
+
+                <div id="campoTroco" style="display: none; flex-direction: column; gap: 5px;">
+                    <label for="trocoPara">Precisa de troco para quanto?</label>
+                    <input type="text" id="trocoPara" placeholder="Ex: R$ 50,00 ou Não preciso">
+                </div>
+
+                <div class="modal-botoes">
+                    <button type="button" class="btn-cancelar" onclick="fecharModalCheckout()">Voltar</button>
+                    <button type="submit" class="btn-confirmar">Enviar via WhatsApp</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<script>
-const pesquisa = document.getElementById("pesquisa");
-const resultado = document.getElementById("resultadoPesquisa");
+    <script>
+        const pesquisa = document.getElementById("pesquisa");
+        const resultado = document.getElementById("resultadoPesquisa");
 
-pesquisa.addEventListener("keyup", () => {
-    const valor = pesquisa.value.toLowerCase();
-    const produtos = document.querySelectorAll(".produto");
-    let encontrados = 0;
+        pesquisa.addEventListener("keyup", () => {
+            const valor = pesquisa.value.toLowerCase();
+            const produtos = document.querySelectorAll(".produto");
+            let encontrados = 0;
 
-    produtos.forEach(produto => {
-        const nome = produto.dataset.nome.toLowerCase();
-        if(nome.includes(valor)){
-            produto.style.display = "block";
-            encontrados++;
-        }else{
-            produto.style.display = "none";
+            produtos.forEach(produto => {
+                const nome = produto.dataset.nome.toLowerCase();
+                if(nome.includes(valor)){
+                    produto.style.display = "block";
+                    encontrados++;
+                }else{
+                    produto.style.display = "none";
+                }
+            });
+
+            resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
+        });
+
+        document.getElementById("cepCliente").addEventListener("input", (e) => {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 5) {
+                value = value.substring(0, 5) + "-" + value.substring(5, 8);
+            }
+            e.target.value = value;
+        });
+
+        let itensCarrinho = [];
+        let valorTotalPedido = 0;
+
+        function adicionarCarrinho(nome, preco){
+            itensCarrinho.push({ nome, preco });
+            atualizarInterfaceCarrinho();
         }
-    });
 
-    resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
-});
+        function removerDoCarrinho(index){
+            itensCarrinho.splice(index, 1);
+            atualizarInterfaceCarrinho();
+        }
 
-// Mascara automática para o CEP (00000-000)
-document.getElementById("cepCliente").addEventListener("input", (e) => {
-    let value = e.target.value.replace(/\D/g, "");
-    if (value.length > 5) {
-        value = value.substring(0, 5) + "-" + value.substring(5, 8);
-    }
-    e.target.value = value;
-});
+        function atualizarInterfaceCarrinho(){
+            const lista = document.getElementById("listaCarrinho");
+            lista.innerHTML = "";
+            valorTotalPedido = 0;
 
-// ======================================
-// LÓGICA DO CARRINHO
-// ======================================
-let itensCarrinho = [];
-let valorTotalPedido = 0;
+            itensCarrinho.forEach((produto, index) => {
+                valorTotalPedido += produto.preco;
+                const item = document.createElement("div");
+                item.classList.add("itemCarrinho");
+                item.innerHTML = `
+                    <span>${produto.nome} - R$ ${produto.preco.toFixed(2)}</span>
+                    <button class="btn-remover-item" onclick="removerDoCarrinho(${index})">❌</button>
+                `;
+                lista.appendChild(item);
+            });
 
-function adicionarCarrinho(nome, preco){
-    itensCarrinho.push({ nome, preco });
-    atualizarInterfaceCarrinho();
-}
+            document.getElementById("total").innerHTML = valorTotalPedido.toFixed(2);
+            document.getElementById("contador").innerHTML = itensCarrinho.length;
+        }
 
-function removerDoCarrinho(index){
-    itensCarrinho.splice(index, 1);
-    atualizarInterfaceCarrinho();
-}
+        function abrirModalCheckout() {
+            if (itensCarrinho.length === 0) {
+                alert("O seu carrinho está vazio! Adicione algum produto antes de finalizar.");
+                return;
+            }
+            document.getElementById("modalCheckout").style.display = "flex";
+        }
 
-function atualizarInterfaceCarrinho(){
-    const lista = document.getElementById("listaCarrinho");
-    lista.innerHTML = "";
-    
-    valorTotalPedido = 0;
+        document.getElementById("modalCheckout").addEventListener("click", function(e) {
+            if (e.target === this) fecharModalCheckout();
+        });
 
-    itensCarrinho.forEach((produto, index) => {
-        valorTotalPedido += produto.preco;
+        function fecharModalCheckout() {
+            document.getElementById("modalCheckout").style.display = "none";
+            document.getElementById("campoTroco").style.display = "none";
+        }
 
-        const item = document.createElement("div");
-        item.classList.add("itemCarrinho");
-        
-        item.innerHTML = `
-            <span>${produto.nome} - R$ ${produto.preco.toFixed(2)}</span>
-            <button class="btn-remover-item" onclick="removerDoCarrinho(${index})">❌</button>
-        `;
-        
-        lista.appendChild(item);
-    });
+        function verificarDinheiro(valor) {
+            const divTroco = document.getElementById("campoTroco");
+            if (valor === "Dinheiro") {
+                divTroco.style.display = "flex";
+            } else {
+                divTroco.style.display = "none";
+            }
+        }
 
-    document.getElementById("total").innerHTML = valorTotalPedido.toFixed(2);
-    document.getElementById("contador").innerHTML = itensCarrinho.length;
-}
+        function enviarPedidoWhatsApp(event) {
+            event.preventDefault();
 
-// ======================================
-// CONTROLE DO MODAL E ENVIO WHATSAPP
-// ======================================
-function abrirModalCheckout() {
-    if (itensCarrinho.length === 0) {
-        alert("O seu carrinho está vazio! Adicione algum produto antes de finalizar.");
-        return;
-    }
-    document.getElementById("modalCheckout").style.display = "flex";
-}
+            const nome = document.getElementById("nomeCliente").value;
+            const cep = document.getElementById("cepCliente").value;
+            const endereco = document.getElementById("enderecoCliente").value;
+            const pagamento = document.getElementById("formaPagamento").value;
+            const troco = document.getElementById("trocoPara").value;
 
-function fecharModalCheckout() {
-    document.getElementById("modalCheckout").style.display = "none";
-    document.getElementById("campoTroco").style.display = "none";
-}
+            let textoProdutos = "";
+            itensCarrinho.forEach(item => {
+                textoProdutos += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
+            });
 
-function verificarDinheiro(valor) {
-    const divTroco = document.getElementById("campoTroco");
-    if (valor === "Dinheiro") {
-        divTroco.style.display = "flex";
-    } else {
-        divTroco.style.display = "none";
-    }
-}
+            const numeroTelefone = "5511976718229"; 
+            
+            let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
+                             `*Cliente:* ${nome}\n` +
+                             `*CEP:* ${cep}\n` +
+                             `*Endereço:* ${endereco}\n\n` +
+                             `*Itens do Pedido:*\n${textoProdutos}\n` +
+                             `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
+                             `*Forma de Pagamento:* ${pagamento}`;
 
-function enviarPedidoWhatsApp(event) {
-    event.preventDefault();
+            if (pagamento === "Dinheiro" && troco.trim() !== "") {
+                mensagem += `\n*Troco para:* ${troco}`;
+            }
 
-    const nome = document.getElementById("nomeCliente").value;
-    const cep = document.getElementById("cepCliente").value;
-    const endereco = document.getElementById("enderecoCliente").value;
-    const pagamento = document.getElementById("formaPagamento").value;
-    const troco = document.getElementById("trocoPara").value;
+            const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
+            window.open(linkWhatsApp, "_blank");
 
-    let textoProdutos = "";
-    itensCarrinho.forEach(item => {
-        textoProdutos += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
-    });
+            itensCarrinho = [];
+            atualizarInterfaceCarrinho();
+            document.getElementById("formCheckout").reset();
+            fecharModalCheckout();
+        }
 
-    const numeroTelefone = "5511976718229"; 
-    
-    let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
-                     `*Cliente:* ${nome}\n` +
-                     `*CEP:* ${cep}\n` +
-                     `*Endereço:* ${endereco}\n\n` +
-                     `*Itens do Pedido:*\n${textoProdutos}\n` +
-                     `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
-                     `*Forma de Pagamento:* ${pagamento}`;
-
-    if (pagamento === "Dinheiro" && troco.trim() !== "") {
-        mensagem += `\n*Troco para:* ${troco}`;
-    }
-
-    const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
-    
-    window.open(linkWhatsApp, "_blank");
-
-    // Reset geral após o envio
-    itensCarrinho = [];
-    atualizarInterfaceCarrinho();
-    document.getElementById("formCheckout").reset();
-    fecharModalCheckout();
-}
-
-// ======================================
-// VERIFICAÇÃO DE COMBOS PROVINDOS DE PROMOÇÕES
-// ======================================
-window.onload = function() {
-    const comboData = localStorage.getItem("comboPromocao");
-    if (comboData) {
-        const combo = JSON.parse(comboData);
-        adicionarCarrinho(combo.nome, combo.preco);
-        localStorage.removeItem("comboPromocao");
-    }
-};
-</script>
-
+        window.onload = function() {
+            const comboData = localStorage.getItem("comboPromocao");
+            if (comboData) {
+                const combo = JSON.parse(comboData);
+                adicionarCarrinho(combo.nome, combo.preco);
+                localStorage.removeItem("comboPromocao");
+            }
+        };
+    </script>
 </body>
 </html>
