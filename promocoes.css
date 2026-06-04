@@ -234,3 +234,20 @@ font-size:16px;
 }
 
 }
+/* Correção da Logo nas Promoções */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;     /* Força a logo a ficar pequena */
+    width: auto;      /* Mantém a proporção perfeita */
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
