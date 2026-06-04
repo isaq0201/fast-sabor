@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promoções Imperdíveis - Fast Sabor</title>
-    <link rel="stylesheet" href="promocoes.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,57 +22,57 @@
         </nav>
     </header>
 
-    <section class="banner-promocoes">
+    <section class="banner-promocoes" style="background: linear-gradient(135deg,#5F0F40,#9A031E); padding: 60px 5%; color: white; text-align: center;">
         <h1>Promoções Imperdíveis</h1>
         <p>Aproveite nossas ofertas especiais por tempo limitado!</p>
-        <div class="contador">⏱ Ofertas terminam em: <span id="timer">00:00:00</span></div>
+        <div class="contador" style="margin-top: 15px; font-weight: 600;">⏱ Ofertas terminam em: <span id="timer">00:00:00</span></div>
     </section>
 
-    <main class="promocoes-container" id="lista-promocoes">
-        <div class="promocao-card">
-            <span class="badge">20% OFF</span>
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Combo Casal">
-            <div class="promocao-info">
+    <main class="promocoes-container" id="lista-promocoes" style="padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div class="promocao-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+            <span class="badge" style="position: absolute; top: 15px; left: 15px; background: #E36414; color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600;">20% OFF</span>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Combo Casal" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="promocao-info" style="padding: 20px;">
                 <h2>Combo Duplo Casal</h2>
-                <p>2 X-Burgers + 1 Porção de Batata Média + 1 Refrigerante Litro.</p>
-                <div class="precos">
-                    <span class="preco-antigo">R$ 52,00</span>
-                    <span class="preco-novo">R$ 39,90</span>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">2 X-Burgers + 1 Porção de Batata Média + 1 Refrigerante Litro.</p>
+                <div class="precos" style="margin-bottom: 15px;">
+                    <span class="preco-antigo" style="text-decoration: line-through; color: #aaa; margin-right: 10px;">R$ 52,00</span>
+                    <span class="preco-novo" style="font-size: 22px; font-weight: 700; color: #9A031E;">R$ 39,90</span>
                 </div>
-                <button onclick="passarCombo('Combo Duplo Casal', 39.90)">Adicionar ao Carrinho</button>
+                <button onclick="passarCombo('Combo Duplo Casal', 39.90)" style="width: 100%; padding: 12px; background: #E36414; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Adicionar ao Carrinho</button>
             </div>
         </div>
 
-        <div class="promocao-card">
-            <span class="badge">15% OFF</span>
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Combo Individual">
-            <div class="promocao-info">
+        <div class="promocao-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+            <span class="badge" style="position: absolute; top: 15px; left: 15px; background: #E36414; color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600;">15% OFF</span>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Combo Individual" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="promocao-info" style="padding: 20px;">
                 <h2>Combo Turbo Individual</h2>
-                <p>1 X-Bacon Turbinado + 1 Batata Frita Pequena + 1 Lata de Refrigerante.</p>
-                <div class="precos">
-                    <span class="preco-antigo">R$ 38,00</span>
-                    <span class="preco-novo">R$ 29,90</span>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">1 X-Bacon Turbinado + 1 Batata Frita Pequena + 1 Lata de Refrigerante.</p>
+                <div class="precos" style="margin-bottom: 15px;">
+                    <span class="preco-antigo" style="text-decoration: line-through; color: #aaa; margin-right: 10px;">R$ 38,00</span>
+                    <span class="preco-novo" style="font-size: 22px; font-weight: 700; color: #9A031E;">R$ 29,90</span>
                 </div>
-                <button onclick="passarCombo('Combo Turbo Individual', 29.90)">Adicionar ao Carrinho</button>
+                <button onclick="passarCombo('Combo Turbo Individual', 29.90)" style="width: 100%; padding: 12px; background: #E36414; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Adicionar ao Carrinho</button>
             </div>
         </div>
 
-        <div class="promocao-card">
-            <span class="badge">Grátis Entrega</span>
-            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500" alt="Combo Família">
-            <div class="promocao-info">
+        <div class="promocao-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+            <span class="badge" style="position: absolute; top: 15px; left: 15px; background: #E36414; color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Grátis Entrega</span>
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500" alt="Combo Família" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="promocao-info" style="padding: 20px;">
                 <h2>Combo Mega Família</h2>
-                <p>3 X-Saladas + 1 Porção de Batata Grande + 1 Refrigerante 2 Litros.</p>
-                <div class="precos">
-                    <span class="preco-antigo">R$ 85,00</span>
-                    <span class="preco-novo">R$ 69,90</span>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">3 X-Saladas + 1 Porção de Batata Grande + 1 Refrigerante 2 Litros.</p>
+                <div class="precos" style="margin-bottom: 15px;">
+                    <span class="preco-antigo" style="text-decoration: line-through; color: #aaa; margin-right: 10px;">R$ 85,00</span>
+                    <span class="preco-novo" style="font-size: 22px; font-weight: 700; color: #9A031E;">R$ 69,90</span>
                 </div>
-                <button onclick="passarCombo('Combo Mega Família', 69.90)">Adicionar ao Carrinho</button>
+                <button onclick="passarCombo('Combo Mega Família', 69.90)" style="width: 100%; padding: 12px; background: #E36414; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Adicionar ao Carrinho</button>
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer style="background-color: #5F0F40; color: white; text-align: center; padding: 20px; margin-top: 40px;">
         <p>Fast Sabor © 2026</p>
         <p>Desenvolvido por Isaque</p>
     </footer>
@@ -91,7 +91,7 @@
                 minutos = minutos < 10 ? "0" + minutos : minutos;
                 segundos = segundos < 10 ? "0" + segundos : segundos;
 
-                display.textContent = horas + ":" + minutos + ":" + segundos;
+                display.textContent = horas + ":" + minutes + ":" + segundos;
 
                 if (--tempo < 0) {
                     clearInterval(intervalo);
@@ -104,7 +104,7 @@
             iniciarTimer(7200); 
         };
 
-        function passarCombo(nome, preco) {
+        function pasarCombo(nome, preco) {
             const combo = { nome: nome, preco: preco };
             localStorage.setItem("comboPromocao", JSON.stringify(combo));
             window.location.href = "cardapio.html";
