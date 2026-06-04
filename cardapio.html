@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fast Sabor - Cardápio</title>
-    <link rel="stylesheet" href="cardapio.css">
+    <title>Promoções Imperdíveis - Fast Sabor</title>
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,275 +22,93 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Nosso Cardápio</h1>
-        <p>Os melhores hambúrgueres artesanais da cidade.</p>
-        <input type="text" id="pesquisa" placeholder="🔍 Pesquisar produto...">
-        <p id="resultadoPesquisa">5 produtos encontrados</p>
+    <section class="banner-promocoes" style="background: linear-gradient(135deg,#5F0F40,#9A031E); padding: 60px 5%; color: white; text-align: center;">
+        <h1>Promoções Imperdíveis</h1>
+        <p>Aproveite nossas ofertas especiais por tempo limitado!</p>
+        <div class="contador" style="margin-top: 15px; font-weight: 600;">⏱ Ofertas terminam em: <span id="timer">00:00:00</span></div>
     </section>
 
-    <section class="categorias">
-        <button class="ativo">🍔 Hambúrgueres</button>
-        <button>🍟 Porções</button>
-        <button>🥤 Bebidas</button>
-        <button>🍰 Sobremesas</button>
-    </section>
-
-    <section class="conteudo">
-        <div class="produtos">
-            <div class="produto" data-nome="x burger">
-                <div class="tag">Mais Vendido</div>
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-                <div class="info">
-                    <h3>X-Burger</h3>
-                    <div class="avaliacao">⭐ 4.9</div>
-                    <p>Hambúrguer artesanal com queijo e molho especial.</p>
-                    <div class="extras">
-                        <span>🔥 15 min</span>
-                        <span>🍔 Artesanal</span>
-                    </div>
-                    <div class="rodape">
-                        <span class="preco">18</span>
-                        <button onclick="adicionarCarrinho('X-Burger',18)">Adicionar</button>
-                    </div>
+    <main class="promocoes-container" id="lista-promocoes" style="padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div class="promocao-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+            <span class="badge" style="position: absolute; top: 15px; left: 15px; background: #E36414; color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600;">20% OFF</span>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Combo Casal" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="promocao-info" style="padding: 20px;">
+                <h2>Combo Duplo Casal</h2>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">2 X-Burgers + 1 Porção de Batata Média + 1 Refrigerante Litro.</p>
+                <div class="precos" style="margin-bottom: 15px;">
+                    <span class="preco-antigo" style="text-decoration: line-through; color: #aaa; margin-right: 10px;">R$ 52,00</span>
+                    <span class="preco-novo" style="font-size: 22px; font-weight: 700; color: #9A031E;">R$ 39,90</span>
                 </div>
-            </div>
-
-            <div class="produto" data-nome="x salada">
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-                <div class="info">
-                    <h3>X-Salada</h3>
-                    <div class="avaliacao">⭐ 4.8</div>
-                    <p>Alface, tomate e hambúrguer artesanal.</p>
-                    <div class="extras"><span>🔥 15 min</span></div>
-                    <div class="rodape">
-                        <span class="preco">20</span>
-                        <button onclick="adicionarCarrinho('X-Salada',20)">Adicionar</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="x bacon">
-                <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b">
-                <div class="info">
-                    <h3>X-Bacon</h3>
-                    <div class="avaliacao">⭐ 5.0</div>
-                    <p>Bacon crocante e cheddar.</p>
-                    <div class="extras"><span>🔥 18 min</span></div>
-                    <div class="rodape">
-                        <span class="preco">24</span>
-                        <button onclick="adicionarCarrinho('X-Bacon',24)">Adicionar</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="batata frita">
-                <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
-                <div class="info">
-                    <h3>Batata Frita</h3>
-                    <div class="avaliacao">⭐ 4.7</div>
-                    <p>Porção média crocante.</p>
-                    <div class="rodape">
-                        <span class="preco">12</span>
-                        <button onclick="adicionarCarrinho('Batata Frita',12)">Adicionar</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="refrigerante">
-                <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
-                <div class="info">
-                    <h3>Refrigerante</h3>
-                    <div class="avaliacao">⭐ 4.5</div>
-                    <p>Lata 350ml gelada.</p>
-                    <div class="rodape">
-                        <span class="preco">8</span>
-                        <button onclick="adicionarCarrinho('Refrigerante',8)">Adicionar</button>
-                    </div>
-                </div>
+                <button onclick="passarCombo('Combo Duplo Casal', 39.90)" style="width: 100%; padding: 12px; background: #E36414; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Adicionar ao Carrinho</button>
             </div>
         </div>
 
-        <aside class="carrinho">
-            <h2>🛒 Carrinho (<span id="contador">0</span>)</h2>
-            <div id="listaCarrinho"></div>
-            <h3>Total: R$ <span id="total">0.00</span></h3>
-            <button class="finalizar" onclick="abrirModalCheckout()">Finalizar Pedido</button>
-        </aside>
-    </section>
-
-    <div id="modalCheckout" class="modal-checkout">
-        <div class="modal-conteudo">
-            <h2>📋 Detalhes do Pedido</h2>
-            <p>Preencha os dados abaixo para concluir.</p>
-            
-            <form id="formCheckout" onsubmit="enviarPedidoWhatsApp(event)">
-                <label for="nomeCliente">Seu Nome:</label>
-                <input type="text" id="nomeCliente" placeholder="Ex: José Silva" required>
-
-                <label for="cepCliente">Seu CEP:</label>
-                <input type="text" id="cepCliente" placeholder="00000-000" maxlength="9" required>
-
-                <label for="enderecoCliente">Endereço de Entrega:</label>
-                <input type="text" id="enderecoCliente" placeholder="Rua, Número, Bairro, Complemento" required>
-
-                <label for="formaPagamento">Forma de Pagamento:</label>
-                <select id="formaPagamento" onchange="verificarDinheiro(this.value)" required>
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="Dinheiro">💵 Dinheiro</option>
-                    <option value="Pix">📱 Pix</option>
-                    <option value="Cartão de Crédito">💳 Cartão de Crédito</option>
-                    <option value="Cartão de Débito">💳 Cartão de Débito</option>
-                    <option value="Vale Alimentação (VA)">🍔 Vale Alimentação (VA)</option>
-                </select>
-
-                <div id="campoTroco" style="display: none; flex-direction: column; gap: 5px;">
-                    <label for="trocoPara">Precisa de troco para quanto?</label>
-                    <input type="text" id="trocoPara" placeholder="Ex: R$ 50,00 ou Não preciso">
+        <div class="promocao-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+            <span class="badge" style="position: absolute; top: 15px; left: 15px; background: #E36414; color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600;">15% OFF</span>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Combo Individual" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="promocao-info" style="padding: 20px;">
+                <h2>Combo Turbo Individual</h2>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">1 X-Bacon Turbinado + 1 Batata Frita Pequena + 1 Lata de Refrigerante.</p>
+                <div class="precos" style="margin-bottom: 15px;">
+                    <span class="preco-antigo" style="text-decoration: line-through; color: #aaa; margin-right: 10px;">R$ 38,00</span>
+                    <span class="preco-novo" style="font-size: 22px; font-weight: 700; color: #9A031E;">R$ 29,90</span>
                 </div>
-
-                <div class="modal-botoes">
-                    <button type="button" class="btn-cancelar" onclick="fecharModalCheckout()">Voltar</button>
-                    <button type="submit" class="btn-confirmar">Enviar via WhatsApp</button>
-                </div>
-            </form>
+                <button onclick="passarCombo('Combo Turbo Individual', 29.90)" style="width: 100%; padding: 12px; background: #E36414; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Adicionar ao Carrinho</button>
+            </div>
         </div>
-    </div>
+
+        <div class="promocao-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+            <span class="badge" style="position: absolute; top: 15px; left: 15px; background: #E36414; color: white; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Grátis Entrega</span>
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500" alt="Combo Família" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="promocao-info" style="padding: 20px;">
+                <h2>Combo Mega Família</h2>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">3 X-Saladas + 1 Porção de Batata Grande + 1 Refrigerante 2 Litros.</p>
+                <div class="precos" style="margin-bottom: 15px;">
+                    <span class="preco-antigo" style="text-decoration: line-through; color: #aaa; margin-right: 10px;">R$ 85,00</span>
+                    <span class="preco-novo" style="font-size: 22px; font-weight: 700; color: #9A031E;">R$ 69,90</span>
+                </div>
+                <button onclick="passarCombo('Combo Mega Família', 69.90)" style="width: 100%; padding: 12px; background: #E36414; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background-color: #5F0F40; color: white; text-align: center; padding: 20px; margin-top: 40px;">
+        <p>Fast Sabor © 2026</p>
+        <p>Desenvolvido por Isaque</p>
+    </footer>
 
     <script>
-        const pesquisa = document.getElementById("pesquisa");
-        const resultado = document.getElementById("resultadoPesquisa");
-
-        pesquisa.addEventListener("keyup", () => {
-            const valor = pesquisa.value.toLowerCase();
-            const produtos = document.querySelectorAll(".produto");
-            let encontrados = 0;
-
-            produtos.forEach(produto => {
-                const nome = produto.dataset.nome.toLowerCase();
-                if(nome.includes(valor)){
-                    produto.style.display = "block";
-                    encontrados++;
-                }else{
-                    produto.style.display = "none";
-                }
-            });
-
-            resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
-        });
-
-        document.getElementById("cepCliente").addEventListener("input", (e) => {
-            let value = e.target.value.replace(/\D/g, "");
-            if (value.length > 5) {
-                value = value.substring(0, 5) + "-" + value.substring(5, 8);
-            }
-            e.target.value = value;
-        });
-
-        let itensCarrinho = [];
-        let valorTotalPedido = 0;
-
-        function adicionarCarrinho(nome, preco){
-            itensCarrinho.push({ nome, preco });
-            atualizarInterfaceCarrinho();
-        }
-
-        function removerDoCarrinho(index){
-            itensCarrinho.splice(index, 1);
-            atualizarInterfaceCarrinho();
-        }
-
-        function atualizarInterfaceCarrinho(){
-            const lista = document.getElementById("listaCarrinho");
-            lista.innerHTML = "";
-            valorTotalPedido = 0;
-
-            itensCarrinho.forEach((produto, index) => {
-                valorTotalPedido += produto.preco;
-                const item = document.createElement("div");
-                item.classList.add("itemCarrinho");
-                item.innerHTML = `
-                    <span>${produto.nome} - R$ ${produto.preco.toFixed(2)}</span>
-                    <button class="btn-remover-item" onclick="removerDoCarrinho(${index})">❌</button>
-                `;
-                lista.appendChild(item);
-            });
-
-            document.getElementById("total").innerHTML = valorTotalPedido.toFixed(2);
-            document.getElementById("contador").innerHTML = itensCarrinho.length;
-        }
-
-        function abrirModalCheckout() {
-            if (itensCarrinho.length === 0) {
-                alert("O seu carrinho está vazio! Adicione algum produto antes de finalizar.");
-                return;
-            }
-            document.getElementById("modalCheckout").style.display = "flex";
-        }
-
-        document.getElementById("modalCheckout").addEventListener("click", function(e) {
-            if (e.target === this) fecharModalCheckout();
-        });
-
-        function fecharModalCheckout() {
-            document.getElementById("modalCheckout").style.display = "none";
-            document.getElementById("campoTroco").style.display = "none";
-        }
-
-        function verificarDinheiro(valor) {
-            const divTroco = document.getElementById("campoTroco");
-            if (valor === "Dinheiro") {
-                divTroco.style.display = "flex";
-            } else {
-                divTroco.style.display = "none";
-            }
-        }
-
-        function enviarPedidoWhatsApp(event) {
-            event.preventDefault();
-
-            const nome = document.getElementById("nomeCliente").value;
-            const cep = document.getElementById("cepCliente").value;
-            const endereco = document.getElementById("enderecoCliente").value;
-            const pagamento = document.getElementById("formaPagamento").value;
-            const troco = document.getElementById("trocoPara").value;
-
-            let textoProdutos = "";
-            itensCarrinho.forEach(item => {
-                textoProdutos += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
-            });
-
-            const numeroTelefone = "5511976718229"; 
+        function iniciarTimer(duracaoEmSegundos) {
+            let tempo = duracaoEmSegundos;
+            const display = document.getElementById('timer');
             
-            let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
-                           `*Cliente:* ${nome}\n` +
-                           `*CEP:* ${cep}\n` +
-                           `*Endereço:* ${endereco}\n\n` +
-                           `*Itens do Pedido:*\n${textoProdutos}\n` +
-                           `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
-                           `*Forma de Pagamento:* ${pagamento}`;
+            const intervalo = setInterval(function () {
+                let horas = Math.floor(tempo / 3600);
+                let minutos = Math.floor((tempo % 3600) / 60);
+                let segundos = tempo % 60;
 
-            if (pagamento === "Dinheiro" && troco.trim() !== "") {
-                mensagem += `\n*Troco para:* ${troco}`;
-            }
+                horas = horas < 10 ? "0" + horas : horas;
+                minutos = minutos < 10 ? "0" + minutos : minutos;
+                segundos = segundos < 10 ? "0" + segundos : segundos;
 
-            const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
-            window.open(linkWhatsApp, "_blank");
+                display.textContent = horas + ":" + minutes + ":" + segundos;
 
-            itensCarrinho = [];
-            atualizarInterfaceCarrinho();
-            document.getElementById("formCheckout").reset();
-            fecharModalCheckout();
+                if (--tempo < 0) {
+                    clearInterval(intervalo);
+                    display.textContent = "PROMOÇÃO ENCERRADA!";
+                }
+            }, 1000);
         }
 
-        window.onload = function() {
-            const comboData = localStorage.getItem("comboPromocao");
-            if (comboData) {
-                const combo = JSON.parse(comboData);
-                adicionarCarrinho(combo.nome, combo.preco);
-                localStorage.removeItem("comboPromocao");
-            }
+        window.onload = function () {
+            iniciarTimer(7200); 
         };
+
+        function pasarCombo(nome, preco) {
+            const combo = { nome: nome, preco: preco };
+            localStorage.setItem("comboPromocao", JSON.stringify(combo));
+            window.location.href = "cardapio.html";
+        }
     </script>
 </body>
 </html>
