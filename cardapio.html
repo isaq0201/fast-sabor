@@ -16,6 +16,8 @@
             <a href="cardapio.html">Cardápio</a>
             <a href="promocoes.html">Promoções</a>
             <a href="cliente/avaliacoes.html">Avaliações</a>
+            <a href="cliente/reclamacoes.html">Reclamações</a>
+            <a href="sobre.html">Sobre</a>
             <a href="cliente/contato.html">Contato</a>
         </nav>
     </header>
@@ -261,12 +263,12 @@
             const numeroTelefone = "5511976718229"; 
             
             let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n` +
-                             `*Cliente:* ${nome}\n` +
-                             `*CEP:* ${cep}\n` +
-                             `*Endereço:* ${endereco}\n\n` +
-                             `*Itens do Pedido:*\n${textoProdutos}\n` +
-                             `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
-                             `*Forma de Pagamento:* ${pagamento}`;
+                           `*Cliente:* ${nome}\n` +
+                           `*CEP:* ${cep}\n` +
+                           `*Endereço:* ${endereco}\n\n` +
+                           `*Itens do Pedido:*\n${textoProdutos}\n` +
+                           `*Total:* R$ ${valorTotalPedido.toFixed(2)}\n` +
+                           `*Forma de Pagamento:* ${pagamento}`;
 
             if (pagamento === "Dinheiro" && troco.trim() !== "") {
                 mensagem += `\n*Troco para:* ${troco}`;
