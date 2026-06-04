@@ -2,179 +2,88 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Promoções - Fast Sabor</title>
-
-<link rel="stylesheet" href="promocoes.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoções Imperdíveis - Fast Sabor</title>
+    <link rel="stylesheet" href="promocoes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Fast Sabor Logo">
+        </div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="promocoes.html">Promoções</a>
+            <a href="cliente/avaliacoes.html">Avaliações</a>
+            <a href="cliente/contato.html">Contato</a>
+        </nav>
+    </header>
 
-<div class="logo">
-🍔 Fast Sabor
-</div>
+    <section class="hero">
+        <h1>Combos e Promoções</h1>
+        <p>Aproveite os melhores preços da semana!</p>
+    </section>
 
-<nav>
+    <main class="container">
+        <div class="card-promocao">
+            <div class="tag-desconto">20% OFF</div>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Combo Casal">
+            <div class="info-promocao">
+                <h3>Combo Duplo Casal</h3>
+                <p>2 X-Burgers + 1 Porção de Batata Média + 1 Refrigerante Litro.</p>
+                <div class="precos">
+                    <span class="preco-antigo">R$ 52,00</span>
+                    <span class="preco-novo">R$ 39,90</span>
+                </div>
+                <button class="btn-obter" onclick="passarCombo('Combo Duplo Casal', 39.90)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
 
-<a href="index.html">Início</a>
-<a href="cardapio.html">Cardápio</a>
-<a href="promocoes.html">Promoções</a>
-<a href="cliente/avaliacoes.html">Avaliações</a>
-<a href="cliente/reclamacoes.html">Reclamações</a>
-<a href="sobre.html">Sobre</a>
-<a href="cliente/contato.html">Contato</a>
+        <div class="card-promocao">
+            <div class="tag-desconto">15% OFF</div>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Combo Individual">
+            <div class="info-promocao">
+                <h3>Combo Turbo Individual</h3>
+                <p>1 X-Bacon Turbinado + 1 Batata Frita Pequena + 1 Lata de Refrigerante.</p>
+                <div class="precos">
+                    <span class="preco-antigo">R$ 38,00</span>
+                    <span class="preco-novo">R$ 29,90</span>
+                </div>
+                <button class="btn-obter" onclick="passarCombo('Combo Turbo Individual', 29.90)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
 
-</nav>
+        <div class="card-promocao">
+            <div class="tag-desconto">Grátis Entrega</div>
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b" alt="Combo Família">
+            <div class="info-promocao">
+                <h3>Combo Mega Família</h3>
+                <p>3 X-Saladas + 1 Porção de Batata Grande + 1 Refrigerante 2 Litros.</p>
+                <div class="precos">
+                    <span class="preco-antigo">R$ 85,00</span>
+                    <span class="preco-novo">R$ 69,90</span>
+                </div>
+                <button class="btn-obter" onclick="passarCombo('Combo Mega Família', 69.90)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </main>
 
-</header>
+    <footer>
+        <p>Fast Sabor © 2026</p>
+        <p>Desenvolvido por Isaque</p>
+    </footer>
 
-<section class="banner-promocoes">
-
-<div class="banner-conteudo">
-
-<h1>🔥 Promoções Imperdíveis</h1>
-
-<p>
-Economize e aproveite os melhores combos da Fast Sabor.
-</p>
-
-<div class="contador">
-⏰ Ofertas válidas até:
-<span id="timer">23:59:59</span>
-</div>
-
-</div>
-
-</section>
-
-<section class="promocoes-container">
-
-<div class="promocao-card">
-
-<div class="badge">
-40% OFF
-</div>
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-
-<div class="promocao-info">
-
-<h2>Combo Fast</h2>
-
-<p>
-Hambúrguer artesanal + Batata Frita + Refrigerante.
-</p>
-
-<div class="precos">
-
-<span class="preco-antigo">
-R$ 39,99
-</span>
-
-<span class="preco-novo">
-R$ 24,99
-</span>
-
-</div>
-
-<button onclick="passarCombo('Combo Fast', 24.99)">
-Aproveitar Oferta
-</button>
-
-</div>
-
-</div>
-
-<div class="promocao-card">
-
-<div class="badge">
-35% OFF
-</div>
-
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-
-<div class="promocao-info">
-
-<h2>Combo Família</h2>
-
-<p>
-4 Hambúrgueres + 4 Refrigerantes.
-</p>
-
-<div class="precos">
-
-<span class="preco-antigo">
-R$ 119,99
-</span>
-
-<span class="preco-novo">
-R$ 79,99
-</span>
-
-</div>
-
-<button onclick="passarCombo('Combo Família', 79.99)">
-Aproveitar Oferta
-</button>
-
-</div>
-
-</div>
-
-<div class="promocao-card">
-
-<div class="badge">
-50% OFF
-</div>
-
-<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
-
-<div class="promocao-info">
-
-<h2>Batata Gigante</h2>
-
-<p>
-Porção especial para compartilhar.
-</p>
-
-<div class="precos">
-
-<span class="preco-antigo">
-R$ 29,99
-</span>
-
-<span class="preco-novo">
-R$ 14,99
-</span>
-
-</div>
-
-<button onclick="passarCombo('Batata Gigante', 14.99)">
-Aproveitar Oferta
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-function passarCombo(nome, preco) {
-    // Guarda os dados no navegador convertidos em texto JSON
-    localStorage.setItem("comboPromocao", JSON.stringify({ nome: nome, preco: preco }));
-    // Redireciona para o cardápio
-    window.location.href = "cardapio.html";
-}
-</script>
-
-<script src="js/promocoes.js"></script>
-
+    <script>
+        function passarCombo(nome, preco) {
+            const combo = { nome: nome, preco: preco };
+            localStorage.setItem("comboPromocao", JSON.stringify(combo));
+            window.location.href = "cardapio.html";
+        }
+    </script>
 </body>
 </html>
