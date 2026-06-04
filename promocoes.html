@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,67 +7,67 @@
     <link rel="stylesheet" href="promocoes.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="Fast Sabor Logo">
-        </div>
+        <div class="logo">🍔 Fast Sabor</div>
         <nav>
             <a href="index.html">Início</a>
             <a href="cardapio.html">Cardápio</a>
             <a href="promocoes.html">Promoções</a>
             <a href="cliente/avaliacoes.html">Avaliações</a>
+            <a href="cliente/reclamacoes.html">Reclamações</a>
+            <a href="sobre.html">Sobre</a>
             <a href="cliente/contato.html">Contato</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Combos e Promoções</h1>
-        <p>Aproveite os melhores preços da semana!</p>
+    <section class="banner-promocoes">
+        <h1>Promoções Imperdíveis</h1>
+        <p>Aproveite nossas ofertas especiais por tempo limitado!</p>
+        <div class="contador">⏱ Ofertas terminam em: <span id="timer">00:00:00</span></div>
     </section>
 
-    <main class="container">
-        <div class="card-promocao">
-            <div class="tag-desconto">20% OFF</div>
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Combo Casal">
-            <div class="info-promocao">
-                <h3>Combo Duplo Casal</h3>
+    <main class="promocoes-container" id="lista-promocoes">
+        <div class="promocao-card">
+            <span class="badge">20% OFF</span>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Combo Casal">
+            <div class="promocao-info">
+                <h2>Combo Duplo Casal</h2>
                 <p>2 X-Burgers + 1 Porção de Batata Média + 1 Refrigerante Litro.</p>
                 <div class="precos">
                     <span class="preco-antigo">R$ 52,00</span>
                     <span class="preco-novo">R$ 39,90</span>
                 </div>
-                <button class="btn-obter" onclick="passarCombo('Combo Duplo Casal', 39.90)">Adicionar ao Carrinho</button>
+                <button onclick="passarCombo('Combo Duplo Casal', 39.90)">Adicionar ao Carrinho</button>
             </div>
         </div>
 
-        <div class="card-promocao">
-            <div class="tag-desconto">15% OFF</div>
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Combo Individual">
-            <div class="info-promocao">
-                <h3>Combo Turbo Individual</h3>
+        <div class="promocao-card">
+            <span class="badge">15% OFF</span>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Combo Individual">
+            <div class="promocao-info">
+                <h2>Combo Turbo Individual</h2>
                 <p>1 X-Bacon Turbinado + 1 Batata Frita Pequena + 1 Lata de Refrigerante.</p>
                 <div class="precos">
                     <span class="preco-antigo">R$ 38,00</span>
                     <span class="preco-novo">R$ 29,90</span>
                 </div>
-                <button class="btn-obter" onclick="passarCombo('Combo Turbo Individual', 29.90)">Adicionar ao Carrinho</button>
+                <button onclick="passarCombo('Combo Turbo Individual', 29.90)">Adicionar ao Carrinho</button>
             </div>
         </div>
 
-        <div class="card-promocao">
-            <div class="tag-desconto">Grátis Entrega</div>
-            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b" alt="Combo Família">
-            <div class="info-promocao">
-                <h3>Combo Mega Família</h3>
+        <div class="promocao-card">
+            <span class="badge">Grátis Entrega</span>
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500" alt="Combo Família">
+            <div class="promocao-info">
+                <h2>Combo Mega Família</h2>
                 <p>3 X-Saladas + 1 Porção de Batata Grande + 1 Refrigerante 2 Litros.</p>
                 <div class="precos">
                     <span class="preco-antigo">R$ 85,00</span>
                     <span class="preco-novo">R$ 69,90</span>
                 </div>
-                <button class="btn-obter" onclick="passarCombo('Combo Mega Família', 69.90)">Adicionar ao Carrinho</button>
+                <button onclick="passarCombo('Combo Mega Família', 69.90)">Adicionar ao Carrinho</button>
             </div>
         </div>
     </main>
@@ -79,6 +78,32 @@
     </footer>
 
     <script>
+        function iniciarTimer(duracaoEmSegundos) {
+            let tempo = duracaoEmSegundos;
+            const display = document.getElementById('timer');
+            
+            const intervalo = setInterval(function () {
+                let horas = Math.floor(tempo / 3600);
+                let minutos = Math.floor((tempo % 3600) / 60);
+                let segundos = tempo % 60;
+
+                horas = horas < 10 ? "0" + horas : horas;
+                minutos = minutos < 10 ? "0" + minutos : minutos;
+                segundos = segundos < 10 ? "0" + segundos : segundos;
+
+                display.textContent = horas + ":" + minutos + ":" + segundos;
+
+                if (--tempo < 0) {
+                    clearInterval(intervalo);
+                    display.textContent = "PROMOÇÃO ENCERRADA!";
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            iniciarTimer(7200); 
+        };
+
         function passarCombo(nome, preco) {
             const combo = { nome: nome, preco: preco };
             localStorage.setItem("comboPromocao", JSON.stringify(combo));
