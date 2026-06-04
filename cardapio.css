@@ -2,13 +2,14 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
 background:#FFF8F0;
 }
 
+/* HEADER */
 header{
 background:#5F0F40;
 padding:15px 5%;
@@ -19,9 +20,9 @@ flex-wrap:wrap;
 }
 
 .logo{
-color:white;
 font-size:28px;
 font-weight:700;
+color:white;
 }
 
 nav{
@@ -33,87 +34,97 @@ flex-wrap:wrap;
 nav a{
 color:white;
 text-decoration:none;
+font-weight:500;
+transition:.3s;
 }
 
 nav a:hover{
 color:#FB8B24;
 }
 
+/* HERO */
 .hero{
-padding:50px 5%;
 background:linear-gradient(135deg,#5F0F40,#9A031E);
+padding:60px 5%;
 color:white;
+text-align:center;
 }
 
 .hero h1{
-font-size:48px;
-}
-
-.hero p{
-margin:10px 0 20px;
+font-size:42px;
+margin-bottom:10px;
 }
 
 #pesquisa{
 width:100%;
 max-width:500px;
 padding:14px;
+margin-top:20px;
 border:none;
-border-radius:10px;
+border-radius:30px;
+outline:none;
+font-size:16px;
 }
 
 #resultadoPesquisa{
-margin-top:15px;
+margin-top:10px;
+font-size:14px;
+opacity:.8;
 }
 
+/* CATEGORIAS */
 .categorias{
-padding:25px 5%;
+padding:30px 5% 0 5%;
 display:flex;
-gap:10px;
+justify-content:center;
+gap:15px;
 flex-wrap:wrap;
 }
 
 .categorias button{
+padding:10px 20px;
 border:none;
-padding:12px 20px;
+background:white;
 border-radius:30px;
+font-weight:600;
 cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+transition:.3s;
 }
 
-.ativo{
+.categorias button.ativo,
+.categorias button:hover{
 background:#E36414;
 color:white;
 }
 
+/* CONTEÚDO PRINCIPAL */
 .conteudo{
+padding:40px 5%;
 display:grid;
 grid-template-columns:3fr 1fr;
 gap:30px;
-padding:0 5% 40px;
+align-items:start;
 }
 
+/* PRODUTOS */
 .produtos{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+gap:25px;
 }
 
 .produto{
 background:white;
 border-radius:20px;
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
+box-shadow:0 5px 15px rgba(0,0,0,.05);
 position:relative;
 transition:.3s;
 }
 
 .produto:hover{
 transform:translateY(-5px);
-}
-
-.produto img{
-width:100%;
-height:220px;
-object-fit:cover;
 }
 
 .tag{
@@ -125,6 +136,13 @@ color:white;
 padding:5px 12px;
 border-radius:20px;
 font-size:12px;
+font-weight:600;
+}
+
+.produto img{
+width:100%;
+height:200px;
+object-fit:cover;
 }
 
 .info{
@@ -132,30 +150,40 @@ padding:20px;
 }
 
 .info h3{
+margin-bottom:5px;
 color:#9A031E;
 }
 
 .avaliacao{
 color:#FB8B24;
-margin:8px 0;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.info p{
+font-size:14px;
+color:#666;
+margin-bottom:15px;
+height:40px;
+overflow:hidden;
 }
 
 .extras{
 display:flex;
 gap:10px;
-margin:10px 0;
+margin-bottom:15px;
 }
 
 .extras span{
 background:#FFF1E5;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
 color:#E36414;
+padding:4px 10px;
+border-radius:10px;
+font-size:12px;
+font-weight:600;
 }
 
 .rodape{
-margin-top:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -164,187 +192,180 @@ align-items:center;
 .preco{
 font-size:22px;
 font-weight:700;
-color:#E36414;
+color:#333;
+}
+
+.preco::before{
+content:"R$ ";
+font-size:14px;
 }
 
 .rodape button{
+padding:10px 20px;
 background:#E36414;
-border:none;
 color:white;
-padding:10px 15px;
-border-radius:10px;
+border:none;
+border-radius:12px;
+font-weight:600;
 cursor:pointer;
+transition:.3s;
 }
 
+.rodape button:hover{
+background:#9A031E;
+}
+
+/* CARRINHO */
 .carrinho{
 background:white;
-padding:20px;
+padding:25px;
 border-radius:20px;
-height:fit-content;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
+box-shadow:0 5px 15px rgba(0,0,0,.05);
 position:sticky;
 top:20px;
 }
 
+.carrinho h2{
+margin-bottom:20px;
+font-size:20px;
+color:#5F0F40;
+border-bottom:2px solid #FFF8F0;
+padding-bottom:10px;
+}
+
 #listaCarrinho{
-margin:20px 0;
+max-height:240px;
+overflow-y:auto;
+margin-bottom:20px;
 }
 
 .itemCarrinho{
-padding:10px 0;
-border-bottom:1px solid #ddd;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:10px 0;
+border-bottom:1px solid #eee;
+font-size:14px;
 }
 
-.btn-remover-item {
-background: none;
-border: none;
-cursor: pointer;
-font-size: 14px;
-padding: 4px;
-transition: transform 0.2s;
+.btn-remover-item{
+background:none;
+border:none;
+cursor:pointer;
+font-size:14px;
 }
 
-.btn-remover-item:hover {
-transform: scale(1.2);
+.carrinho h3{
+margin-bottom:20px;
+display:flex;
+justify-content:space-between;
 }
 
 .finalizar{
 width:100%;
-padding:15px;
-border:none;
-background:#9A031E;
+padding:14px;
+background:#5F0F40;
 color:white;
-border-radius:10px;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:600;
 cursor:pointer;
-margin-top:15px;
+transition:.3s;
 }
 
-/* ======================================
-   ESTILIZAÇÃO DO MODAL DE CHECKOUT
-   ====================================== */
+.finalizar:hover{
+background:#9A031E;
+}
+
+/* MODAL CHECKOUT */
 .modal-checkout {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+position:fixed;
+top:0; left:0;
+width:100%; height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
 }
 
 .modal-conteudo {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: surgimento 0.3s ease-out;
-}
-
-@keyframes surgimento {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+background:white;
+padding:30px;
+border-radius:20px;
+width:100%;
+max-width:500px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .modal-conteudo h2 {
-    color: #9A031E;
-    margin-bottom: 5px;
+color:#5F0F40;
+margin-bottom:10px;
 }
 
-.modal-conteudo p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 20px;
+.modal-conteudo label {
+display:block;
+margin-top:15px;
+margin-bottom:5px;
+font-weight:600;
+font-size:14px;
 }
 
-#formCheckout {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-#formCheckout label {
-    font-weight: 500;
-    font-size: 14px;
-    color: #333;
-}
-
-#formCheckout input, 
-#formCheckout select {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: inherit;
-    width: 100%;
+.modal-conteudo input,
+.modal-conteudo select {
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:14px;
 }
 
 .modal-botoes {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+display:flex;
+gap:10px;
+margin-top:25px;
 }
 
 .btn-cancelar {
-    flex: 1;
-    background: #eee;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    color: #333;
+flex:1;
+padding:12px;
+background:#ccc;
+color:#333;
+border:none;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
 }
 
 .btn-confirmar {
-    flex: 2;
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.btn-confirmar:hover {
-    background: #20ba59;
+flex:2;
+padding:12px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
 }
 
 /* RESPONSIVO */
 @media(max-width:900px){
-.conteudo{ grid-template-columns:1fr; }
-.carrinho{ position:relative; }
+.conteudo{
+grid-template-columns:1fr;
 }
-
-@media(max-width:600px){
-.hero h1{ font-size:35px; }
-header{ justify-content:center; gap:15px; }
-nav{ justify-content:center; }
+.carrinho{
+position:static;
 }
-/* Correção da Logo no Cardápio */
-.logo {
-    display: flex;
-    align-items: center;
+header{
+justify-content:center;
+gap:15px;
 }
-
-.logo img {
-    height: 50px;     /* Força a logo a ficar pequena */
-    width: auto;      /* Mantém a proporção perfeita */
-    display: block;
+nav{
+justify-content:center;
 }
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero h1{
+font-size:32px;
+}
 }
