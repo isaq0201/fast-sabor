@@ -1,577 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Fast Sabor</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-:root{
---roxo:#5F0F40;
---vermelho:#9A031E;
---laranja:#E36414;
---amarelo:#FB8B24;
---fundo:#FFF8F0;
---texto:#333;
-}
-
-body{
-background:var(--fundo);
-color:var(--texto);
-transition:.3s;
-}
-
-/* HEADER */
-
-header{
-background:var(--roxo);
-padding:15px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-position:sticky;
-top:0;
-z-index:999;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-color:white;
-}
-
-nav{
-display:flex;
-gap:20px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-weight:500;
-}
-
-nav a:hover{
-color:var(--amarelo);
-}
-
-#tema{
-width:45px;
-height:45px;
-border:none;
-border-radius:50%;
-background:var(--amarelo);
-color:white;
-cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-min-height:85vh;
-background:linear-gradient(
-135deg,
-var(--roxo),
-var(--vermelho),
-var(--laranja)
-);
-
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
-color:white;
-}
-
-.hero-content{
-max-width:800px;
-}
-
-.hero h1{
-font-size:4rem;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:1.2rem;
-margin-bottom:30px;
-}
-
-.btn{
-background:white;
-color:var(--vermelho);
-border:none;
-padding:15px 35px;
-border-radius:12px;
-font-weight:600;
-font-size:16px;
-cursor:pointer;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-}
-
-/* SEÇÕES */
-
-section{
-padding:80px 8%;
-}
-
-.titulo{
-text-align:center;
-margin-bottom:50px;
-}
-
-.titulo h2{
-font-size:2.5rem;
-color:var(--vermelho);
-}
-
-.titulo p{
-color:#777;
-margin-top:10px;
-}
-
-/* CARDS */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.card .icone{
-font-size:50px;
-margin-bottom:15px;
-}
-
-.card h3{
-margin-bottom:10px;
-color:var(--vermelho);
-}
-
-/* ESTATÍSTICAS */
-
-.estatisticas{
-background:white;
-}
-
-.numero{
-font-size:45px;
-font-weight:700;
-color:var(--laranja);
-}
-
-/* PROMOÇÕES */
-
-.promocoes{
-background:#fff;
-}
-
-.promocao{
-overflow:hidden;
-padding:0;
-}
-
-.promocao img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.promocao-info{
-padding:20px;
-}
-
-.preco{
-font-size:28px;
-font-weight:700;
-color:var(--laranja);
-margin-top:10px;
-}
-
-/* AVALIAÇÕES */
-
-.avaliacao{
-text-align:left;
-}
-
-.estrelas{
-color:var(--amarelo);
-font-size:22px;
-margin-bottom:10px;
-}
-
-/* FOOTER */
-
-footer{
-background:var(--roxo);
-color:white;
-text-align:center;
-padding:30px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-
-width:65px;
-height:65px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:32px;
-text-decoration:none;
-color:white;
-
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
-
-/* DARK MODE */
-
-.dark{
-background:#111;
-color:white;
-}
-
-.dark .card{
-background:#1d1d1d;
-color:white;
-}
-
-.dark .titulo h2{
-color:var(--amarelo);
-}
-
-.dark .estatisticas{
-background:#111;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.5rem;
-}
-
-header{
-justify-content:center;
-gap:15px;
-}
-
-nav{
-justify-content:center;
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Sabor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<header>
-
-<div class="logo">
-🍔 Fast Sabor
-</div>
-
-<nav>
-
-<a href="index.html">Início</a>
-<a href="cardapio.html">Cardápio</a>
-<a href="promocoes.html">Promoções</a>
-<a href="cliente/avaliacoes.html">Avaliações</a>
-<a href="cliente/reclamacoes.html">Reclamações</a>
-<a href="sobre.html">Sobre</a>
-<a href="cliente/contato.html">Contato</a>
-
-<button id="tema">🌙</button>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>🍔 O Melhor Hambúrguer da Cidade</h1>
-
-<p>
-Qualidade, sabor e rapidez em cada pedido.
-Experimente a verdadeira experiência Fast Sabor.
-</p>
-
-<a href="cardapio.html">
-<button class="btn">
-VER CARDÁPIO
-</button>
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="titulo">
-
-<h2>Por que escolher a Fast Sabor?</h2>
-
-<p>Motivos que fazem nossos clientes voltarem sempre.</p>
-
-</div>
-
-<div class="grid">
-
-<div class="card">
-<div class="icone">🚚</div>
-<h3>Entrega Rápida</h3>
-<p>Seu pedido chega em poucos minutos.</p>
-</div>
-
-<div class="card">
-<div class="icone">🍔</div>
-<h3>Ingredientes Frescos</h3>
-<p>Produtos selecionados diariamente.</p>
-</div>
-
-<div class="card">
-<div class="icone">⭐</div>
-<h3>Clientes Satisfeitos</h3>
-<p>Centenas de avaliações positivas.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="estatisticas">
-
-<div class="titulo">
-
-<h2>Nossos Números</h2>
-
-<p>Resultados conquistados todos os dias.</p>
-
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3 id="clientes" class="numero">0</h3>
-<p>Clientes Atendidos</p>
-</div>
-
-<div class="card">
-<h3 id="pedidos" class="numero">0</h3>
-<p>Pedidos Entregues</p>
-</div>
-
-<div class="card">
-<h3 id="avaliacoes" class="numero">0</h3>
-<p>Avaliações Positivas</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="promocoes">
-
-<div class="titulo">
-<h2>Promoções da Semana</h2>
-</div>
-
-<div class="grid">
-
-<div class="card promocao">
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-
-<div class="promocao-info">
-
-<h3>Combo Fast</h3>
-
-<p>Hambúrguer + Batata + Refrigerante</p>
-
-<div class="preco">
-R$ 24,99
-</div>
-
-</div>
-
-</div>
-
-<div class="card promocao">
-
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-
-<div class="promocao-info">
-
-<h3>Combo Família</h3>
-
-<p>4 Hambúrgueres + 4 Refrigerantes</p>
-
-<div class="preco">
-R$ 79,99
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="titulo">
-<h2>O que nossos clientes dizem</h2>
-</div>
-
-<div class="grid">
-
-<div class="card avaliacao">
-<div class="estrelas">⭐⭐⭐⭐⭐</div>
-<p>"O melhor hambúrguer da região."</p>
-<strong>João Silva</strong>
-</div>
-
-<div class="card avaliacao">
-<div class="estrelas">⭐⭐⭐⭐⭐</div>
-<p>"Entrega rápida e lanche delicioso."</p>
-<strong>Maria Souza</strong>
-</div>
-
-<div class="card avaliacao">
-<div class="estrelas">⭐⭐⭐⭐⭐</div>
-<p>"Atendimento excelente."</p>
-<strong>Carlos Lima</strong>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>Fast Sabor © 2026</p>
-
-<p>Desenvolvido por Isaque</p>
-
-</footer>
-
-<a
-href="https://wa.me/5511976718229"
-target="_blank"
-class="whatsapp">
-💬
-</a>
-
-<script>
-
-/* DARK MODE */
-
-const tema =
-document.getElementById("tema");
-
-tema.onclick = ()=>{
-
-document.body.classList.toggle("dark");
-
-if(document.body.classList.contains("dark")){
-tema.innerHTML="☀️";
-}else{
-tema.innerHTML="🌙";
-}
-
-};
-
-/* CONTADORES */
-
-const clientes =
-document.getElementById("clientes");
-
-const pedidos =
-document.getElementById("pedidos");
-
-const avaliacoes =
-document.getElementById("avaliacoes");
-
-let totalClientes = 1280;
-let totalPedidos = 5640;
-let totalAvaliacoes = 978;
-
-function atualizarNumeros(){
-
-totalClientes += Math.floor(Math.random()*3);
-totalPedidos += Math.floor(Math.random()*5);
-totalAvaliacoes += Math.floor(Math.random()*2);
-
-clientes.innerHTML =
-totalClientes.toLocaleString('pt-BR');
-
-pedidos.innerHTML =
-totalPedidos.toLocaleString('pt-BR');
-
-avaliacoes.innerHTML =
-totalAvaliacoes.toLocaleString('pt-BR');
-
-}
-
-atualizarNumeros();
-
-setInterval(
-atualizarNumeros,
-2500
-);
-
-</script>
-
+    <!-- ── HEADER ─────────────────────────── -->
+    <header>
+        <div class="logo">🍔 Fast Sabor</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="promocoes.html">Promoções</a>
+            <a href="cliente/avaliacoes.html">Avaliações</a>
+            <a href="cliente/reclamacoes.html">Reclamações</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="cliente/contato.html">Contato</a>
+            <button id="tema">🌙</button>
+        </nav>
+    </header>
+
+    <!-- ── HERO ───────────────────────────── -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 Desde 2024 em atividade</div>
+            <h1>O Melhor Hambúrguer da Cidade</h1>
+            <p>Qualidade, sabor e rapidez em cada pedido.<br>Experimente a verdadeira experiência Fast Sabor.</p>
+            <div class="hero-botoes">
+                <a href="cardapio.html"><button class="btn btn-branco">🍔 Ver Cardápio</button></a>
+                <a href="sobre.html"><button class="btn btn-outline">Conheça a gente</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DIFERENCIAIS ───────────────────── -->
+    <section>
+        <div class="titulo animar">
+            <h2>Por que escolher a Fast Sabor?</h2>
+            <p>Motivos que fazem nossos clientes voltarem sempre.</p>
+        </div>
+        <div class="grid">
+            <div class="card animar">
+                <span class="icone">🚚</span>
+                <h3>Entrega Rápida</h3>
+                <p>Seu pedido chega em poucos minutos, quentinho e fresquinho.</p>
+            </div>
+            <div class="card animar">
+                <span class="icone">🍔</span>
+                <h3>Ingredientes Frescos</h3>
+                <p>Produtos selecionados diariamente para garantir o melhor sabor.</p>
+            </div>
+            <div class="card animar">
+                <span class="icone">⭐</span>
+                <h3>Clientes Satisfeitos</h3>
+                <p>98% de aprovação — nossos clientes falam por nós.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── NOSSOS NÚMEROS ─────────────────── -->
+    <section class="estatisticas">
+        <div class="titulo animar">
+            <h2>Nossos Números</h2>
+            <p>Resultados conquistados todos os dias.</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card animar">
+                <span class="numero" id="stat-anos">0</span>
+                <p>Anos de história</p>
+            </div>
+            <div class="stat-card animar">
+                <span class="numero" id="stat-clientes">0</span>
+                <p>Clientes satisfeitos</p>
+            </div>
+            <div class="stat-card animar">
+                <span class="numero" id="stat-itens">0</span>
+                <p>Itens no cardápio</p>
+            </div>
+            <div class="stat-card animar">
+                <span class="numero" id="stat-aprovacao">0</span>
+                <p>% de aprovação</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROMOÇÕES ──────────────────────── -->
+    <section class="promocoes">
+        <div class="titulo animar">
+            <h2>Promoções da Semana</h2>
+            <p>Ofertas imperdíveis para você aproveitar.</p>
+        </div>
+        <div class="grid">
+            <div class="card promocao animar">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Combo Fast">
+                <div class="promocao-info">
+                    <h3>Combo Fast</h3>
+                    <p>Hambúrguer + Batata + Refrigerante</p>
+                    <div class="preco">R$ 24,99</div>
+                </div>
+            </div>
+            <div class="card promocao animar">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Combo Família">
+                <div class="promocao-info">
+                    <h3>Combo Família</h3>
+                    <p>4 Hambúrgueres + 4 Refrigerantes</p>
+                    <div class="preco">R$ 79,99</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── AVALIAÇÕES ─────────────────────── -->
+    <section>
+        <div class="titulo animar">
+            <h2>O que nossos clientes dizem</h2>
+            <p>Opiniões reais de quem já provou.</p>
+        </div>
+        <div class="grid">
+            <div class="card avaliacao animar">
+                <div class="estrelas">⭐⭐⭐⭐⭐</div>
+                <p>"O melhor hambúrguer da região, sem dúvida."</p>
+                <strong>João Silva</strong>
+            </div>
+            <div class="card avaliacao animar">
+                <div class="estrelas">⭐⭐⭐⭐⭐</div>
+                <p>"Entrega rápida e lanche delicioso. Recomendo!"</p>
+                <strong>Maria Souza</strong>
+            </div>
+            <div class="card avaliacao animar">
+                <div class="estrelas">⭐⭐⭐⭐⭐</div>
+                <p>"Atendimento excelente e sabor incrível."</p>
+                <strong>Carlos Lima</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA SOBRE ──────────────────────── -->
+    <section class="cta-sobre animar">
+        <h2>Quer conhecer nossa história?</h2>
+        <p>Saiba como a Fast Sabor nasceu e quem está por trás de cada sabor.</p>
+        <a href="sobre.html"><button class="btn btn-branco">Conheça a Fast Sabor</button></a>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────── -->
+    <footer>
+        <p>Fast Sabor © 2026</p>
+        <p>Desenvolvido por Isaque</p>
+    </footer>
+
+    <a href="https://wa.me/5511976718229" target="_blank" class="whatsapp">💬</a>
+
+    <script src="script.js"></script>
+    <script>
+        // ── DARK MODE ──────────────────────
+        const tema = document.getElementById('tema');
+        tema.onclick = () => {
+            document.body.classList.toggle('dark');
+            tema.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        };
+
+        // ── CONTADORES (mesmos valores do sobre.html) ──
+        const contadores = [
+            { id: 'stat-anos',      alvo: 2,    sufixo: '' },
+            { id: 'stat-clientes',  alvo: 5000, sufixo: '' },
+            { id: 'stat-itens',     alvo: 30,   sufixo: '' },
+            { id: 'stat-aprovacao', alvo: 98,   sufixo: '' },
+        ];
+
+        function animarContador(el, alvo) {
+            const duracao = 1600;
+            const passo = Math.ceil(alvo / (duracao / 16));
+            let atual = 0;
+            const timer = setInterval(() => {
+                atual = Math.min(atual + passo, alvo);
+                el.textContent = atual.toLocaleString('pt-BR');
+                if (atual >= alvo) clearInterval(timer);
+            }, 16);
+        }
+
+        // ── SCROLL ANIMATIONS ──────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visivel');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.animar').forEach(el => observer.observe(el));
+
+        // Disparar contadores quando a seção entrar na tela
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    contadores.forEach(c => {
+                        const el = document.getElementById(c.id);
+                        if (el) animarContador(el, c.alvo);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const estatisticas = document.querySelector('.estatisticas');
+        if (estatisticas) statsObserver.observe(estatisticas);
+    </script>
 </body>
 </html>
