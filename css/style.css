@@ -450,5 +450,19 @@ footer{
         grid-template-columns:1fr;
 
     }
+.hero{
+background:linear-gradient(135deg,#5F0F40,#9A031E);
+padding:60px 5%;
+color:white;
+text-align:center;
+}
 
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.hero p{
+opacity:.9;
+}
 }
