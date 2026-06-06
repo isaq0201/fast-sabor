@@ -349,17 +349,23 @@
     margin: 0 auto;
 }
 
-.membro-card {
-    text-align: center;
-    padding: 36px 20px;
-    border-radius: 20px;
-    background: var(--cinza-claro);
-    transition: transform .3s, box-shadow .3s;
+/* Centraliza os cards da última linha quando incompleta */
+.equipe-grid::after {
+    content: '';
 }
 
-.membro-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sombra);
+.secao-equipe .equipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.secao-equipe .membro-card {
+    flex: 0 1 calc(33.333% - 28px);
+    min-width: 240px;
 }
 
 .membro-avatar {
