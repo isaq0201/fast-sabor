@@ -4,24 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Promoções - Fast Sabor</title>
-
 <link rel="stylesheet" href="promocoes.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-🍔 Fast Sabor
-</div>
-
+<div class="logo">🍔 Fast Sabor</div>
 <nav>
-
 <a href="index.html">Início</a>
 <a href="cardapio.html">Cardápio</a>
 <a href="promocoes.html">Promoções</a>
@@ -29,148 +21,105 @@
 <a href="cliente/reclamacoes.html">Reclamações</a>
 <a href="sobre.html">Sobre</a>
 <a href="cliente/contato.html">Contato</a>
-
 </nav>
-
 </header>
 
 <section class="banner-promocoes">
-
 <div class="banner-conteudo">
-
 <h1>🔥 Promoções Imperdíveis</h1>
-
-<p>
-Economize e aproveite os melhores combos da Fast Sabor.
-</p>
-
+<p>Economize e aproveite os melhores combos da Fast Sabor.</p>
 <div class="contador">
-⏰ Ofertas válidas até:
-<span id="timer">23:59:59</span>
+⏰ Ofertas válidas até: <span id="timer">23:59:59</span>
 </div>
-
 </div>
-
 </section>
 
 <section class="promocoes-container">
 
 <div class="promocao-card">
-
-<div class="badge">
-40% OFF
-</div>
-
+<div class="badge">40% OFF</div>
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-
 <div class="promocao-info">
-
 <h2>Combo Fast</h2>
-
-<p>
-Hambúrguer artesanal + Batata Frita + Refrigerante.
-</p>
-
+<p>Hambúrguer artesanal + Batata Frita + Refrigerante.</p>
 <div class="precos">
-
-<span class="preco-antigo">
-R$ 39,99
-</span>
-
-<span class="preco-novo">
-R$ 24,99
-</span>
-
+<span class="preco-antigo">R$ 39,99</span>
+<span class="preco-novo">R$ 24,99</span>
 </div>
-
-<button onclick="passarCombo('Combo Fast', 24.99)">
-Aproveitar Oferta
-</button>
-
+<button onclick="abrirModal('Combo Fast', 24.99)">Aproveitar Oferta</button>
 </div>
-
 </div>
 
 <div class="promocao-card">
-
-<div class="badge">
-35% OFF
-</div>
-
+<div class="badge">35% OFF</div>
 <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-
 <div class="promocao-info">
-
 <h2>Combo Família</h2>
-
-<p>
-4 Hambúrgueres + 4 Refrigerantes.
-</p>
-
+<p>4 Hambúrgueres + 4 Refrigerantes.</p>
 <div class="precos">
-
-<span class="preco-antigo">
-R$ 119,99
-</span>
-
-<span class="preco-novo">
-R$ 79,99
-</span>
-
+<span class="preco-antigo">R$ 119,99</span>
+<span class="preco-novo">R$ 79,99</span>
 </div>
-
-<button onclick="passarCombo('Combo Família', 79.99)">
-Aproveitar Oferta
-</button>
-
+<button onclick="abrirModal('Combo Família', 79.99)">Aproveitar Oferta</button>
 </div>
-
 </div>
 
 <div class="promocao-card">
-
-<div class="badge">
-50% OFF
-</div>
-
+<div class="badge">50% OFF</div>
 <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
-
 <div class="promocao-info">
-
 <h2>Batata Gigante</h2>
-
-<p>
-Porção especial para compartilhar.
-</p>
-
+<p>Porção especial para compartilhar.</p>
 <div class="precos">
-
-<span class="preco-antigo">
-R$ 29,99
-</span>
-
-<span class="preco-novo">
-R$ 14,99
-</span>
-
+<span class="preco-antigo">R$ 29,99</span>
+<span class="preco-novo">R$ 14,99</span>
 </div>
-
-<button onclick="passarCombo('Batata Gigante', 14.99)">
-Aproveitar Oferta
-</button>
-
+<button onclick="abrirModal('Batata Gigante', 14.99)">Aproveitar Oferta</button>
 </div>
-
 </div>
 
 </section>
 
+<!-- ── MODAL DE CONFIRMAÇÃO ── -->
+<div class="modal-overlay" id="modalOverlay" onclick="fecharModal()"></div>
+
+<div class="modal-confirmacao" id="modalConfirmacao">
+    <div class="modal-icone">🛒</div>
+    <h2 id="modalTitulo">Combo Fast adicionado!</h2>
+    <p id="modalDescricao">O <strong id="modalNome"></strong> foi adicionado ao seu carrinho.</p>
+    <p class="modal-preco">R$ <span id="modalPreco"></span></p>
+    <div class="modal-botoes">
+        <button class="btn-continuar" onclick="fecharModal()">
+            🔥 Continuar vendo promoções
+        </button>
+        <button class="btn-carrinho" onclick="irParaCarrinho()">
+            🛒 Ir para o carrinho
+        </button>
+    </div>
+</div>
+
 <script>
-function passarCombo(nome, preco) {
-    // Guarda os dados no navegador convertidos em texto JSON
-    localStorage.setItem("comboPromocao", JSON.stringify({ nome: nome, preco: preco }));
-    // Redireciona para o cardápio
-    window.location.href = "cardapio.html";
+let comboAtual = null;
+
+function abrirModal(nome, preco) {
+    comboAtual = { nome, preco };
+    document.getElementById("modalNome").innerHTML = nome;
+    document.getElementById("modalTitulo").innerHTML = nome + " adicionado! 🎉";
+    document.getElementById("modalPreco").innerHTML = preco.toFixed(2).replace(".", ",");
+    document.getElementById("modalOverlay").classList.add("aberto");
+    document.getElementById("modalConfirmacao").classList.add("aberto");
+}
+
+function fecharModal() {
+    document.getElementById("modalOverlay").classList.remove("aberto");
+    document.getElementById("modalConfirmacao").classList.remove("aberto");
+}
+
+function irParaCarrinho() {
+    if(comboAtual) {
+        localStorage.setItem("comboPromocao", JSON.stringify(comboAtual));
+        window.location.href = "cardapio.html";
+    }
 }
 </script>
 
