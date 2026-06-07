@@ -399,8 +399,27 @@ if(atual >= alvo) clearInterval(timer);
 }
 
 animarContador("anos", 2);
+animarContador("clientes", 5858);
+/* CONTADORES */
+
+function animarContador(id, alvo){
+    const el = document.getElementById(id);
+    const passo = Math.ceil(alvo / 100);
+    let atual = 0;
+    const timer = setInterval(()=>{
+        atual = Math.min(atual + passo, alvo);
+        el.innerHTML = atual.toLocaleString('pt-BR');
+        if(atual >= alvo) clearInterval(timer);
+    }, 16);
+}
+
+animarContador("anos", 2);
 animarContador("clientes", 5000);
-animarContador("itens", 30);
+animarContador("aprovacao", 98);
+
+// Lê do localStorage — atualiza automaticamente quando o cardápio mudar
+const totalItens = parseInt(localStorage.getItem('totalItensCardapio')) || 30;
+animarContador("itens", totalItens);
 animarContador("aprovacao", 98);
 
 </script>
