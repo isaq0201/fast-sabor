@@ -40,9 +40,6 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 flex-wrap:wrap;
-position:sticky;
-top:0;
-z-index:999;
 }
 
 .logo{
@@ -381,27 +378,14 @@ nav{ justify-content:center; }
 
 <script>
 
+/* DARK MODE */
 const tema = document.getElementById("tema");
 tema.onclick = ()=>{
-document.body.classList.toggle("dark");
-tema.innerHTML = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    document.body.classList.toggle("dark");
+    tema.innerHTML = document.body.classList.contains("dark") ? "☀️" : "🌙";
 };
 
-function animarContador(id, alvo){
-const el = document.getElementById(id);
-const passo = Math.ceil(alvo / 100);
-let atual = 0;
-const timer = setInterval(()=>{
-atual = Math.min(atual + passo, alvo);
-el.innerHTML = atual.toLocaleString('pt-BR');
-if(atual >= alvo) clearInterval(timer);
-}, 16);
-}
-
-animarContador("anos", 2);
-animarContador("clientes", 5858);
 /* CONTADORES */
-
 function animarContador(id, alvo){
     const el = document.getElementById(id);
     const passo = Math.ceil(alvo / 100);
@@ -417,10 +401,8 @@ animarContador("anos", 2);
 animarContador("clientes", 5000);
 animarContador("aprovacao", 98);
 
-// Lê do localStorage — atualiza automaticamente quando o cardápio mudar
 const totalItens = parseInt(localStorage.getItem('totalItensCardapio')) || 30;
 animarContador("itens", totalItens);
-animarContador("aprovacao", 98);
 
 </script>
 
