@@ -46,16 +46,9 @@ color:#FB8B24;
 /* BANNER */
 
 .banner-promocoes{
-background:linear-gradient(
-135deg,
-#5F0F40,
-#9A031E
-);
-
+background:linear-gradient(135deg,#5F0F40,#9A031E);
 color:white;
-
 padding:80px 5%;
-
 text-align:center;
 }
 
@@ -81,156 +74,209 @@ font-weight:600;
 /* PROMOÇÕES */
 
 .promocoes-container{
-
 padding:50px 5%;
-
 display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
 }
 
 .promocao-card{
-
 background:white;
-
 border-radius:20px;
-
 overflow:hidden;
-
-box-shadow:
-0 5px 20px rgba(0,0,0,.08);
-
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 position:relative;
-
 transition:.3s;
 }
 
 .promocao-card:hover{
-
 transform:translateY(-8px);
-
 }
 
 .promocao-card img{
-
 width:100%;
 height:240px;
 object-fit:cover;
-
 }
 
 .badge{
-
 position:absolute;
-
 top:15px;
 left:15px;
-
 background:#E36414;
-
 color:white;
-
 padding:8px 15px;
-
 border-radius:30px;
-
 font-weight:600;
 }
 
 .promocao-info{
-
 padding:25px;
 }
 
 .promocao-info h2{
-
 color:#9A031E;
 margin-bottom:10px;
-
 }
 
 .promocao-info p{
-
 color:#666;
 margin-bottom:20px;
-
 }
 
 .precos{
-
 display:flex;
 gap:15px;
 align-items:center;
 margin-bottom:20px;
-
 }
 
 .preco-antigo{
-
 text-decoration:line-through;
 color:#999;
-
 }
 
 .preco-novo{
-
 font-size:28px;
 font-weight:700;
 color:#E36414;
-
 }
 
 .promocao-info button{
-
 width:100%;
-
 background:#E36414;
-
 color:white;
-
 border:none;
-
 padding:14px;
-
 border-radius:12px;
-
 font-size:16px;
-
 font-weight:600;
-
 cursor:pointer;
-
 transition:.3s;
+font-family:'Poppins',sans-serif;
 }
 
 .promocao-info button:hover{
-
 background:#9A031E;
+}
 
+/* ── MODAL DE CONFIRMAÇÃO ─────────────────── */
+
+.modal-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(3px);
+z-index:1000;
+}
+
+.modal-overlay.aberto{
+display:block;
+}
+
+.modal-confirmacao{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%) scale(.9);
+background:white;
+border-radius:24px;
+padding:40px 32px;
+width:90%;
+max-width:420px;
+text-align:center;
+z-index:1001;
+box-shadow:0 20px 60px rgba(0,0,0,.2);
+transition:transform .3s ease, opacity .3s ease;
+opacity:0;
+}
+
+.modal-confirmacao.aberto{
+display:block;
+transform:translate(-50%, -50%) scale(1);
+opacity:1;
+}
+
+.modal-icone{
+font-size:56px;
+margin-bottom:16px;
+animation:saltar .5s ease;
+}
+
+@keyframes saltar{
+0%  { transform:scale(0); }
+70% { transform:scale(1.2); }
+100%{ transform:scale(1); }
+}
+
+.modal-confirmacao h2{
+color:#9A031E;
+font-size:20px;
+margin-bottom:10px;
+}
+
+.modal-confirmacao p{
+color:#555;
+font-size:15px;
+margin-bottom:6px;
+}
+
+.modal-preco{
+font-size:28px;
+font-weight:700;
+color:#E36414;
+margin:12px 0 24px;
+}
+
+.modal-botoes{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.btn-continuar{
+background:#FFF1E5;
+color:#E36414;
+border:2px solid #E36414;
+padding:14px;
+border-radius:12px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.btn-continuar:hover{
+background:#E36414;
+color:white;
+}
+
+.btn-carrinho{
+background:#9A031E;
+color:white;
+border:none;
+padding:14px;
+border-radius:12px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+font-family:'Poppins',sans-serif;
+}
+
+.btn-carrinho:hover{
+background:#5F0F40;
 }
 
 /* RESPONSIVO */
 
 @media(max-width:768px){
-
-header{
-justify-content:center;
-gap:15px;
-}
-
-nav{
-justify-content:center;
-}
-
-.banner-promocoes h1{
-font-size:34px;
-}
-
-.banner-promocoes p{
-font-size:16px;
-}
-
+header{ justify-content:center; gap:15px; }
+nav{ justify-content:center; }
+.banner-promocoes h1{ font-size:34px; }
+.banner-promocoes p{ font-size:16px; }
+.modal-confirmacao{ padding:30px 20px; }
 }
