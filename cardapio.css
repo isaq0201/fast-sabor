@@ -176,6 +176,8 @@ border-radius:10px;
 cursor:pointer;
 }
 
+/* ── CARRINHO DESKTOP ─────────────────────── */
+
 .carrinho{
 background:white;
 padding:20px;
@@ -198,17 +200,17 @@ justify-content:space-between;
 align-items:center;
 }
 
-.btn-remover-item {
-background: none;
-border: none;
-cursor: pointer;
-font-size: 14px;
-padding: 4px;
-transition: transform 0.2s;
+.btn-remover-item{
+background:none;
+border:none;
+cursor:pointer;
+font-size:14px;
+padding:4px;
+transition:transform 0.2s;
 }
 
-.btn-remover-item:hover {
-transform: scale(1.2);
+.btn-remover-item:hover{
+transform:scale(1.2);
 }
 
 .finalizar{
@@ -220,110 +222,213 @@ color:white;
 border-radius:10px;
 cursor:pointer;
 margin-top:15px;
+font-size:15px;
+font-weight:600;
+font-family:Poppins,sans-serif;
 }
 
-/* ======================================
-    ESTILIZAÇÃO DO MODAL DE CHECKOUT
-    ====================================== */
-.modal-checkout {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+/* ── BOTÃO FLUTUANTE (só mobile) ──────────── */
+
+.btn-carrinho-flutuante{
+display:none;
+position:fixed;
+bottom:25px;
+right:25px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#9A031E;
+color:white;
+border:none;
+font-size:26px;
+cursor:pointer;
+box-shadow:0 6px 20px rgba(0,0,0,.3);
+z-index:1000;
+align-items:center;
+justify-content:center;
+transition:.3s;
 }
 
-.modal-conteudo {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: surgimento 0.3s ease-out;
+.btn-carrinho-flutuante:hover{
+transform:scale(1.1);
 }
 
-@keyframes surgimento {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.badge-carrinho{
+position:absolute;
+top:-4px;
+right:-4px;
+background:#FB8B24;
+color:white;
+border-radius:50%;
+width:22px;
+height:22px;
+font-size:12px;
+font-weight:700;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-.modal-conteudo h2 {
-    color: #9A031E;
-    margin-bottom: 5px;
+/* ── PAINEL DESLIZANTE (só mobile) ───────── */
+
+.overlay-carrinho{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+z-index:1001;
 }
 
-.modal-conteudo p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 20px;
+.overlay-carrinho.aberto{
+display:block;
 }
 
-#formCheckout {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.painel-carrinho{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+border-radius:24px 24px 0 0;
+padding:24px 20px;
+z-index:1002;
+max-height:75vh;
+overflow-y:auto;
+transform:translateY(100%);
+transition:transform .35s ease;
+box-shadow:0 -8px 30px rgba(0,0,0,.15);
 }
 
-#formCheckout label {
-    font-weight: 500;
-    font-size: 14px;
-    color: #333;
+.painel-carrinho.aberto{
+transform:translateY(0);
 }
 
-#formCheckout input, 
-#formCheckout select {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: inherit;
-    width: 100%;
+.painel-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:16px;
 }
 
-.modal-botoes {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+.painel-header h2{
+color:#9A031E;
+font-size:18px;
 }
 
-.btn-cancelar {
-    flex: 1;
-    background: #eee;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    color: #333;
+.btn-fechar-painel{
+background:none;
+border:none;
+font-size:22px;
+cursor:pointer;
+color:#555;
 }
 
-.btn-confirmar {
-    flex: 2;
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
+/* ── MODAL DE CHECKOUT ────────────────────── */
+
+.modal-checkout{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(3px);
+z-index:2000;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-.btn-confirmar:hover {
-    background: #20ba59;
+.modal-conteudo{
+background:white;
+padding:30px;
+border-radius:20px;
+width:100%;
+max-width:450px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+animation:surgimento .3s ease-out;
+max-height:90vh;
+overflow-y:auto;
 }
 
-/* RESPONSIVO */
+@keyframes surgimento{
+from{ transform:translateY(30px); opacity:0; }
+to{ transform:translateY(0); opacity:1; }
+}
+
+.modal-conteudo h2{
+color:#9A031E;
+margin-bottom:5px;
+}
+
+.modal-conteudo p{
+color:#666;
+font-size:14px;
+margin-bottom:20px;
+}
+
+#formCheckout{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+#formCheckout label{
+font-weight:500;
+font-size:14px;
+color:#333;
+}
+
+#formCheckout input,
+#formCheckout select{
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
+font-family:inherit;
+width:100%;
+}
+
+.modal-botoes{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.btn-cancelar{
+flex:1;
+background:#eee;
+border:none;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+color:#333;
+}
+
+.btn-confirmar{
+flex:2;
+background:#25D366;
+color:white;
+border:none;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-confirmar:hover{
+background:#20ba59;
+}
+
+/* ── RESPONSIVO ───────────────────────────── */
+
 @media(max-width:900px){
+/* Esconde carrinho lateral e mostra botão flutuante */
 .conteudo{ grid-template-columns:1fr; }
-.carrinho{ position:relative; }
+.carrinho{ display:none; }
+.btn-carrinho-flutuante{ display:flex; }
 }
 
 @media(max-width:600px){
