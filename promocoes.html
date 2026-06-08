@@ -102,7 +102,9 @@
 let comboAtual = null;
 
 function abrirModal(nome, preco) {
-    comboAtual = { nome, preco };
+    // Salva no carrinho IMEDIATAMENTE ao clicar
+    localStorage.setItem("comboPromocao", JSON.stringify({ nome, preco }));
+
     document.getElementById("modalNome").innerHTML = nome;
     document.getElementById("modalTitulo").innerHTML = nome + " adicionado! 🎉";
     document.getElementById("modalPreco").innerHTML = preco.toFixed(2).replace(".", ",");
@@ -116,10 +118,8 @@ function fecharModal() {
 }
 
 function irParaCarrinho() {
-    if(comboAtual) {
-        localStorage.setItem("comboPromocao", JSON.stringify(comboAtual));
-        window.location.href = "cardapio.html";
-    }
+    window.location.href = "cardapio.html";
+}
 }
 </script>
 
