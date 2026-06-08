@@ -46,6 +46,102 @@ nav a:hover{
     color:#FB8B24;
 }
 
+/* BOTÃO HAMBÚRGUER — só aparece no mobile */
+.btn-menu{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    z-index:1100;
+}
+
+.btn-menu span{
+    display:block;
+    width:26px;
+    height:3px;
+    background:white;
+    border-radius:3px;
+    transition:.3s;
+}
+
+/* Animação do X ao abrir */
+.btn-menu.aberto span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
+.btn-menu.aberto span:nth-child(2){
+    opacity:0;
+}
+.btn-menu.aberto span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+}
+
+/* OVERLAY */
+.menu-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    z-index:1050;
+    backdrop-filter:blur(2px);
+}
+
+.menu-overlay.aberto{
+    display:block;
+}
+
+/* DRAWER LATERAL */
+.menu-drawer{
+    position:fixed;
+    top:0;
+    right:0;
+    width:75%;
+    max-width:300px;
+    height:100%;
+    background:#5F0F40;
+    z-index:1100;
+    transform:translateX(100%);
+    transition:transform .35s ease;
+    padding:30px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    box-shadow:-8px 0 30px rgba(0,0,0,.3);
+}
+
+.menu-drawer.aberto{
+    transform:translateX(0);
+}
+
+.menu-drawer-logo{
+    font-size:22px;
+    font-weight:700;
+    color:white;
+    margin-bottom:24px;
+    padding-bottom:16px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.menu-drawer a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    padding:12px 16px;
+    border-radius:12px;
+    transition:.3s;
+    display:block;
+}
+
+.menu-drawer a:hover{
+    background:rgba(255,255,255,.15);
+    color:#FB8B24;
+    padding-left:22px;
+}
+
 .hero{
 background:linear-gradient(135deg,#5F0F40,#9A031E);
 padding:60px 5%;
@@ -114,19 +210,12 @@ opacity:.9;
 .btn-principal{
     background:#E36414;
     color:white;
-
     border:none;
-
     padding:15px 35px;
-
     border-radius:10px;
-
     font-size:18px;
-
     font-weight:bold;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -162,13 +251,9 @@ opacity:.9;
 .promocao,
 .contato{
     background:white;
-
     padding:20px;
-
     border-radius:15px;
-
     box-shadow:0 4px 12px rgba(0,0,0,.12);
-
     transition:.3s;
 }
 
@@ -184,13 +269,9 @@ opacity:.9;
 #pesquisa{
     width:100%;
     max-width:500px;
-
     padding:12px;
-
     border:1px solid #ddd;
-
     border-radius:10px;
-
     margin-bottom:25px;
 }
 
@@ -247,82 +328,51 @@ opacity:.9;
 
 #abrirFormulario,
 #abrirAvaliacao{
-
     width:65px;
     height:65px;
-
     border:none;
-
     border-radius:50%;
-
     background:#FB8B24;
-
     color:white;
-
     font-size:35px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 #abrirFormulario:hover,
 #abrirAvaliacao:hover{
-
     transform:scale(1.1);
-
-} Levin
+}
 
 .formulario{
-
     display:flex;
-
     flex-direction:column;
-
     gap:12px;
-
     margin-bottom:30px;
-
     max-width:650px;
-
 }
 
 .formulario input,
 .formulario textarea,
 .formulario select{
-
     padding:14px;
-
     border:1px solid #ddd;
-
     border-radius:10px;
-
 }
 
 .formulario textarea{
-
     resize:none;
-
     height:120px;
-
 }
 
 .formulario button{
-
     background:#E36414;
-
     color:white;
-
     border:none;
-
     padding:14px;
-
     border-radius:10px;
-
     cursor:pointer;
-
     font-weight:bold;
-
 }
 
 .escondido{
@@ -336,21 +386,13 @@ opacity:.9;
 }
 
 .excluir{
-
     margin-top:15px;
-
     background:#9A031E;
-
     color:white;
-
     border:none;
-
     padding:10px;
-
     border-radius:8px;
-
     cursor:pointer;
-
 }
 
 /* CONTATO */
@@ -362,27 +404,18 @@ opacity:.9;
 /* FOOTER */
 
 footer{
-
     background:#5F0F40;
-
     color:white;
-
     text-align:center;
-
     padding:25px;
-
     margin-top:50px;
-
 }
 
 /* MODO ESCURO */
 
 .dark{
-
     background:#111;
-
     color:white;
-
 }
 
 .dark .card,
@@ -390,81 +423,51 @@ footer{
 .dark .avaliacao,
 .dark .promocao,
 .dark .contato{
-
     background:#1d1d1d;
-
     color:white;
-
 }
 
 .dark input,
 .dark textarea,
 .dark select{
-
     background:#2b2b2b;
-
     color:white;
-
     border:none;
-
 }
 
 .dark .pagina h1{
-
     color:#FB8B24;
-
 }
 
 /* RESPONSIVO */
 
 @media(max-width:900px){
-
     .destaques,
     .produtos,
     .avaliacoes,
     .cards{
-
         grid-template-columns:repeat(2,1fr);
-
     }
-
 }
 
 @media(max-width:600px){
 
+    /* Esconde o nav normal e mostra o botão hambúrguer */
+    nav{ display:none; }
+    .btn-menu{ display:flex; }
+
     header{
-
-        justify-content:center;
-
-        gap:20px;
-
+        justify-content:space-between;
+        gap:0;
     }
 
-    nav{
-
-        justify-content:center;
-
-    }
-
-    .banner h1{
-
-        font-size:38px;
-
-    }
-
-    .banner p{
-
-        font-size:18px;
-
-    }
+    .banner h1{ font-size:38px; }
+    .banner p{ font-size:18px; }
 
     .destaques,
     .produtos,
     .avaliacoes,
     .cards{
-
         grid-template-columns:1fr;
-
     }
-
 }
