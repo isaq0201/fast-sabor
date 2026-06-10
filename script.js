@@ -263,3 +263,4 @@ function animarNumero(id, valor) {
 animarNumero("clientes", 500);
 animarNumero("pedidos", 1200);
 animarNumero("avaliacoes", 850);
+}
