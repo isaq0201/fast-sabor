@@ -423,28 +423,6 @@ font-size:30px;
     <a href="contato.html">📍 Contato</a>
 </div>
 </header>
-<!-- Botão hambúrguer (mobile) -->
-<button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-
-<!-- Overlay -->
-<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-
-<!-- Drawer lateral -->
-<div class="menu-drawer" id="menuDrawer">
-    <div class="menu-drawer-logo">🍔 Fast Sabor</div>
-    <a href="../index.html">🏠 Início</a>
-    <a href="../cardapio.html">🍔 Cardápio</a>
-    <a href="../promocoes.html">🔥 Promoções</a>
-    <a href="avaliacoes.html">⭐ Avaliações</a>
-    <a href="reclamacoes.html">📢 Reclamações</a>
-    <a href="../sobre.html">ℹ️ Sobre</a>
-    <a href="contato.html">📍 Contato</a>
-</div>
-
 
 <section class="hero">
 <h1>Avaliações dos Clientes</h1>
@@ -595,13 +573,7 @@ function toggleMenu(){
     document.getElementById("menuOverlay").classList.toggle("aberto");
 }
 </script>
-<script>
-function toggleMenu(){
-    document.getElementById('btnMenu').classList.toggle('aberto');
-    document.getElementById('menuDrawer').classList.toggle('aberto');
-    document.getElementById('menuOverlay').classList.toggle('aberto');
-}
-</script>
+
 </body>
 </html>
 
