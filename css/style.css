@@ -555,6 +555,11 @@ footer{
     .btn-menu { display: flex; }
     header {
         justify-content: space-between !important;
+        align-items: center !important;
         flex-wrap: nowrap !important;
         gap: 0 !important;
     }
+    .logo {
+        white-space: nowrap;
+    }
+}
