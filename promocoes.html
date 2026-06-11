@@ -22,6 +22,20 @@
 <a href="sobre.html">Sobre</a>
 <a href="cliente/contato.html">Contato</a>
 </nav>
+<button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+</button>
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<div class="menu-drawer" id="menuDrawer">
+    <div class="menu-drawer-logo">🍔 Fast Sabor</div>
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html">🍔 Cardápio</a>
+    <a href="promocoes.html">🔥 Promoções</a>
+    <a href="cliente/avaliacoes.html">⭐ Avaliações</a>
+    <a href="cliente/reclamacoes.html">📢 Reclamações</a>
+    <a href="sobre.html">ℹ️ Sobre</a>
+    <a href="cliente/contato.html">📍 Contato</a>
+</div>
 </header>
 <!-- Botão hambúrguer (mobile) -->
 <button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
@@ -153,6 +167,13 @@ function toggleMenu(){
     document.getElementById("btnMenu").classList.toggle("aberto");
     document.getElementById("menuDrawer").classList.toggle("aberto");
     document.getElementById("menuOverlay").classList.toggle("aberto");
+}
+</script>
+<script>
+function toggleMenu(){
+    document.getElementById('btnMenu').classList.toggle('aberto');
+    document.getElementById('menuDrawer').classList.toggle('aberto');
+    document.getElementById('menuOverlay').classList.toggle('aberto');
 }
 </script>
 </body>
