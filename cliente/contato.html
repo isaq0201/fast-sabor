@@ -351,8 +351,12 @@ font-size:32px;
     .btn-menu { display: flex; }
     header {
         justify-content: space-between !important;
+        align-items: center !important;
         flex-wrap: nowrap !important;
         gap: 0 !important;
+    }
+    .logo {
+        white-space: nowrap;
     }
 }
 
@@ -365,6 +369,9 @@ font-size:32px;
 
 <div class="logo">🍔 Fast Sabor</div>
 
+<button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+</button>
 <nav>
 <a href="../index.html">Início</a>
 <a href="../cardapio.html">Cardápio</a>
@@ -375,9 +382,6 @@ font-size:32px;
 <a href="contato.html">Contato</a>
 </nav>
 
-<button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-</button>
 <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 <div class="menu-drawer" id="menuDrawer">
     <div class="menu-drawer-logo">🍔 Fast Sabor</div>
@@ -551,4 +555,3 @@ function toggleMenu(){
 </script>
 </body>
 </html>
-}
