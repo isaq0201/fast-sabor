@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,48 +7,47 @@
 <link rel="stylesheet" href="cardapio.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-<div class="logo">🍔 Fast Sabor</div>
-<button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-</button>
-<nav>
-<a href="index.html">Início</a>
-<a href="cardapio.html">Cardápio</a>
-<a href="promocoes.html">Promoções</a>
-<a href="cliente/avaliacoes.html">Avaliações</a>
-<a href="cliente/reclamacoes.html">Reclamações</a>
-<a href="sobre.html">Sobre</a>
-<a href="cliente/contato.html">Contato</a>
-</nav>
-<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-<div class="menu-drawer" id="menuDrawer">
-    <div class="menu-drawer-logo">🍔 Fast Sabor</div>
-    <a href="index.html">🏠 Início</a>
-    <a href="cardapio.html">🍔 Cardápio</a>
-    <a href="promocoes.html">🔥 Promoções</a>
-    <a href="cliente/avaliacoes.html">⭐ Avaliações</a>
-    <a href="cliente/reclamacoes.html">📢 Reclamações</a>
-    <a href="sobre.html">ℹ️ Sobre</a>
-    <a href="cliente/contato.html">📍 Contato</a>
-</div>
+    <div class="logo">🍔 Fast Sabor</div>
+    <button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </button>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="promocoes.html">Promoções</a>
+        <a href="cliente/avaliacoes.html">Avaliações</a>
+        <a href="cliente/reclamacoes.html">Reclamações</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="cliente/contato.html">Contato</a>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <div class="menu-drawer" id="menuDrawer">
+        <div class="menu-drawer-logo">🍔 Fast Sabor</div>
+        <a href="index.html">🏠 Início</a>
+        <a href="cardapio.html">🍔 Cardápio</a>
+        <a href="promocoes.html">🔥 Promoções</a>
+        <a href="cliente/avaliacoes.html">⭐ Avaliações</a>
+        <a href="cliente/reclamacoes.html">📢 Reclamações</a>
+        <a href="sobre.html">ℹ️ Sobre</a>
+        <a href="cliente/contato.html">📍 Contato</a>
+    </div>
 </header>
 
 <section class="hero">
-<h1>Nosso Cardápio</h1>
-<p>Os melhores hambúrgueres artesanais da cidade.</p>
-<input type="text" id="pesquisa" placeholder="🔍 Pesquisar produto...">
-<p id="resultadoPesquisa">30 produtos encontrados</p>
+    <h1>Nosso Cardápio</h1>
+    <p>Os melhores hambúrgueres artesanais da cidade.</p>
+    <input type="text" id="pesquisa" placeholder="🔍 Pesquisar produto..." autocomplete="off">
+    <p id="resultadoPesquisa">30 produtos encontrados</p>
 </section>
 
 <section class="categorias">
-<button class="ativo" onclick="filtrarCategoria('hamburguer', this)">🍔 Hambúrgueres</button>
-<button onclick="filtrarCategoria('porcao', this)">🍟 Porções</button>
-<button onclick="filtrarCategoria('bebida', this)">🥤 Bebidas</button>
-<button onclick="filtrarCategoria('sobremesa', this)">🍰 Sobremesas</button>
+    <button class="ativo" onclick="filtrarCategoria('hamburguer',this)">🍔 Hambúrgueres</button>
+    <button onclick="filtrarCategoria('porcao',this)">🍟 Porções</button>
+    <button onclick="filtrarCategoria('bebida',this)">🥤 Bebidas</button>
+    <button onclick="filtrarCategoria('sobremesa',this)">🍰 Sobremesas</button>
 </section>
 
 <section class="conteudo">
@@ -58,136 +56,334 @@
     <!-- HAMBÚRGUERES -->
     <div class="produto" data-nome="x burger" data-categoria="hamburguer">
         <div class="tag">Mais Vendido</div>
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-        <div class="info"><h3>X-Burger</h3><div class="avaliacao">⭐ 4.9</div><p>Hambúrguer artesanal com queijo e molho especial.</p><div class="extras"><span>🔥 15 min</span><span>🍔 Artesanal</span></div><div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionarCarrinho('X-Burger', 18)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="X-Burger">
+        <div class="info">
+            <h3>X-Burger</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>Hambúrguer artesanal com queijo e molho especial.</p>
+            <div class="extras"><span>🔥 15 min</span><span>🍔 Artesanal</span></div>
+            <div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionar('X-Burger',18)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="x salada" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-        <div class="info"><h3>X-Salada</h3><div class="avaliacao">⭐ 4.8</div><p>Alface, tomate fresco e hambúrguer artesanal.</p><div class="extras"><span>🔥 15 min</span></div><div class="rodape"><span class="preco">R$ 20,00</span><button onclick="adicionarCarrinho('X-Salada', 20)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="X-Salada">
+        <div class="info">
+            <h3>X-Salada</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>Alface, tomate fresco e hambúrguer artesanal.</p>
+            <div class="extras"><span>🔥 15 min</span></div>
+            <div class="rodape"><span class="preco">R$ 20,00</span><button onclick="adicionar('X-Salada',20)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="x bacon" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b">
-        <div class="info"><h3>X-Bacon</h3><div class="avaliacao">⭐ 5.0</div><p>Bacon crocante, cheddar derretido e molho defumado.</p><div class="extras"><span>🔥 18 min</span><span>🔥 Campeão</span></div><div class="rodape"><span class="preco">R$ 24,00</span><button onclick="adicionarCarrinho('X-Bacon', 24)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1553979459-d2229ba7433b" alt="X-Bacon">
+        <div class="info">
+            <h3>X-Bacon</h3>
+            <div class="avaliacao">⭐ 5.0</div>
+            <p>Bacon crocante, cheddar derretido e molho defumado.</p>
+            <div class="extras"><span>🔥 18 min</span><span>🔥 Campeão</span></div>
+            <div class="rodape"><span class="preco">R$ 24,00</span><button onclick="adicionar('X-Bacon',24)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="x tudo" data-categoria="hamburguer">
         <div class="tag">Especial</div>
-        <img src="https://images.unsplash.com/photo-1586816001966-79b736744398">
-        <div class="info"><h3>X-Tudo</h3><div class="avaliacao">⭐ 4.9</div><p>Bacon, ovo, queijo, alface, tomate e molho da casa.</p><div class="extras"><span>🔥 20 min</span><span>🍔 Completo</span></div><div class="rodape"><span class="preco">R$ 32,00</span><button onclick="adicionarCarrinho('X-Tudo', 32)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1586816001966-79b736744398" alt="X-Tudo">
+        <div class="info">
+            <h3>X-Tudo</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>Bacon, ovo, queijo, alface, tomate e molho da casa.</p>
+            <div class="extras"><span>🔥 20 min</span><span>🍔 Completo</span></div>
+            <div class="rodape"><span class="preco">R$ 32,00</span><button onclick="adicionar('X-Tudo',32)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="smash burger" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330">
-        <div class="info"><h3>Smash Burger</h3><div class="avaliacao">⭐ 4.9</div><p>Blend prensado na chapa, queijo americano e cebola caramelizada.</p><div class="extras"><span>🔥 15 min</span><span>🍔 Artesanal</span></div><div class="rodape"><span class="preco">R$ 28,00</span><button onclick="adicionarCarrinho('Smash Burger', 28)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1561758033-d89a9ad46330" alt="Smash Burger">
+        <div class="info">
+            <h3>Smash Burger</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>Blend prensado na chapa, queijo americano e cebola caramelizada.</p>
+            <div class="extras"><span>🔥 15 min</span><span>🍔 Artesanal</span></div>
+            <div class="rodape"><span class="preco">R$ 28,00</span><button onclick="adicionar('Smash Burger',28)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="duplo burger" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5">
-        <div class="info"><h3>Duplo Burger</h3><div class="avaliacao">⭐ 4.8</div><p>Dois blends artesanais, duplo queijo e molho especial.</p><div class="extras"><span>🔥 20 min</span></div><div class="rodape"><span class="preco">R$ 34,00</span><button onclick="adicionarCarrinho('Duplo Burger', 34)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5" alt="Duplo Burger">
+        <div class="info">
+            <h3>Duplo Burger</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>Dois blends artesanais, duplo queijo e molho especial.</p>
+            <div class="extras"><span>🔥 20 min</span></div>
+            <div class="rodape"><span class="preco">R$ 34,00</span><button onclick="adicionar('Duplo Burger',34)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="chicken burger" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58">
-        <div class="info"><h3>Chicken Burger</h3><div class="avaliacao">⭐ 4.7</div><p>Frango empanado crocante, alface e maionese temperada.</p><div class="extras"><span>🔥 18 min</span><span>🍗 Frango</span></div><div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionarCarrinho('Chicken Burger', 22)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58" alt="Chicken Burger">
+        <div class="info">
+            <h3>Chicken Burger</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Frango empanado crocante, alface e maionese temperada.</p>
+            <div class="extras"><span>🔥 18 min</span><span>🍗 Frango</span></div>
+            <div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionar('Chicken Burger',22)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="veggie burger" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360">
-        <div class="info"><h3>Veggie Burger</h3><div class="avaliacao">⭐ 4.6</div><p>Blend de grão-de-bico, queijo e vegetais frescos.</p><div class="extras"><span>🔥 15 min</span><span>🌱 Vegano</span></div><div class="rodape"><span class="preco">R$ 26,00</span><button onclick="adicionarCarrinho('Veggie Burger', 26)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1520072959219-c595dc870360" alt="Veggie Burger">
+        <div class="info">
+            <h3>Veggie Burger</h3>
+            <div class="avaliacao">⭐ 4.6</div>
+            <p>Blend de grão-de-bico, queijo e vegetais frescos.</p>
+            <div class="extras"><span>🔥 15 min</span><span>🌱 Vegano</span></div>
+            <div class="rodape"><span class="preco">R$ 26,00</span><button onclick="adicionar('Veggie Burger',26)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="x egg" data-categoria="hamburguer">
-        <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9">
-        <div class="info"><h3>X-Egg</h3><div class="avaliacao">⭐ 4.7</div><p>Ovo frito, queijo prato e blend artesanal no pão brioche.</p><div class="extras"><span>🔥 15 min</span></div><div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionarCarrinho('X-Egg', 22)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9" alt="X-Egg">
+        <div class="info">
+            <h3>X-Egg</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Ovo frito, queijo prato e blend artesanal no pão brioche.</p>
+            <div class="extras"><span>🔥 15 min</span></div>
+            <div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionar('X-Egg',22)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="burger trufado" data-categoria="hamburguer">
         <div class="tag">Premium</div>
-        <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234">
-        <div class="info"><h3>Burger Trufado</h3><div class="avaliacao">⭐ 5.0</div><p>Blend wagyu, queijo brie, rúcula e azeite trufado.</p><div class="extras"><span>🔥 22 min</span><span>⭐ Premium</span></div><div class="rodape"><span class="preco">R$ 48,00</span><button onclick="adicionarCarrinho('Burger Trufado', 48)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234" alt="Burger Trufado">
+        <div class="info">
+            <h3>Burger Trufado</h3>
+            <div class="avaliacao">⭐ 5.0</div>
+            <p>Blend wagyu, queijo brie, rúcula e azeite trufado.</p>
+            <div class="extras"><span>🔥 22 min</span><span>⭐ Premium</span></div>
+            <div class="rodape"><span class="preco">R$ 48,00</span><button onclick="adicionar('Burger Trufado',48)">Adicionar</button></div>
+        </div>
     </div>
 
     <!-- PORÇÕES -->
     <div class="produto" data-nome="batata frita" data-categoria="porcao">
-        <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f">
-        <div class="info"><h3>Batata Frita</h3><div class="avaliacao">⭐ 4.7</div><p>Porção média crocante com sal temperado.</p><div class="rodape"><span class="preco">R$ 12,00</span><button onclick="adicionarCarrinho('Batata Frita', 12)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1576107232684-1279f390859f" alt="Batata Frita">
+        <div class="info">
+            <h3>Batata Frita</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Porção média crocante com sal temperado.</p>
+            <div class="rodape"><span class="preco">R$ 12,00</span><button onclick="adicionar('Batata Frita',12)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="batata frita grande" data-categoria="porcao">
-        <img src="https://comidinhasdochef.com/wp-content/uploads/2018/09/Batata-Frita-Sequinha.jpg">
-        <div class="info"><h3>Batata Frita Grande</h3><div class="avaliacao">⭐ 4.7</div><p>Porção grande crocante, ideal para compartilhar.</p><div class="rodape"><span class="preco">R$ 20,00</span><button onclick="adicionarCarrinho('Batata Frita Grande', 20)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://comidinhasdochef.com/wp-content/uploads/2018/09/Batata-Frita-Sequinha.jpg" alt="Batata Frita Grande">
+        <div class="info">
+            <h3>Batata Frita Grande</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Porção grande crocante, ideal para compartilhar.</p>
+            <div class="rodape"><span class="preco">R$ 20,00</span><button onclick="adicionar('Batata Frita Grande',20)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="onion rings" data-categoria="porcao">
-        <img src="https://images.unsplash.com/photo-1639024471283-03518883512d">
-        <div class="info"><h3>Onion Rings</h3><div class="avaliacao">⭐ 4.8</div><p>Anéis de cebola empanados e fritos, crocantes por fora.</p><div class="extras"><span>🔥 12 min</span></div><div class="rodape"><span class="preco">R$ 16,00</span><button onclick="adicionarCarrinho('Onion Rings', 16)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1639024471283-03518883512d" alt="Onion Rings">
+        <div class="info">
+            <h3>Onion Rings</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>Anéis de cebola empanados e fritos, crocantes por fora.</p>
+            <div class="extras"><span>🔥 12 min</span></div>
+            <div class="rodape"><span class="preco">R$ 16,00</span><button onclick="adicionar('Onion Rings',16)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="nuggets" data-categoria="porcao">
-        <img src="https://images.unsplash.com/photo-1562967914-608f82629710">
-        <div class="info"><h3>Nuggets (10 un)</h3><div class="avaliacao">⭐ 4.6</div><p>Nuggets de frango crocantes com molho barbecue.</p><div class="extras"><span>🍗 Frango</span></div><div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionarCarrinho('Nuggets', 18)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1562967914-608f82629710" alt="Nuggets">
+        <div class="info">
+            <h3>Nuggets (10 un)</h3>
+            <div class="avaliacao">⭐ 4.6</div>
+            <p>Nuggets de frango crocantes com molho barbecue.</p>
+            <div class="extras"><span>🍗 Frango</span></div>
+            <div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionar('Nuggets',18)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="batata wedge" data-categoria="porcao">
-        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877">
-        <div class="info"><h3>Batata Wedge</h3><div class="avaliacao">⭐ 4.8</div><p>Batata rústica temperada com ervas finas e alho.</p><div class="extras"><span>🔥 15 min</span></div><div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionarCarrinho('Batata Wedge', 18)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877" alt="Batata Wedge">
+        <div class="info">
+            <h3>Batata Wedge</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>Batata rústica temperada com ervas finas e alho.</p>
+            <div class="extras"><span>🔥 15 min</span></div>
+            <div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionar('Batata Wedge',18)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="frango crocante" data-categoria="porcao">
-        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2">
-        <div class="info"><h3>Frango Crocante</h3><div class="avaliacao">⭐ 4.7</div><p>Tiras de frango empanadas com tempero especial da casa.</p><div class="extras"><span>🍗 Frango</span><span>🔥 15 min</span></div><div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionarCarrinho('Frango Crocante', 22)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1527477396000-e27163b481c2" alt="Frango Crocante">
+        <div class="info">
+            <h3>Frango Crocante</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Tiras de frango empanadas com tempero especial da casa.</p>
+            <div class="extras"><span>🍗 Frango</span><span>🔥 15 min</span></div>
+            <div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionar('Frango Crocante',22)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="porcao mista" data-categoria="porcao">
         <div class="tag">Compartilhar</div>
-        <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/5e/c5/de/mix-de-batatas-fritas.jpg">
-        <div class="info"><h3>Porção Mista</h3><div class="avaliacao">⭐ 4.9</div><p>Batata frita + onion rings + nuggets. Para dividir!</p><div class="extras"><span>🔥 18 min</span></div><div class="rodape"><span class="preco">R$ 38,00</span><button onclick="adicionarCarrinho('Porção Mista', 38)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://media-cdn.tripadvisor.com/media/photo-s/0d/5e/c5/de/mix-de-batatas-fritas.jpg" alt="Porção Mista">
+        <div class="info">
+            <h3>Porção Mista</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>Batata frita + onion rings + nuggets. Para dividir!</p>
+            <div class="extras"><span>🔥 18 min</span></div>
+            <div class="rodape"><span class="preco">R$ 38,00</span><button onclick="adicionar('Porção Mista',38)">Adicionar</button></div>
+        </div>
     </div>
 
     <!-- BEBIDAS -->
-    <div class="produto" data-nome="refrigerante" data-categoria="bebida">
-        <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
-        <div class="info"><h3>Refrigerante</h3><div class="avaliacao">⭐ 4.5</div><p>Lata 350ml gelada. Coca-Cola, Guaraná ou Sprite.</p><div class="rodape"><span class="preco">R$ 8,00</span><button onclick="adicionarCarrinho('Refrigerante', 8)">Adicionar</button></div></div>
+    <div class="produto" data-nome="refrigerante" data-categoria="bebida" data-sabores="Coca-Cola,Coca-Cola Zero,Guaraná,Guaraná Zero,Sprite,Fanta Laranja">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a" alt="Refrigerante">
+        <div class="info">
+            <h3>Refrigerante</h3>
+            <div class="avaliacao">⭐ 4.5</div>
+            <p>Lata 350ml gelada. Escolha o sabor!</p>
+            <div class="rodape"><span class="preco">R$ 8,00</span><button onclick="adicionar('Refrigerante',8,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="suco natural" data-categoria="bebida">
-        <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba">
-        <div class="info"><h3>Suco Natural</h3><div class="avaliacao">⭐ 4.8</div><p>Laranja, limão, maracujá ou abacaxi. 400ml.</p><div class="extras"><span>🍊 Natural</span></div><div class="rodape"><span class="preco">R$ 12,00</span><button onclick="adicionarCarrinho('Suco Natural', 12)">Adicionar</button></div></div>
+
+    <div class="produto" data-nome="suco natural" data-categoria="bebida" data-sabores="Laranja,Limão,Maracujá,Abacaxi">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba" alt="Suco Natural">
+        <div class="info">
+            <h3>Suco Natural</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>400ml fresquinho. Escolha o sabor!</p>
+            <div class="extras"><span>🍊 Natural</span></div>
+            <div class="rodape"><span class="preco">R$ 12,00</span><button onclick="adicionar('Suco Natural',12,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="milkshake" data-categoria="bebida">
+
+    <div class="produto" data-nome="milkshake" data-categoria="bebida" data-sabores="Chocolate,Morango,Baunilha">
         <div class="tag">Favorito</div>
-        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699">
-        <div class="info"><h3>Milkshake</h3><div class="avaliacao">⭐ 4.9</div><p>Chocolate, baunilha ou morango. 500ml cremoso.</p><div class="extras"><span>🍦 Cremoso</span></div><div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionarCarrinho('Milkshake', 18)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699" alt="Milkshake">
+        <div class="info">
+            <h3>Milkshake</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>500ml cremoso. Escolha o sabor!</p>
+            <div class="extras"><span>🍦 Cremoso</span></div>
+            <div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionar('Milkshake',18,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="agua mineral" data-categoria="bebida">
-        <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d">
-        <div class="info"><h3>Água Mineral</h3><div class="avaliacao">⭐ 4.5</div><p>Garrafa 500ml com ou sem gás.</p><div class="rodape"><span class="preco">R$ 5,00</span><button onclick="adicionarCarrinho('Água Mineral', 5)">Adicionar</button></div></div>
+
+    <div class="produto" data-nome="agua mineral" data-categoria="bebida" data-sabores="Com gás,Sem gás">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d" alt="Água Mineral">
+        <div class="info">
+            <h3>Água Mineral</h3>
+            <div class="avaliacao">⭐ 4.5</div>
+            <p>Garrafa 500ml. Escolha o tipo!</p>
+            <div class="rodape"><span class="preco">R$ 5,00</span><button onclick="adicionar('Água Mineral',5,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="cha gelado" data-categoria="bebida">
-        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc">
-        <div class="info"><h3>Chá Gelado</h3><div class="avaliacao">⭐ 4.6</div><p>Chá de limão ou pêssego gelado. 400ml.</p><div class="rodape"><span class="preco">R$ 10,00</span><button onclick="adicionarCarrinho('Chá Gelado', 10)">Adicionar</button></div></div>
+
+    <div class="produto" data-nome="cha gelado" data-categoria="bebida" data-sabores="Limão,Pêssego">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc" alt="Chá Gelado">
+        <div class="info">
+            <h3>Chá Gelado</h3>
+            <div class="avaliacao">⭐ 4.6</div>
+            <p>400ml gelado. Escolha o sabor!</p>
+            <div class="rodape"><span class="preco">R$ 10,00</span><button onclick="adicionar('Chá Gelado',10,this)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="limonada" data-categoria="bebida">
-        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859">
-        <div class="info"><h3>Limonada Suíça</h3><div class="avaliacao">⭐ 4.9</div><p>Limonada cremosa com leite condensado. 400ml.</p><div class="extras"><span>🍋 Especial</span></div><div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionarCarrinho('Limonada Suíça', 14)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1621263764928-df1444c5e859" alt="Limonada Suíça">
+        <div class="info">
+            <h3>Limonada Suíça</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>Limonada cremosa com leite condensado. 400ml.</p>
+            <div class="extras"><span>🍋 Especial</span></div>
+            <div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionar('Limonada Suíça',14)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="cerveja" data-categoria="bebida">
-        <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9">
-        <div class="info"><h3>Cerveja Gelada</h3><div class="avaliacao">⭐ 4.7</div><p>Long neck 330ml. Heineken, Budweiser ou Corona.</p><div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionarCarrinho('Cerveja Gelada', 14)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1608270586620-248524c67de9" alt="Cerveja Gelada">
+        <div class="info">
+            <h3>Cerveja Gelada</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Long neck 330ml. Heineken, Budweiser ou Corona.</p>
+            <div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionar('Cerveja Gelada',14)">Adicionar</button></div>
+        </div>
     </div>
 
     <!-- SOBREMESAS -->
-    <div class="produto" data-nome="brownie" data-categoria="sobremesa">
+    <div class="produto" data-nome="brownie" data-categoria="sobremesa" data-sabores="Sorvete de Creme,Sorvete de Chocolate,Sorvete de Morango">
         <div class="tag">Favorito</div>
-        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
-        <div class="info"><h3>Brownie com Sorvete</h3><div class="avaliacao">⭐ 5.0</div><p>Brownie quentinho de chocolate com sorvete de creme.</p><div class="extras"><span>🍫 Chocolate</span></div><div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionarCarrinho('Brownie com Sorvete', 18)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Brownie com Sorvete">
+        <div class="info">
+            <h3>Brownie com Sorvete</h3>
+            <div class="avaliacao">⭐ 5.0</div>
+            <p>Brownie quentinho de chocolate. Escolha o sorvete!</p>
+            <div class="extras"><span>🍫 Chocolate</span></div>
+            <div class="rodape"><span class="preco">R$ 18,00</span><button onclick="adicionar('Brownie com Sorvete',18,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="sorvete" data-categoria="sobremesa">
-        <img src="https://plus.unsplash.com/premium_photo-1675279010969-e85bfbd402dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c29ydmV0ZSUyMDIlMjBib2xhc3xlbnwwfHwwfHx8MA%3D%3D">
-        <div class="info"><h3>Sorvete (2 bolas)</h3><div class="avaliacao">⭐ 4.7</div><p>Creme, chocolate ou morango com calda à escolha.</p><div class="rodape"><span class="preco">R$ 12,00</span><button onclick="adicionarCarrinho('Sorvete', 12)">Adicionar</button></div></div>
+
+    <div class="produto" data-nome="sorvete" data-categoria="sobremesa" data-sabores="Creme,Chocolate,Morango">
+        <img loading="lazy" src="https://plus.unsplash.com/premium_photo-1675279010969-e85bfbd402dc?w=500&auto=format&fit=crop&q=60" alt="Sorvete">
+        <div class="info">
+            <h3>Sorvete (2 bolas)</h3>
+            <div class="avaliacao">⭐ 4.7</div>
+            <p>Com calda à escolha. Escolha o sabor!</p>
+            <div class="rodape"><span class="preco">R$ 12,00</span><button onclick="adicionar('Sorvete',12,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="cheesecake" data-categoria="sobremesa">
-        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad">
-        <div class="info"><h3>Cheesecake</h3><div class="avaliacao">⭐ 4.9</div><p>Fatia de cheesecake com calda de frutas vermelhas.</p><div class="extras"><span>🍓 Especial</span></div><div class="rodape"><span class="preco">R$ 16,00</span><button onclick="adicionarCarrinho('Cheesecake', 16)">Adicionar</button></div></div>
+
+    <div class="produto" data-nome="cheesecake" data-categoria="sobremesa" data-sabores="Frutas Vermelhas,Morango,Chocolate">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad" alt="Cheesecake">
+        <div class="info">
+            <h3>Cheesecake</h3>
+            <div class="avaliacao">⭐ 4.9</div>
+            <p>Fatia de cheesecake. Escolha a calda!</p>
+            <div class="extras"><span>🍓 Especial</span></div>
+            <div class="rodape"><span class="preco">R$ 16,00</span><button onclick="adicionar('Cheesecake',16,this)">Adicionar</button></div>
+        </div>
     </div>
-    <div class="produto" data-nome="churros" data-categoria="sobremesa">
-        <img src="https://images.unsplash.com/photo-1669867405064-f31e8707216e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2h1cnJvc3xlbnwwfHwwfHx8MA%3D%3D">
-        <div class="info"><h3>Churros</h3><div class="avaliacao">⭐ 4.8</div><p>Churros crocante com doce de leite e açúcar canela.</p><div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionarCarrinho('Churros', 14)">Adicionar</button></div></div>
+
+    <div class="produto" data-nome="churros" data-categoria="sobremesa" data-sabores="Doce de Leite,Chocolate">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1669867405064-f31e8707216e?w=500&auto=format&fit=crop&q=60" alt="Churros">
+        <div class="info">
+            <h3>Churros</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>Churros crocante com açúcar canela. Escolha o recheio!</p>
+            <div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionar('Churros',14,this)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="mousse chocolate" data-categoria="sobremesa">
-        <img src="https://images.unsplash.com/photo-1673551494277-92204546b504?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW91c3NlJTIwZGUlMjBjaG9jb2xhdGV8ZW58MHx8MHx8fDA%3D">
-        <div class="info"><h3>Mousse de Chocolate</h3><div class="avaliacao">⭐ 4.8</div><p>Mousse aerado de chocolate meio amargo.</p><div class="extras"><span>🍫 Chocolate</span></div><div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionarCarrinho('Mousse de Chocolate', 14)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1673551494277-92204546b504?w=500&auto=format&fit=crop&q=60" alt="Mousse de Chocolate">
+        <div class="info">
+            <h3>Mousse de Chocolate</h3>
+            <div class="avaliacao">⭐ 4.8</div>
+            <p>Mousse aerado de chocolate meio amargo.</p>
+            <div class="extras"><span>🍫 Chocolate</span></div>
+            <div class="rodape"><span class="preco">R$ 14,00</span><button onclick="adicionar('Mousse de Chocolate',14)">Adicionar</button></div>
+        </div>
     </div>
+
     <div class="produto" data-nome="petit gateau" data-categoria="sobremesa">
         <div class="tag">Premium</div>
-        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
-        <div class="info"><h3>Petit Gâteau</h3><div class="avaliacao">⭐ 5.0</div><p>Bolinho de chocolate com interior cremoso e sorvete.</p><div class="extras"><span>⭐ Premium</span></div><div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionarCarrinho('Petit Gâteau', 22)">Adicionar</button></div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb" alt="Petit Gâteau">
+        <div class="info">
+            <h3>Petit Gâteau</h3>
+            <div class="avaliacao">⭐ 5.0</div>
+            <p>Bolinho de chocolate com interior cremoso e sorvete.</p>
+            <div class="extras"><span>⭐ Premium</span></div>
+            <div class="rodape"><span class="preco">R$ 22,00</span><button onclick="adicionar('Petit Gâteau',22)">Adicionar</button></div>
+        </div>
     </div>
 
 </div>
@@ -199,27 +395,38 @@
     <h3>Total: R$ <span id="total">0.00</span></h3>
     <button class="finalizar" onclick="abrirModalCheckout()">Finalizar Pedido</button>
 </aside>
-
 </section>
 
 <!-- BOTÃO FLUTUANTE MOBILE -->
 <button class="btn-carrinho-flutuante" onclick="abrirPainel()" id="btnFlutuante">
-    🛒
-    <span class="badge-carrinho" id="badgeContador">0</span>
+    🛒<span class="badge-carrinho" id="badgeContador">0</span>
 </button>
 
-<!-- OVERLAY -->
+<!-- OVERLAY CARRINHO -->
 <div class="overlay-carrinho" id="overlayCarrinho" onclick="fecharPainel()"></div>
 
-<!-- PAINEL DESLIZANTE MOBILE -->
+<!-- PAINEL CARRINHO MOBILE -->
 <div class="painel-carrinho" id="painelCarrinho">
     <div class="painel-header">
         <h2>🛒 Carrinho (<span id="contadorPainel">0</span>)</h2>
         <button class="btn-fechar-painel" onclick="fecharPainel()">✕</button>
     </div>
     <div id="listaCarrinhoPainel"></div>
-    <h3 style="margin-top:10px;">Total: R$ <span id="totalPainel">0.00</span></h3>
-    <button class="finalizar" style="margin-top:15px;" onclick="fecharPainel(); abrirModalCheckout();">Finalizar Pedido</button>
+    <h3 style="margin-top:10px">Total: R$ <span id="totalPainel">0.00</span></h3>
+    <button class="finalizar" style="margin-top:15px" onclick="fecharPainel();abrirModalCheckout()">Finalizar Pedido</button>
+</div>
+
+<!-- MODAL SABOR -->
+<div class="modal-sabor-overlay" id="modalSaborOverlay">
+    <div class="modal-sabor">
+        <h3 id="modalSaborTitulo">Escolha o sabor</h3>
+        <p id="modalSaborSubtitulo">Selecione uma opção antes de adicionar</p>
+        <div class="sabores-lista" id="saboresLista"></div>
+        <div class="modal-sabor-botoes">
+            <button class="btn-sabor-cancelar" onclick="fecharModalSabor()">Cancelar</button>
+            <button class="btn-sabor-confirmar" onclick="confirmarSabor()">Adicionar ao carrinho</button>
+        </div>
+    </div>
 </div>
 
 <!-- MODAL CHECKOUT -->
@@ -243,7 +450,7 @@
                 <option value="Cartão de Débito">💳 Cartão de Débito</option>
                 <option value="Vale Alimentação (VA)">🍔 Vale Alimentação (VA)</option>
             </select>
-            <div id="campoTroco" style="display:none; flex-direction:column; gap:5px;">
+            <div id="campoTroco" style="display:none;flex-direction:column;gap:5px">
                 <label for="trocoPara">Precisa de troco para quanto?</label>
                 <input type="text" id="trocoPara" placeholder="Ex: R$ 50,00 ou Não preciso">
             </div>
@@ -256,141 +463,224 @@
 </div>
 
 <script>
+'use strict';
+
+// ── CONTAGEM AUTOMÁTICA ───────────────────────
 localStorage.setItem('totalItensCardapio', document.querySelectorAll('.produto').length);
 
-const pesquisa = document.getElementById("pesquisa");
-const resultado = document.getElementById("resultadoPesquisa");
+// ── MAPA DE SABORES ───────────────────────────
+// Lido diretamente do atributo data-sabores no HTML — sem repetição no JS
 
-pesquisa.addEventListener("keyup", () => {
-    const valor = pesquisa.value.toLowerCase();
-    let encontrados = 0;
-    document.querySelectorAll(".produto").forEach(p => {
-        const match = p.dataset.nome.toLowerCase().includes(valor);
-        p.style.display = match ? "block" : "none";
-        if(match) encontrados++;
-    });
-    resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
+// ── ESTADO ────────────────────────────────────
+let itensCarrinho = [];
+let pendente = null; // { nome, preco, sabores[] }
+let saborSelecionado = null;
+
+// ── PESQUISA (debounced) ──────────────────────
+const pesquisaEl = document.getElementById('pesquisa');
+const resultadoEl = document.getElementById('resultadoPesquisa');
+const todosOsProdutos = Array.from(document.querySelectorAll('.produto'));
+
+let debounceTimer;
+pesquisaEl.addEventListener('keyup', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        const valor = pesquisaEl.value.toLowerCase().trim();
+        let count = 0;
+        todosOsProdutos.forEach(p => {
+            const visivel = p.dataset.nome.includes(valor);
+            p.style.display = visivel ? '' : 'none';
+            if (visivel) count++;
+        });
+        resultadoEl.textContent = `${count} produto(s) encontrado(s)`;
+    }, 200);
 });
 
+// ── FILTRO CATEGORIAS ─────────────────────────
 function filtrarCategoria(categoria, btn) {
     document.querySelectorAll('.categorias button').forEach(b => b.classList.remove('ativo'));
     btn.classList.add('ativo');
-    let encontrados = 0;
-    document.querySelectorAll('.produto').forEach(p => {
-        p.style.display = p.dataset.categoria === categoria ? 'block' : 'none';
-        if(p.dataset.categoria === categoria) encontrados++;
+    pesquisaEl.value = '';
+    let count = 0;
+    todosOsProdutos.forEach(p => {
+        const visivel = p.dataset.categoria === categoria;
+        p.style.display = visivel ? '' : 'none';
+        if (visivel) count++;
     });
-    resultado.innerHTML = `${encontrados} produto(s) encontrado(s)`;
-    pesquisa.value = '';
+    resultadoEl.textContent = `${count} produto(s) encontrado(s)`;
 }
 
-document.getElementById("cepCliente").addEventListener("input", (e) => {
-    let v = e.target.value.replace(/\D/g, "");
-    if(v.length > 5) v = v.substring(0,5) + "-" + v.substring(5,8);
+// ── ADICIONAR AO CARRINHO ─────────────────────
+function adicionar(nome, preco, btn) {
+    // Pega sabores do elemento pai .produto
+    const produtoEl = btn ? btn.closest('.produto') : null;
+    const saboresAttr = produtoEl ? produtoEl.dataset.sabores : null;
+
+    if (saboresAttr) {
+        const sabores = saboresAttr.split(',').map(s => s.trim());
+        abrirModalSabor(nome, preco, sabores);
+    } else {
+        adicionarCarrinho(nome, preco, null);
+    }
+}
+
+// ── MODAL SABOR ───────────────────────────────
+function abrirModalSabor(nome, preco, sabores) {
+    pendente = { nome, preco, sabores };
+    saborSelecionado = null;
+
+    document.getElementById('modalSaborTitulo').textContent = nome;
+    document.getElementById('modalSaborSubtitulo').textContent = 'Escolha uma opção:';
+
+    const lista = document.getElementById('saboresLista');
+    lista.innerHTML = '';
+    sabores.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'sabor-opcao';
+        btn.textContent = s;
+        btn.onclick = () => selecionarSabor(s, btn);
+        lista.appendChild(btn);
+    });
+
+    document.getElementById('modalSaborOverlay').classList.add('aberto');
+}
+
+function selecionarSabor(sabor, btn) {
+    document.querySelectorAll('.sabor-opcao').forEach(b => b.classList.remove('selecionado'));
+    btn.classList.add('selecionado');
+    saborSelecionado = sabor;
+}
+
+function confirmarSabor() {
+    if (!saborSelecionado) {
+        alert('Por favor, escolha uma opção antes de continuar.');
+        return;
+    }
+    fecharModalSabor();
+    adicionarCarrinho(pendente.nome, pendente.preco, saborSelecionado);
+    pendente = null;
+    saborSelecionado = null;
+}
+
+function fecharModalSabor() {
+    document.getElementById('modalSaborOverlay').classList.remove('aberto');
+}
+
+// ── CARRINHO ──────────────────────────────────
+function adicionarCarrinho(nome, preco, sabor) {
+    const nomeCompleto = sabor ? `${nome} (${sabor})` : nome;
+    itensCarrinho.push({ nome: nomeCompleto, preco });
+    renderCarrinho();
+}
+
+function removerDoCarrinho(index) {
+    itensCarrinho.splice(index, 1);
+    renderCarrinho();
+}
+
+function renderCarrinho() {
+    const total = itensCarrinho.reduce((s, p) => s + p.preco, 0);
+    const qtd = itensCarrinho.length;
+
+    // Gera HTML dos itens uma vez e replica
+    const html = itensCarrinho.map((p, i) =>
+        `<div class="itemCarrinho">
+            <span>${p.nome} — R$ ${p.preco.toFixed(2)}</span>
+            <button class="btn-remover-item" onclick="removerDoCarrinho(${i})">❌</button>
+        </div>`
+    ).join('');
+
+    document.getElementById('listaCarrinho').innerHTML = html;
+    document.getElementById('listaCarrinhoPainel').innerHTML = html;
+
+    const totalStr = total.toFixed(2);
+    document.getElementById('total').textContent = totalStr;
+    document.getElementById('totalPainel').textContent = totalStr;
+    document.getElementById('contador').textContent = qtd;
+    document.getElementById('contadorPainel').textContent = qtd;
+    document.getElementById('badgeContador').textContent = qtd;
+}
+
+// ── PAINEL MOBILE ─────────────────────────────
+function abrirPainel() {
+    document.getElementById('painelCarrinho').classList.add('aberto');
+    document.getElementById('overlayCarrinho').classList.add('aberto');
+}
+
+function fecharPainel() {
+    document.getElementById('painelCarrinho').classList.remove('aberto');
+    document.getElementById('overlayCarrinho').classList.remove('aberto');
+}
+
+// ── MENU HAMBÚRGUER ───────────────────────────
+function toggleMenu() {
+    document.getElementById('btnMenu').classList.toggle('aberto');
+    document.getElementById('menuDrawer').classList.toggle('aberto');
+    document.getElementById('menuOverlay').classList.toggle('aberto');
+}
+
+// ── MODAL CHECKOUT ────────────────────────────
+function abrirModalCheckout() {
+    if (itensCarrinho.length === 0) { alert('Carrinho vazio!'); return; }
+    document.getElementById('modalCheckout').style.display = 'flex';
+}
+
+function fecharModalCheckout() {
+    document.getElementById('modalCheckout').style.display = 'none';
+    document.getElementById('campoTroco').style.display = 'none';
+}
+
+function verificarDinheiro(valor) {
+    document.getElementById('campoTroco').style.display = valor === 'Dinheiro' ? 'flex' : 'none';
+}
+
+// ── CEP MASK ──────────────────────────────────
+document.getElementById('cepCliente').addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5, 8);
     e.target.value = v;
 });
 
-let itensCarrinho = [];
-let valorTotalPedido = 0;
-
-function adicionarCarrinho(nome, preco){
-    itensCarrinho.push({ nome, preco });
-    atualizarInterfaceCarrinho();
-}
-
-function removerDoCarrinho(index){
-    itensCarrinho.splice(index, 1);
-    atualizarInterfaceCarrinho();
-}
-
-function atualizarInterfaceCarrinho(){
-    valorTotalPedido = itensCarrinho.reduce((s, p) => s + p.preco, 0);
-
-    function gerarItens(containerId){
-        const el = document.getElementById(containerId);
-        el.innerHTML = "";
-        itensCarrinho.forEach((p, i) => {
-            const div = document.createElement("div");
-            div.classList.add("itemCarrinho");
-            div.innerHTML = `<span>${p.nome} - R$ ${p.preco.toFixed(2)}</span>
-                <button class="btn-remover-item" onclick="removerDoCarrinho(${i})">❌</button>`;
-            el.appendChild(div);
-        });
-    }
-
-    gerarItens("listaCarrinho");
-    gerarItens("listaCarrinhoPainel");
-
-    const qtd = itensCarrinho.length;
-    const total = valorTotalPedido.toFixed(2);
-    document.getElementById("total").innerHTML = total;
-    document.getElementById("totalPainel").innerHTML = total;
-    document.getElementById("contador").innerHTML = qtd;
-    document.getElementById("contadorPainel").innerHTML = qtd;
-    document.getElementById("badgeContador").innerHTML = qtd;
-}
-
-function abrirPainel(){
-    document.getElementById("painelCarrinho").classList.add("aberto");
-    document.getElementById("overlayCarrinho").classList.add("aberto");
-}
-
-function fecharPainel(){
-    document.getElementById("painelCarrinho").classList.remove("aberto");
-    document.getElementById("overlayCarrinho").classList.remove("aberto");
-}
-
-function abrirModalCheckout(){
-    if(itensCarrinho.length === 0){ alert("Carrinho vazio!"); return; }
-    document.getElementById("modalCheckout").style.display = "flex";
-}
-
-function fecharModalCheckout(){
-    document.getElementById("modalCheckout").style.display = "none";
-    document.getElementById("campoTroco").style.display = "none";
-}
-
-function verificarDinheiro(valor){
-    document.getElementById("campoTroco").style.display = valor === "Dinheiro" ? "flex" : "none";
-}
-
-function enviarPedidoWhatsApp(event){
+// ── ENVIO WHATSAPP ────────────────────────────
+function enviarPedidoWhatsApp(event) {
     event.preventDefault();
-    const nome = document.getElementById("nomeCliente").value;
-    const cep = document.getElementById("cepCliente").value;
-    const endereco = document.getElementById("enderecoCliente").value;
-    const pagamento = document.getElementById("formaPagamento").value;
-    const troco = document.getElementById("trocoPara").value;
-    let textoProdutos = itensCarrinho.map(i => `• ${i.nome} (R$ ${i.preco.toFixed(2)})`).join("\n");
-    let mensagem = `*Novo Pedido - Fast Sabor* 🍔\n\n*Cliente:* ${nome}\n*CEP:* ${cep}\n*Endereço:* ${endereco}\n\n*Itens:*\n${textoProdutos}\n\n*Total:* R$ ${valorTotalPedido.toFixed(2)}\n*Pagamento:* ${pagamento}`;
-    if(pagamento === "Dinheiro" && troco.trim()) mensagem += `\n*Troco para:* ${troco}`;
-    window.open(`https://api.whatsapp.com/send?phone=5511976718229&text=${encodeURIComponent(mensagem)}`, "_blank");
+    const nome    = document.getElementById('nomeCliente').value;
+    const cep     = document.getElementById('cepCliente').value;
+    const end     = document.getElementById('enderecoCliente').value;
+    const pag     = document.getElementById('formaPagamento').value;
+    const troco   = document.getElementById('trocoPara').value;
+    const total   = itensCarrinho.reduce((s, p) => s + p.preco, 0);
+
+    const emojis = { hamburguer:'🍔', porcao:'🍟', bebida:'🥤', sobremesa:'🍰' };
+    const itensTexto = itensCarrinho.map(i => `• ${i.nome} (R$ ${i.preco.toFixed(2)})`).join('\n');
+
+    let msg = `*Novo Pedido - Fast Sabor* 🍔\n\n`
+            + `*Cliente:* ${nome}\n*CEP:* ${cep}\n*Endereço:* ${end}\n\n`
+            + `*Itens do Pedido:*\n${itensTexto}\n\n`
+            + `*Total:* R$ ${total.toFixed(2)}\n*Pagamento:* ${pag}`;
+
+    if (pag === 'Dinheiro' && troco.trim()) msg += `\n*Troco para:* ${troco}`;
+
+    window.open(`https://api.whatsapp.com/send?phone=5511976718229&text=${encodeURIComponent(msg)}`, '_blank');
+
     itensCarrinho = [];
-    atualizarInterfaceCarrinho();
-    document.getElementById("formCheckout").reset();
+    renderCarrinho();
+    document.getElementById('formCheckout').reset();
     fecharModalCheckout();
 }
 
-window.onload = function(){
-    const comboData = localStorage.getItem("comboPromocao");
-    if(comboData){
-        const combo = JSON.parse(comboData);
-        adicionarCarrinho(combo.nome, combo.preco);
-        localStorage.removeItem("comboPromocao");
+// ── COMBO DE PROMOÇÕES ────────────────────────
+window.addEventListener('load', () => {
+    const comboData = localStorage.getItem('comboPromocao');
+    if (comboData) {
+        try {
+            const combo = JSON.parse(comboData);
+            adicionarCarrinho(combo.nome, combo.preco, null);
+        } catch(e) {}
+        localStorage.removeItem('comboPromocao');
     }
-};
-</script>
-
-
-<script>
-function toggleMenu(){
-    document.getElementById("btnMenu").classList.toggle("aberto");
-    document.getElementById("menuDrawer").classList.toggle("aberto");
-    document.getElementById("menuOverlay").classList.toggle("aberto");
-}
+});
 </script>
 
 </body>
 </html>
-
-}
