@@ -173,17 +173,10 @@ text-align:center;
 grid-template-columns:1fr;
 }
 
-header{
-justify-content:center;
-gap:15px;
-}
-
-nav{
-justify-content:center;
-}
-
 .hero h1{
 font-size:32px;
+}
+
 }
     
 @media(max-width:600px){
@@ -219,6 +212,120 @@ font-size:32px;
     }
 
 }
+/* MENU HAMBÚRGUER */
+
+.btn-menu{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    z-index:1100;
+}
+
+.btn-menu span{
+    width:26px;
+    height:3px;
+    background:white;
+    border-radius:3px;
+    display:block;
+    transition:.3s;
+}
+
+.btn-menu.aberto span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
+
+.btn-menu.aberto span:nth-child(2){
+    opacity:0;
+}
+
+.btn-menu.aberto span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+}
+
+.menu-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    z-index:1050;
+}
+
+.menu-overlay.aberto{
+    display:block;
+}
+
+.menu-drawer{
+    position:fixed;
+    top:0;
+    right:0;
+    width:75%;
+    max-width:300px;
+    height:100%;
+    background:#5F0F40;
+    transform:translateX(100%);
+    transition:.35s;
+    z-index:1100;
+    padding:30px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu-drawer.aberto{
+    transform:translateX(0);
+}
+
+.menu-drawer-logo{
+    color:white;
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:20px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    padding-bottom:15px;
+}
+
+.menu-drawer a{
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+}
+
+.menu-drawer a:hover{
+    background:rgba(255,255,255,.1);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    nav{
+        display:none !important;
+    }
+
+    .btn-menu{
+        display:flex !important;
+    }
+
+    header{
+        justify-content:space-between !important;
+        align-items:center !important;
+        flex-wrap:nowrap !important;
+        padding:15px 20px !important;
+    }
+
+    .logo{
+        font-size:24px;
+        white-space:nowrap;
+    }
+
+}
+    
 </style>
 </head>
 
@@ -385,4 +492,3 @@ function toggleMenu(){
 
 </body>
 </html>
-}
