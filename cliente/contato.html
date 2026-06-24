@@ -1,219 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Contato - Fast Sabor</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 
+/* ── RESET ────────────────────────────────── */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#FFF8F0;
+    background:#FFF8F0;
 }
 
-/* HEADER */
-
+/* ── HEADER ───────────────────────────────── */
 header{
-background:#5F0F40;
-padding:15px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
+    background:#5F0F40;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:nowrap; /* evita quebra de linha no mobile */
 }
 
 .logo{
-color:white;
-font-size:28px;
-font-weight:700;
+    color:white;
+    font-size:28px;
+    font-weight:700;
+    white-space:nowrap; /* garante logo em uma linha */
+    flex-shrink:0;
 }
 
 nav{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items:center;
 }
 
 nav a{
-color:white;
-text-decoration:none;
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
 }
 
 nav a:hover{
-color:#FB8B24;
+    color:#FB8B24;
 }
 
-/* HERO */
-
+/* ── HERO ─────────────────────────────────── */
 .hero{
-background:linear-gradient(135deg,#5F0F40,#9A031E);
-padding:70px 5%;
-text-align:center;
-color:white;
+    background:linear-gradient(135deg,#5F0F40,#9A031E);
+    padding:70px 5%;
+    text-align:center;
+    color:white;
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:10px;
+    font-size:42px;
+    margin-bottom:10px;
 }
 
-/* CONTEÚDO */
+.hero p{
+    opacity:.9;
+    font-size:16px;
+}
 
+/* ── CONTEÚDO ─────────────────────────────── */
 .container{
-padding:50px 5%;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
+    padding:50px 5%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
 .card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .card h2{
-color:#9A031E;
-margin-bottom:20px;
+    color:#9A031E;
+    margin-bottom:20px;
 }
 
+/* ── INFORMAÇÕES DE CONTATO ───────────────── */
 .info{
-display:flex;
-flex-direction:column;
-gap:15px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
 }
 
 .info p{
-font-size:16px;
+    font-size:16px;
+    line-height:1.6;
 }
 
 .redes{
-margin-top:20px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-/* Ajuste para os novos links das redes sociais */
 .redes a{
-text-decoration:none;
-cursor:pointer;
+    text-decoration:none;
+    cursor:pointer;
 }
 
 .redes span{
-background:#FFF1E5;
-color:#E36414;
-padding:10px 15px;
-border-radius:30px;
-font-weight:600;
-display:inline-block;
-transition:.3s;
+    background:#FFF1E5;
+    color:#E36414;
+    padding:10px 15px;
+    border-radius:30px;
+    font-weight:600;
+    display:inline-block;
+    transition:.3s;
 }
 
 .redes a:hover span{
-background:#E36414;
-color:white;
+    background:#E36414;
+    color:white;
 }
 
-/* LOGIN */
-
-input,
-textarea{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:10px;
+/* ── FORMULÁRIOS ──────────────────────────── */
+/* Estilos escopados para não afetar o btn-menu */
+.card input,
+.card textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-family:'Poppins',sans-serif;
+    font-size:15px;
+    color:#333;
 }
 
-textarea{
-height:120px;
-resize:none;
+.card textarea{
+    height:120px;
+    resize:none;
 }
 
-button{
-width:100%;
-padding:14px;
-border:none;
-background:#E36414;
-color:white;
-border-radius:10px;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
+.card button[type="button"],
+.card button:not(.btn-menu){
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#E36414;
+    color:white;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    transition:.3s;
 }
 
-button:hover{
-background:#9A031E;
+.card button[type="button"]:hover,
+.card button:not(.btn-menu):hover{
+    background:#9A031E;
 }
 
 #mensagem{
-margin-top:15px;
-font-weight:600;
-text-align:center;
+    margin-top:15px;
+    font-weight:600;
+    text-align:center;
 }
 
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-.container{
-grid-template-columns:1fr;
+hr{
+    border:none;
+    border-top:1px solid #eee;
+    margin:30px 0;
 }
 
-.hero h1{
-font-size:32px;
-}
-
-}
-    
-@media(max-width:600px){
-
-    nav{
-        display:none !important;
-    }
-
-    .btn-menu{
-        display:flex !important;
-    }
-
-    header{
-        justify-content:space-between !important;
-        align-items:center !important;
-        flex-wrap:nowrap !important;
-        padding:15px 20px !important;
-        gap:0 !important;
-    }
-
-    .logo{
-        white-space:nowrap;
-        flex-shrink:0;
-        font-size:24px;
-    }
-
-    .container{
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:32px;
-    }
-
-}
-/* MENU HAMBÚRGUER */
-
+/* ── MENU HAMBÚRGUER ──────────────────────── */
+/* Ordem correta: definir ANTES das media queries */
 .btn-menu{
     display:none;
     flex-direction:column;
@@ -224,14 +195,18 @@ font-size:32px;
     cursor:pointer;
     padding:6px;
     z-index:1100;
+    flex-shrink:0;
+    /* Garante que não herda estilos globais de button */
+    width:auto;
+    border-radius:0;
 }
 
 .btn-menu span{
+    display:block;
     width:26px;
     height:3px;
     background:white;
     border-radius:3px;
-    display:block;
     transition:.3s;
 }
 
@@ -247,18 +222,21 @@ font-size:32px;
     transform:translateY(-8px) rotate(-45deg);
 }
 
+/* ── OVERLAY ──────────────────────────────── */
 .menu-overlay{
     display:none;
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.5);
     z-index:1050;
+    backdrop-filter:blur(2px);
 }
 
 .menu-overlay.aberto{
     display:block;
 }
 
+/* ── DRAWER LATERAL ───────────────────────── */
 .menu-drawer{
     position:fixed;
     top:0;
@@ -268,12 +246,13 @@ font-size:32px;
     height:100%;
     background:#5F0F40;
     transform:translateX(100%);
-    transition:.35s;
+    transition:transform .35s ease;
     z-index:1100;
-    padding:30px 20px;
+    padding:30px 24px;
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:8px;
+    box-shadow:-8px 0 30px rgba(0,0,0,.3);
 }
 
 .menu-drawer.aberto{
@@ -285,209 +264,155 @@ font-size:32px;
     font-size:22px;
     font-weight:700;
     margin-bottom:20px;
+    padding-bottom:16px;
     border-bottom:1px solid rgba(255,255,255,.2);
-    padding-bottom:15px;
 }
 
 .menu-drawer a{
     color:white;
     text-decoration:none;
-    padding:12px;
-    border-radius:10px;
+    font-size:16px;
+    font-weight:500;
+    padding:12px 16px;
+    border-radius:12px;
+    transition:.3s;
+    display:block;
 }
 
 .menu-drawer a:hover{
-    background:rgba(255,255,255,.1);
+    background:rgba(255,255,255,.15);
+    color:#FB8B24;
+    padding-left:22px;
 }
 
-/* MOBILE */
+/* ── RESPONSIVO ───────────────────────────── */
+@media(max-width:900px){
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+}
 
 @media(max-width:600px){
+    /* Esconde nav, mostra hambúrguer */
+    nav{ display:none; }
+    .btn-menu{ display:flex; }
 
-    nav{
-        display:none !important;
-    }
+    .hero h1{ font-size:28px; }
 
-    .btn-menu{
-        display:flex !important;
-    }
-
-    header{
-        justify-content:space-between !important;
-        align-items:center !important;
-        flex-wrap:nowrap !important;
-        padding:15px 20px !important;
-    }
-
-    .logo{
-        font-size:24px;
-        white-space:nowrap;
-    }
-
+    .logo{ font-size:24px; }
 }
-    
+
 </style>
 </head>
 
 <body>
 
+<!-- ── HEADER ─────────────────────────────── -->
 <header>
-    
-<div class="logo">🍔 Fast Sabor</div>
-<button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-</button>
-<nav>
-<a href="../index.html">Início</a>
-<a href="../cardapio.html">Cardápio</a>
-<a href="../promocoes.html">Promoções</a>
-<a href="avaliacoes.html">Avaliações</a>
-<a href="reclamacoes.html">Reclamações</a>
-<a href="../sobre.html">Sobre</a>
-<a href="contato.html">Contato</a>
-</nav>
+    <div class="logo">🍔 Fast Sabor</div>
 
-<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-<div class="menu-drawer" id="menuDrawer">
-    <div class="menu-drawer-logo">🍔 Fast Sabor</div>
-    <a href="../index.html">🏠 Início</a>
-    <a href="../cardapio.html">🍔 Cardápio</a>
-    <a href="../promocoes.html">🔥 Promoções</a>
-    <a href="avaliacoes.html">⭐ Avaliações</a>
-    <a href="reclamacoes.html">📢 Reclamações</a>
-    <a href="../sobre.html">ℹ️ Sobre</a>
-    <a href="contato.html">📍 Contato</a>
-</div>
+    <!-- Botão hambúrguer — só aparece no mobile -->
+    <button class="btn-menu" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav>
+        <a href="../index.html">Início</a>
+        <a href="../cardapio.html">Cardápio</a>
+        <a href="../promocoes.html">Promoções</a>
+        <a href="avaliacoes.html">Avaliações</a>
+        <a href="reclamacoes.html">Reclamações</a>
+        <a href="../sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+
+    <!-- Overlay e drawer fora do fluxo, mas dentro do header para escopo correto -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <div class="menu-drawer" id="menuDrawer">
+        <div class="menu-drawer-logo">🍔 Fast Sabor</div>
+        <a href="../index.html">🏠 Início</a>
+        <a href="../cardapio.html">🍔 Cardápio</a>
+        <a href="../promocoes.html">🔥 Promoções</a>
+        <a href="avaliacoes.html">⭐ Avaliações</a>
+        <a href="reclamacoes.html">📢 Reclamações</a>
+        <a href="../sobre.html">ℹ️ Sobre</a>
+        <a href="contato.html">📍 Contato</a>
+    </div>
 </header>
 
+<!-- ── HERO ───────────────────────────────── -->
 <section class="hero">
-
-<h1>Entre em Contato</h1>
-
-<p>Estamos prontos para atender você.</p>
-
+    <h1>Entre em Contato</h1>
+    <p>Estamos prontos para atender você.</p>
 </section>
 
+<!-- ── CONTEÚDO ───────────────────────────── -->
 <section class="container">
 
-<div class="card">
+    <!-- Informações de Contato -->
+    <div class="card">
+        <h2>Informações de Contato</h2>
+        <div class="info">
+            <p>📞 (11) 97671-8229</p>
+            <p>📧 fastsabor0201@gmail.com</p>
+            <p>📍 Rua dos Lanches, 123<br>São Paulo - SP</p>
+            <p>🕒 Atendimento:<br>Quinta a Domingo<br>15h às 22h</p>
+        </div>
+        <div class="redes">
+            <a href="https://www.instagram.com/fast_sabor_?igsh=MWl3YjM5NW43NTZ6Yg==" target="_blank"><span>Instagram</span></a>
+            <a><span>Facebook</span></a>
+            <a href="https://api.whatsapp.com/send?phone=5511976718229" target="_blank"><span>WhatsApp</span></a>
+        </div>
+    </div>
 
-<h2>Informações de Contato</h2>
+    <!-- Área Administrativa + Formulário -->
+    <div class="card">
+        <h2>Área Administrativa</h2>
 
-<div class="info">
+        <input type="text" id="usuario" placeholder="Usuário">
+        <input type="password" id="senha" placeholder="Senha">
+        <button type="button" onclick="fazerLogin()">Entrar</button>
+        <div id="mensagem"></div>
 
-<p>📞 (11) 97671-8229</p>
+        <hr>
 
-<p>📧 fastsabor0201@gmail.com</p>
-
-<p>
-📍 Rua dos Lanches, 123<br>
-São Paulo - SP
-</p>
-
-<p>
-🕒 Atendimento:<br>
-Quinta a Domingo<br>
-15h às 22h
-</p>
-
-</div>
-
-<div class="redes">
-<a href="https://www.instagram.com/fast_sabor_?igsh=MWl3YjM5NW43NTZ6Yg==" target="_blank"><span>Instagram</span></a>
-<a><span>Facebook</span></a>
-<a href="https://api.whatsapp.com/send?phone=5511976718229" target="_blank"><span>WhatsApp</span></a>
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>Área Administrativa</h2>
-
-<input
-type="text"
-id="usuario"
-placeholder="Usuário">
-
-<input
-type="password"
-id="senha"
-placeholder="Senha">
-
-<button onclick="fazerLogin()">
-Entrar
-</button>
-
-<div id="mensagem"></div>
-
-<hr style="margin:30px 0">
-
-<h2>Enviar Mensagem</h2>
-
-<input
-type="text"
-placeholder="Seu nome">
-
-<input
-type="email"
-placeholder="Seu e-mail">
-
-<textarea
-placeholder="Digite sua mensagem">
-</textarea>
-
-<button>
-Enviar Mensagem
-</button>
-
-</div>
+        <h2>Enviar Mensagem</h2>
+        <input type="text" placeholder="Seu nome">
+        <input type="email" placeholder="Seu e-mail">
+        <textarea placeholder="Digite sua mensagem"></textarea>
+        <button type="button">Enviar Mensagem</button>
+    </div>
 
 </section>
 
 <script>
+    /* ── LOGIN ADMINISTRATIVO ─────────────── */
+    function fazerLogin() {
+        const usuario  = document.getElementById('usuario').value;
+        const senha    = document.getElementById('senha').value;
+        const mensagem = document.getElementById('mensagem');
 
-function fazerLogin(){
+        if (usuario === 'admin' && senha === '123456') {
+            mensagem.innerHTML   = '✅ Login realizado com sucesso!';
+            mensagem.style.color = 'green';
+        } else {
+            mensagem.innerHTML   = '❌ Usuário ou senha incorretos.';
+            mensagem.style.color = 'red';
+        }
+    }
 
-const usuario =
-document.getElementById("usuario").value;
-
-const senha =
-document.getElementById("senha").value;
-
-const mensagem =
-document.getElementById("mensagem");
-
-if(
-usuario === "admin" &&
-senha === "123456"
-){
-
-mensagem.innerHTML =
-"✅ Login realizado com sucesso!";
-
-mensagem.style.color = "green";
-
-}else{
-
-mensagem.innerHTML =
-"❌ Usuário ou senha incorretos.";
-
-mensagem.style.color = "red";
-
-}
-
-}
-
-</script>
-
-
-<script>
-function toggleMenu(){
-    document.getElementById("btnMenu").classList.toggle("aberto");
-    document.getElementById("menuDrawer").classList.toggle("aberto");
-    document.getElementById("menuOverlay").classList.toggle("aberto");
-}
+    /* ── MENU HAMBÚRGUER ──────────────────── */
+    function toggleMenu() {
+        document.getElementById('btnMenu').classList.toggle('aberto');
+        document.getElementById('menuDrawer').classList.toggle('aberto');
+        document.getElementById('menuOverlay').classList.toggle('aberto');
+    }
 </script>
 
 </body>
