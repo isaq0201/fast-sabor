@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Fast Sabor Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET ────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ── VARIÁVEIS ────────────────────────────── */
+:root {
+    --roxo:    #5F0F40;
+    --vinho:   #9A031E;
+    --laranja: #E36414;
+    --amarelo: #FB8B24;
+    --fundo:   #FFF8F0;
+    --erro:    #e53e3e;
+    --sucesso: #25D366;
+}
+
+/* ── BODY / FUNDO ─────────────────────────── */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3a0828 0%, #5F0F40 40%, #9A031E 75%, #E36414 100%);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Círculos decorativos de fundo */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: .08;
+    background: white;
+    pointer-events: none;
+}
+
+body::before {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    left: -200px;
+}
+
+body::after {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -100px;
+}
+
+/* ── CARD ─────────────────────────────────── */
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .35),
+        0 8px 20px rgba(0, 0, 0, .15);
+    animation: entrar .5s ease both;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes entrar {
+    from { opacity: 0; transform: translateY(32px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ── LOGO / TOPO ──────────────────────────── */
+.topo {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.logo-icone {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 10px;
+    animation: flutuando 3s ease-in-out infinite;
+}
+
+@keyframes flutuando {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+}
+
+.topo h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--roxo);
+    line-height: 1.2;
+}
+
+.topo p {
+    font-size: 13px;
+    color: #888;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* ── DIVISOR ──────────────────────────────── */
+.divisor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.divisor::before,
+.divisor::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.divisor span {
+    font-size: 12px;
+    color: #bbb;
+    white-space: nowrap;
+}
+
+/* ── GRUPO DE CAMPO ───────────────────────── */
+.grupo {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.grupo label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 7px;
+}
+
+.campo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Ícone à esquerda */
+.campo-wrapper .icone-campo {
+    position: absolute;
+    left: 14px;
+    font-size: 16px;
+    pointer-events: none;
+    color: #aaa;
+    transition: color .3s;
+}
+
+.campo-wrapper input:focus ~ .icone-campo,
+.campo-wrapper input:focus + .icone-campo {
+    color: var(--laranja);
+}
+
+/* Ícone de mostrar/ocultar senha (direita) */
+.btn-olho {
+    position: absolute;
+    right: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #aaa;
+    padding: 4px;
+    transition: color .3s;
+    line-height: 1;
+}
+
+.btn-olho:hover { color: var(--laranja); }
+
+/* ── INPUT ────────────────────────────────── */
+.campo-wrapper input {
+    width: 100%;
+    padding: 13px 14px 13px 42px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: #fafafa;
+    transition: border-color .3s, box-shadow .3s, background .3s;
+    outline: none;
+}
+
+.campo-wrapper input:focus {
+    border-color: var(--laranja);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(227, 100, 20, .12);
+}
+
+.campo-wrapper input.erro {
+    border-color: var(--erro);
+    box-shadow: 0 0 0 4px rgba(229, 62, 62, .1);
+}
+
+/* Input de senha tem padding extra à direita para o olho */
+#senha { padding-right: 44px; }
+
+/* ── BOTÃO ENTRAR ─────────────────────────── */
+.btn-entrar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--roxo), var(--vinho));
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: transform .2s, box-shadow .2s, opacity .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: .3px;
+}
+
+.btn-entrar:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(95, 15, 64, .4);
+}
+
+.btn-entrar:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-entrar:disabled {
+    opacity: .75;
+    cursor: not-allowed;
+}
+
+/* ── LOADING SPINNER ──────────────────────── */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,.4);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: girar .7s linear infinite;
+    display: none;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+/* ── MENSAGEM DE ERRO/SUCESSO ─────────────── */
+.mensagem {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    display: none;
+    animation: aparecer .3s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+.mensagem.erro {
+    background: #fff5f5;
+    color: var(--erro);
+    border: 1px solid #fed7d7;
+    display: block;
+}
+
+.mensagem.sucesso {
+    background: #f0fff4;
+    color: #276749;
+    border: 1px solid #9ae6b4;
+    display: block;
+}
+
+/* ── RODAPÉ DO CARD ───────────────────────── */
+.rodape-card {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+}
+
+.rodape-card a {
+    color: var(--laranja);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.rodape-card a:hover { text-decoration: underline; }
+
+/* ── BADGE DE VERSÃO ──────────────────────── */
+.badge-versao {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFF1E5;
+    color: var(--laranja);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+/* ── RESPONSIVO ───────────────────────────── */
+@media (max-width: 480px) {
+    .card {
+        padding: 36px 24px;
+        border-radius: 20px;
+    }
+
+    .topo h1 { font-size: 19px; }
+    .logo-icone { font-size: 44px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- Topo / Logo -->
+    <div class="topo">
+        <span class="logo-icone">🍔</span>
+        <h1>Fast Sabor</h1>
+        <p>Painel Administrativo</p>
+    </div>
+
+    <!-- Badge -->
+    <div style="text-align:center">
+        <div class="badge-versao">🔒 Acesso Restrito</div>
+    </div>
+
+    <!-- Divisor -->
+    <div class="divisor"><span>Faça login para continuar</span></div>
+
+    <!-- Formulário -->
+    <form id="formLogin" onsubmit="fazerLogin(event)" novalidate>
+
+        <!-- Campo Usuário -->
+        <div class="grupo">
+            <label for="usuario">Usuário</label>
+            <div class="campo-wrapper">
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Digite seu usuário"
+                    autocomplete="username"
+                    spellcheck="false"
+                >
+                <span class="icone-campo">👤</span>
+            </div>
+        </div>
+
+        <!-- Campo Senha -->
+        <div class="grupo">
+            <label for="senha">Senha</label>
+            <div class="campo-wrapper">
+                <input
+                    type="password"
+                    id="senha"
+                    placeholder="Digite sua senha"
+                    autocomplete="current-password"
+                >
+                <span class="icone-campo">🔑</span>
+                <button
+                    type="button"
+                    class="btn-olho"
+                    id="btnOlho"
+                    onclick="toggleSenha()"
+                    title="Mostrar/ocultar senha"
+                >👁️</button>
+            </div>
+        </div>
+
+        <!-- Botão Entrar -->
+        <button type="submit" class="btn-entrar" id="btnEntrar">
+            <span id="btnTexto">Entrar</span>
+            <div class="spinner" id="spinner"></div>
+        </button>
+
+        <!-- Mensagem de feedback -->
+        <div class="mensagem" id="mensagem"></div>
+
+    </form>
+
+    <!-- Rodapé -->
+    <div class="rodape-card">
+        <a href="../index.html">← Voltar ao site</a>
+        &nbsp;·&nbsp;
+        Fast Sabor © 2026
+    </div>
+
+</div>
+
+<script>
+'use strict';
+
+// ── CREDENCIAIS ────────────────────────────────
+const CREDENCIAIS = { usuario: 'admin', senha: '123456' };
+
+// ── REFERÊNCIAS ────────────────────────────────
+const usuarioEl = document.getElementById('usuario');
+const senhaEl   = document.getElementById('senha');
+const btnEntrar = document.getElementById('btnEntrar');
+const btnTexto  = document.getElementById('btnTexto');
+const spinner   = document.getElementById('spinner');
+const mensagem  = document.getElementById('mensagem');
+const btnOlho   = document.getElementById('btnOlho');
+
+// ── FOCO AUTOMÁTICO ────────────────────────────
+usuarioEl.focus();
+
+// ── MOSTRAR / OCULTAR SENHA ────────────────────
+function toggleSenha() {
+    const visivel = senhaEl.type === 'text';
+    senhaEl.type    = visivel ? 'password' : 'text';
+    btnOlho.textContent = visivel ? '👁️' : '🙈';
+}
+
+// ── LIMPA ERRO AO DIGITAR ──────────────────────
+[usuarioEl, senhaEl].forEach(el => {
+    el.addEventListener('input', () => {
+        el.classList.remove('erro');
+        esconderMensagem();
+    });
+});
+
+// ── EXIBIR / ESCONDER MENSAGEM ─────────────────
+function exibirMensagem(texto, tipo) {
+    mensagem.textContent = texto;
+    mensagem.className   = `mensagem ${tipo}`;
+}
+
+function esconderMensagem() {
+    mensagem.className = 'mensagem';
+    mensagem.textContent = '';
+}
+
+// ── LOADING ────────────────────────────────────
+function setLoading(ativo) {
+    btnEntrar.disabled      = ativo;
+    btnTexto.textContent    = ativo ? 'Verificando...' : 'Entrar';
+    spinner.style.display   = ativo ? 'block' : 'none';
+}
+
+// ── LOGIN ──────────────────────────────────────
+function fazerLogin(event) {
+    event.preventDefault();
+
+    const usuario = usuarioEl.value.trim();
+    const senha   = senhaEl.value;
+
+    // Validação básica
+    if (!usuario) {
+        usuarioEl.classList.add('erro');
+        usuarioEl.focus();
+        exibirMensagem('⚠️ Preencha o campo usuário.', 'erro');
+        return;
+    }
+
+    if (!senha) {
+        senhaEl.classList.add('erro');
+        senhaEl.focus();
+        exibirMensagem('⚠️ Preencha o campo senha.', 'erro');
+        return;
+    }
+
+    // Simula loading de autenticação
+    setLoading(true);
+    esconderMensagem();
+
+    setTimeout(() => {
+        if (usuario === CREDENCIAIS.usuario && senha === CREDENCIAIS.senha) {
+            // Login correto
+            localStorage.setItem('adminLogado', 'true');
+            exibirMensagem('✅ Login realizado! Redirecionando...', 'sucesso');
+
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1000);
+
+        } else {
+            // Login incorreto
+            setLoading(false);
+            usuarioEl.classList.add('erro');
+            senhaEl.classList.add('erro');
+            exibirMensagem('❌ Usuário ou senha incorretos.', 'erro');
+            senhaEl.value = '';
+            senhaEl.focus();
+        }
+    }, 900);
+}
+</script>
+
+</body>
+</html>
