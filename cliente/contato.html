@@ -375,12 +375,17 @@ hr{
     <div class="card">
         <h2>Área Administrativa</h2>
 
-        <input type="text" id="usuario" placeholder="Usuário">
-        <input type="password" id="senha" placeholder="Senha">
-        <button type="button" onclick="fazerLogin()">Entrar</button>
-        <div id="mensagem"></div>
+<p style="margin-bottom:20px;">
+Acesse o painel administrativo da Fast Sabor.
+</p>
 
-        <hr>
+<a href="../admin/login.html">
+    <button type="button">
+        Entrar no Painel Administrativo
+    </button>
+</a>
+
+<hr>
 
         <h2>Enviar Mensagem</h2>
         <input type="text" placeholder="Seu nome">
@@ -393,19 +398,11 @@ hr{
 
 <script>
     /* ── LOGIN ADMINISTRATIVO ─────────────── */
-    function fazerLogin() {
-        const usuario  = document.getElementById('usuario').value;
-        const senha    = document.getElementById('senha').value;
-        const mensagem = document.getElementById('mensagem');
-
-        if (usuario === 'admin' && senha === '123456') {
-            mensagem.innerHTML   = '✅ Login realizado com sucesso!';
-            mensagem.style.color = 'green';
-        } else {
-            mensagem.innerHTML   = '❌ Usuário ou senha incorretos.';
-            mensagem.style.color = 'red';
-        }
-    }
+   function toggleMenu() {
+    document.getElementById('btnMenu').classList.toggle('aberto');
+    document.getElementById('menuDrawer').classList.toggle('aberto');
+    document.getElementById('menuOverlay').classList.toggle('aberto');
+}
 
     /* ── MENU HAMBÚRGUER ──────────────────── */
     function toggleMenu() {
